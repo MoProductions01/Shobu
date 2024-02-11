@@ -6,7 +6,7 @@ public class Shobu : MonoBehaviour
 {    
     public static int NUM_BOARDS = 4;
      
-    [SerializeField] public GameObject BoardSquareLocations {get;}
+    [SerializeField] public GameObject BoardSquareLocations {get; set;}
     [SerializeField] Board[] Boards = new Board[NUM_BOARDS];    
 
 

@@ -3065,7 +3065,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &505216278
 Transform:
   m_ObjectHideFlags: 0
@@ -5478,7 +5478,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &938691234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8840,7 +8840,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1377176998}
-  - component: {fileID: 1377176997}
+  - component: {fileID: 1377176999}
   m_Layer: 0
   m_Name: Shobu
   m_TagString: Untagged
@@ -8848,23 +8848,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1377176997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377176996}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15a2ac668c6797c4882539126f558f54, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Boards:
-  - {fileID: 967465247}
-  - {fileID: 1779160532}
-  - {fileID: 2045059680}
-  - {fileID: 661544811}
 --- !u!4 &1377176998
 Transform:
   m_ObjectHideFlags: 0
@@ -8880,6 +8863,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1377176999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377176996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a2ac668c6797c4882539126f558f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Boards:
+  - {fileID: 967465249}
+  - {fileID: 1779160534}
+  - {fileID: 2045059682}
+  - {fileID: 661544813}
 --- !u!1 &1381115918
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Shobu : MonoBehaviour
 {    
     public static int NUM_BOARDS = 4;
                  
+    public enum eMoveType {PASSIVE, AGGRESSIVE};            
     [SerializeField] List<Board> Boards = new List<Board>();
     Rock HeldRock;
     int RockMask, BoardSpaceMask;
@@ -41,7 +42,7 @@ public class Shobu : MonoBehaviour
         RaycastHit hit;       
         Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
         return hit;
-    }
+    }    
 
     void Update()
     {
@@ -53,7 +54,8 @@ public class Shobu : MonoBehaviour
                 HeldRock = hit.collider.GetComponent<Rock>();
                 Board hitRockBoard = HeldRock.GetComponentInParent<Board>();
                 HeldRock.transform.localScale *= 1.2f;
-                Debug.Log("clicked on: " + hitRockBoard.name + " - " + HeldRock.name);                
+                HeldRock.MyBoard.UpdateValidMoves(HeldRock, eMoveType.PASSIVE);
+                //Debug.Log("clicked on: " + hitRockBoard.name + " - " + HeldRock.name);                
             }            
         }
         else if(Input.GetMouseButton(0) && HeldRock != null)
@@ -96,7 +98,8 @@ public class Shobu : MonoBehaviour
                 HeldRock.MyBoard.PutRockOnPushedList(HeldRock);        
             }   
             HeldRock.transform.localScale /= 1.2f;         
-            HeldRock = null;
+            HeldRock.MyBoard.ResetSpaceHighlights();
+            HeldRock = null;            
         }
     }
 }

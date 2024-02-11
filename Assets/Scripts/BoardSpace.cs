@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BoardSpace : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    SpriteRenderer BoardSpaceHighlight;
+
+    void Awake()
     {
-        
+        BoardSpaceHighlight = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ToggleHighlight(bool isEnabled)
     {
-        
+        BoardSpaceHighlight.enabled = isEnabled;
     }
 }

@@ -5,9 +5,9 @@ using UnityEngine;
 public class Shobu : MonoBehaviour
 {    
     public static int NUM_BOARDS = 4;
-
-    [SerializeField] GameObject BoardsContainer;    
-    [SerializeField] GameObject[] Boards = new GameObject[NUM_BOARDS];
+     
+    [SerializeField] public GameObject BoardSquareLocations {get;}
+    [SerializeField] Board[] Boards = new Board[NUM_BOARDS];    
 
 
     // Start is called before the first frame update
@@ -16,9 +16,11 @@ public class Shobu : MonoBehaviour
                        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void ResetBoards()
     {
-        
+        for(int i=0; i<NUM_BOARDS; i++)
+        {
+            Boards[i].ResetBoard(i);
+        }
     }
 }

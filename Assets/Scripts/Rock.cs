@@ -7,7 +7,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Rock : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler
+public class Rock : MonoBehaviour//, IDragHandler, IBeginDragHandler, IEndDragHandler
 {    
     public enum eRockColor {BLACK, WHITE};
     [field: SerializeField] public eRockColor RockColor {get; set;}   
@@ -21,6 +21,7 @@ public class Rock : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
         BoardSpaceMask = LayerMask.GetMask("Board Space");
     }
 
+#if false
     public void OnDrag(PointerEventData eventData)
     {        
         Vector3 screenToworld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -76,4 +77,5 @@ public class Rock : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHand
             MyBoard.PutRockOnPushedList(this);            
         }
     }
+    #endif
 }

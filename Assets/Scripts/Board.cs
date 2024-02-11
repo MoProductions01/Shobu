@@ -15,9 +15,10 @@ public class Board : MonoBehaviour
     public enum eBoardColor {DARK, LIGHT};
     [field: SerializeField] public eBoardColor BoardColor {get; set;} 
     
-    [SerializeField] GameObject BoardSpaces;
+//    [SerializeField] GameObject BoardSpaces;
+    public List<List<BoardSpace>> BoardSpaces = new List<List<BoardSpace>>(NUM_ROWS_COLS);
     [SerializeField] GameObject PushedOffRocks;   
-    int BoardSpaceLayer; 
+   // int BoardSpaceLayer; 
 
     // Start is called before the first frame update
     void Start()
@@ -27,21 +28,28 @@ public class Board : MonoBehaviour
 
     private void Awake() 
     {
-        BoardSpaceLayer = LayerMask.NameToLayer("Board Space");
+        List<BoardSpace> boardSpaces = GetComponentsInChildren<BoardSpace>().ToList();
+        boardSpaces = boardSpaces.OrderBy(x => x.name).ToList();
+        for(int i = 0; i<NUM_ROWS_COLS; i++)
+        {
+            BoardSpaces.Add(new List<BoardSpace>(NUM_ROWS_COLS));            
+            for(int j=0; j<NUM_ROWS_COLS; j++)
+            {                
+                BoardSpaces[i].Add(boardSpaces[(i*NUM_ROWS_COLS) + j]);
+            }
+        }
+      //  BoardSpaceLayer = LayerMask.NameToLayer("Board Space");
     }
 
     public void ResetBoard()
     {                   
-        List<Transform> children = GetComponentsInChildren<Transform>().ToList();
-        foreach(Transform child in children)
-        {            
-            int childlayer = child.gameObject.layer;            
-            if(childlayer == BoardSpaceLayer)
-            {                                
-                child.GetComponent<SpriteRenderer>().enabled = false;
+        for(int i = 0; i < NUM_ROWS_COLS; i++)
+        {
+            for(int j = 0; j < NUM_ROWS_COLS; j++)
+            {
+                BoardSpaces[i][j].GetComponent<SpriteRenderer>().enabled = false;
             }
-        }
-
+        }        
         foreach(Transform t in PushedOffRocks.transform)
         {
             t.gameObject.SetActive(true);
@@ -50,13 +58,11 @@ public class Board : MonoBehaviour
         rocks = rocks.OrderBy(x => x.name).ToList();
 
         for(int i=0; i<NUM_ROWS_COLS; i++)
-        {  
-            rocks[i].gameObject.SetActive(true);
-            rocks[i].transform.parent = BoardSpaces.transform.GetChild(NUM_ROWS_COLS-1).GetChild(i);
+        {              
+            rocks[i].transform.parent = BoardSpaces[0][i].transform;
             rocks[i].transform.localPosition = Vector3.zero;
-
-            rocks[i+NUM_ROWS_COLS].gameObject.SetActive(true);
-            rocks[i+NUM_ROWS_COLS].transform.parent = BoardSpaces.transform.GetChild(0).GetChild(i);
+           
+            rocks[i+NUM_ROWS_COLS].transform.parent = BoardSpaces[3][i].transform;
             rocks[i+NUM_ROWS_COLS].transform.localPosition = Vector3.zero;
         }
     }

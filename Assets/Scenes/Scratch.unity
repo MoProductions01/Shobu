@@ -220,7 +220,7 @@ GameObject:
   - component: {fileID: 30094622}
   - component: {fileID: 30094621}
   m_Layer: 3
-  m_Name: Rock1
+  m_Name: WhiteRock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -239,7 +239,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1089266632}
+  m_Father: {fileID: 661544812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &30094620
 SpriteRenderer:
@@ -399,7 +399,7 @@ GameObject:
   - component: {fileID: 63690943}
   - component: {fileID: 63690942}
   m_Layer: 3
-  m_Name: Rock4
+  m_Name: BlackRock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -418,7 +418,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 693803690}
+  m_Father: {fileID: 1779160533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &63690941
 SpriteRenderer:
@@ -989,7 +989,7 @@ GameObject:
   - component: {fileID: 231536278}
   - component: {fileID: 231536277}
   m_Layer: 3
-  m_Name: Rock1
+  m_Name: BlackRock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1008,7 +1008,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2066261647}
+  m_Father: {fileID: 2045059681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &231536276
 SpriteRenderer:
@@ -1133,7 +1133,7 @@ GameObject:
   - component: {fileID: 240798597}
   - component: {fileID: 240798596}
   m_Layer: 3
-  m_Name: Rock4
+  m_Name: WhiteRock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1152,7 +1152,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 587652375}
+  m_Father: {fileID: 967465248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &240798595
 SpriteRenderer:
@@ -1277,7 +1277,7 @@ GameObject:
   - component: {fileID: 244504972}
   - component: {fileID: 244504971}
   m_Layer: 3
-  m_Name: Rock3
+  m_Name: WhiteRock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1296,7 +1296,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1089266632}
+  m_Father: {fileID: 661544812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &244504970
 SpriteRenderer:
@@ -1589,7 +1589,7 @@ GameObject:
   - component: {fileID: 323358770}
   - component: {fileID: 323358769}
   m_Layer: 3
-  m_Name: Rock1
+  m_Name: WhiteRock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1608,7 +1608,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 481278439}
+  m_Father: {fileID: 2045059681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &323358768
 SpriteRenderer:
@@ -1733,7 +1733,7 @@ GameObject:
   - component: {fileID: 351936523}
   - component: {fileID: 351936522}
   m_Layer: 3
-  m_Name: Rock3
+  m_Name: BlackRock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1752,7 +1752,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1649520959}
+  m_Father: {fileID: 661544812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &351936521
 SpriteRenderer:
@@ -1996,7 +1996,7 @@ GameObject:
   - component: {fileID: 388878429}
   - component: {fileID: 388878428}
   m_Layer: 3
-  m_Name: Rock3
+  m_Name: WhiteRock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2015,7 +2015,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2057134250}
+  m_Father: {fileID: 1779160533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &388878427
 SpriteRenderer:
@@ -2232,41 +2232,6 @@ Transform:
   - {fileID: 116800655}
   m_Father: {fileID: 442770971}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &481278438
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 481278439}
-  m_Layer: 0
-  m_Name: Row4Rocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &481278439
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 481278438}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 323358767}
-  - {fileID: 1174833795}
-  - {fileID: 691078876}
-  - {fileID: 1724724606}
-  m_Father: {fileID: 2045059681}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &497406965
 GameObject:
   m_ObjectHideFlags: 0
@@ -2312,7 +2277,7 @@ GameObject:
   m_Component:
   - component: {fileID: 505216278}
   m_Layer: 0
-  m_Name: Rocks
+  m_Name: Boards
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2589,41 +2554,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &587652374
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 587652375}
-  m_Layer: 0
-  m_Name: Row4Rocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &587652375
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 587652374}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2145163056}
-  - {fileID: 1263357672}
-  - {fileID: 910099804}
-  - {fileID: 240798594}
-  m_Father: {fileID: 967465248}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596049470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2924,6 +2854,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 661544812}
+  - component: {fileID: 661544813}
   m_Layer: 0
   m_Name: Light2
   m_TagString: Untagged
@@ -2944,10 +2875,29 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1649520959}
-  - {fileID: 1089266632}
+  - {fileID: 1804895460}
+  - {fileID: 1287758952}
+  - {fileID: 351936520}
+  - {fileID: 1487551692}
+  - {fileID: 30094619}
+  - {fileID: 2026277699}
+  - {fileID: 244504969}
+  - {fileID: 1163956437}
   m_Father: {fileID: 505216278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &661544813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661544811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884c2337340dca64dbc034cbfb2feace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <BoardColor>k__BackingField: 1
 --- !u!1 &691078875
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,7 +2911,7 @@ GameObject:
   - component: {fileID: 691078879}
   - component: {fileID: 691078878}
   m_Layer: 3
-  m_Name: Rock3
+  m_Name: WhiteRock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2980,7 +2930,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 481278439}
+  m_Father: {fileID: 2045059681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &691078877
 SpriteRenderer:
@@ -3092,41 +3042,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.42, y: 1.2}
   m_EdgeRadius: 0
---- !u!1 &693803689
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 693803690}
-  m_Layer: 0
-  m_Name: Row1Rocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &693803690
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693803689}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1955170948}
-  - {fileID: 1702901427}
-  - {fileID: 1381115919}
-  - {fileID: 63690940}
-  m_Father: {fileID: 1779160533}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &695708913
 GameObject:
   m_ObjectHideFlags: 0
@@ -3224,7 +3139,7 @@ GameObject:
   - component: {fileID: 697239784}
   - component: {fileID: 697239783}
   m_Layer: 3
-  m_Name: Rock2
+  m_Name: WhiteRock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3243,7 +3158,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2057134250}
+  m_Father: {fileID: 1779160533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &697239782
 SpriteRenderer:
@@ -4143,7 +4058,7 @@ GameObject:
   - component: {fileID: 910099807}
   - component: {fileID: 910099806}
   m_Layer: 3
-  m_Name: Rock3
+  m_Name: WhiteRock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4162,7 +4077,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 587652375}
+  m_Father: {fileID: 967465248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &910099805
 SpriteRenderer:
@@ -4526,6 +4441,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 967465248}
+  - component: {fileID: 967465249}
   m_Layer: 0
   m_Name: Dark1
   m_TagString: Untagged
@@ -4546,10 +4462,29 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1200914728}
-  - {fileID: 587652375}
+  - {fileID: 1120094735}
+  - {fileID: 1471726467}
+  - {fileID: 1279676619}
+  - {fileID: 1834811889}
+  - {fileID: 2145163056}
+  - {fileID: 1263357672}
+  - {fileID: 910099804}
+  - {fileID: 240798594}
   m_Father: {fileID: 505216278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &967465249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967465247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884c2337340dca64dbc034cbfb2feace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <BoardColor>k__BackingField: 0
 --- !u!1 &972223734
 GameObject:
   m_ObjectHideFlags: 0
@@ -4717,7 +4652,7 @@ GameObject:
   - component: {fileID: 1032414074}
   - component: {fileID: 1032414073}
   m_Layer: 3
-  m_Name: Rock4
+  m_Name: BlackRock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4736,7 +4671,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2066261647}
+  m_Father: {fileID: 2045059681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1032414072
 SpriteRenderer:
@@ -4932,41 +4867,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1089266631
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1089266632}
-  m_Layer: 0
-  m_Name: Row4Rocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1089266632
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1089266631}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 30094619}
-  - {fileID: 2026277699}
-  - {fileID: 244504969}
-  - {fileID: 1163956437}
-  m_Father: {fileID: 661544812}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1119660989
 GameObject:
   m_ObjectHideFlags: 0
@@ -5064,7 +4964,7 @@ GameObject:
   - component: {fileID: 1120094738}
   - component: {fileID: 1120094737}
   m_Layer: 3
-  m_Name: Rock1
+  m_Name: BlackRock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5083,7 +4983,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1200914728}
+  m_Father: {fileID: 967465248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1120094736
 SpriteRenderer:
@@ -5376,7 +5276,7 @@ GameObject:
   - component: {fileID: 1163956440}
   - component: {fileID: 1163956439}
   m_Layer: 3
-  m_Name: Rock4
+  m_Name: WhiteRock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5395,7 +5295,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1089266632}
+  m_Father: {fileID: 661544812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1163956438
 SpriteRenderer:
@@ -5604,7 +5504,7 @@ GameObject:
   - component: {fileID: 1174833798}
   - component: {fileID: 1174833797}
   m_Layer: 3
-  m_Name: Rock2
+  m_Name: WhiteRock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5623,7 +5523,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 481278439}
+  m_Father: {fileID: 2045059681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1174833796
 SpriteRenderer:
@@ -5819,41 +5719,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1200914727
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1200914728}
-  m_Layer: 0
-  m_Name: Row1Rocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1200914728
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1200914727}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1120094735}
-  - {fileID: 1471726467}
-  - {fileID: 1279676619}
-  - {fileID: 1834811889}
-  m_Father: {fileID: 967465248}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1243324771
 GameObject:
   m_ObjectHideFlags: 0
@@ -6035,7 +5900,7 @@ GameObject:
   - component: {fileID: 1263357675}
   - component: {fileID: 1263357674}
   m_Layer: 3
-  m_Name: Rock2
+  m_Name: WhiteRock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6054,7 +5919,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 587652375}
+  m_Father: {fileID: 967465248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1263357673
 SpriteRenderer:
@@ -6263,7 +6128,7 @@ GameObject:
   - component: {fileID: 1279676622}
   - component: {fileID: 1279676621}
   m_Layer: 3
-  m_Name: Rock3
+  m_Name: BlackRock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6282,7 +6147,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1200914728}
+  m_Father: {fileID: 967465248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1279676620
 SpriteRenderer:
@@ -6407,7 +6272,7 @@ GameObject:
   - component: {fileID: 1287758955}
   - component: {fileID: 1287758954}
   m_Layer: 3
-  m_Name: Rock2
+  m_Name: BlackRock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6426,7 +6291,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1649520959}
+  m_Father: {fileID: 661544812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1287758953
 SpriteRenderer:
@@ -6670,7 +6535,7 @@ GameObject:
   - component: {fileID: 1336519907}
   - component: {fileID: 1336519906}
   m_Layer: 3
-  m_Name: Rock3
+  m_Name: BlackRock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6689,7 +6554,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2066261647}
+  m_Father: {fileID: 2045059681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1336519905
 SpriteRenderer:
@@ -7172,6 +7037,56 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1377176996
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1377176998}
+  - component: {fileID: 1377176997}
+  m_Layer: 0
+  m_Name: Shobu
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1377176997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377176996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15a2ac668c6797c4882539126f558f54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BoardsContainer: {fileID: 505216277}
+  Boards:
+  - {fileID: 967465247}
+  - {fileID: 1779160532}
+  - {fileID: 2045059680}
+  - {fileID: 661544811}
+--- !u!4 &1377176998
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1377176996}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1381115918
 GameObject:
   m_ObjectHideFlags: 0
@@ -7185,7 +7100,7 @@ GameObject:
   - component: {fileID: 1381115922}
   - component: {fileID: 1381115921}
   m_Layer: 3
-  m_Name: Rock3
+  m_Name: BlackRock3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7204,7 +7119,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 693803690}
+  m_Father: {fileID: 1779160533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1381115920
 SpriteRenderer:
@@ -7532,7 +7447,7 @@ GameObject:
   - component: {fileID: 1471726470}
   - component: {fileID: 1471726469}
   m_Layer: 3
-  m_Name: Rock2
+  m_Name: BlackRock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7551,7 +7466,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1200914728}
+  m_Father: {fileID: 967465248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1471726468
 SpriteRenderer:
@@ -7711,7 +7626,7 @@ GameObject:
   - component: {fileID: 1487551695}
   - component: {fileID: 1487551694}
   m_Layer: 3
-  m_Name: Rock4
+  m_Name: BlackRock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7730,7 +7645,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1649520959}
+  m_Father: {fileID: 661544812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1487551693
 SpriteRenderer:
@@ -8603,41 +8518,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1649520958
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1649520959}
-  m_Layer: 0
-  m_Name: Row1Rocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1649520959
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649520958}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1804895460}
-  - {fileID: 1287758952}
-  - {fileID: 351936520}
-  - {fileID: 1487551692}
-  m_Father: {fileID: 661544812}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1702901426
 GameObject:
   m_ObjectHideFlags: 0
@@ -8651,7 +8531,7 @@ GameObject:
   - component: {fileID: 1702901430}
   - component: {fileID: 1702901429}
   m_Layer: 3
-  m_Name: Rock2
+  m_Name: BlackRock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8670,7 +8550,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 693803690}
+  m_Father: {fileID: 1779160533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1702901428
 SpriteRenderer:
@@ -8879,7 +8759,7 @@ GameObject:
   - component: {fileID: 1724724609}
   - component: {fileID: 1724724608}
   m_Layer: 3
-  m_Name: Rock4
+  m_Name: WhiteRock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8898,7 +8778,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 481278439}
+  m_Father: {fileID: 2045059681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1724724607
 SpriteRenderer:
@@ -9257,6 +9137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1779160533}
+  - component: {fileID: 1779160534}
   m_Layer: 0
   m_Name: Dark2
   m_TagString: Untagged
@@ -9277,10 +9158,29 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 693803690}
-  - {fileID: 2057134250}
+  - {fileID: 1955170948}
+  - {fileID: 1702901427}
+  - {fileID: 1381115919}
+  - {fileID: 63690940}
+  - {fileID: 2041174424}
+  - {fileID: 697239781}
+  - {fileID: 388878426}
+  - {fileID: 2109718811}
   m_Father: {fileID: 505216278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1779160534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779160532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884c2337340dca64dbc034cbfb2feace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <BoardColor>k__BackingField: 0
 --- !u!1 &1790692535
 GameObject:
   m_ObjectHideFlags: 0
@@ -9462,7 +9362,7 @@ GameObject:
   - component: {fileID: 1804895463}
   - component: {fileID: 1804895462}
   m_Layer: 3
-  m_Name: Rock1
+  m_Name: BlackRock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9481,7 +9381,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1649520959}
+  m_Father: {fileID: 661544812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1804895461
 SpriteRenderer:
@@ -9606,7 +9506,7 @@ GameObject:
   - component: {fileID: 1825374824}
   - component: {fileID: 1825374823}
   m_Layer: 3
-  m_Name: Rock2
+  m_Name: BlackRock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9625,7 +9525,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2066261647}
+  m_Father: {fileID: 2045059681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1825374822
 SpriteRenderer:
@@ -9834,7 +9734,7 @@ GameObject:
   - component: {fileID: 1834811892}
   - component: {fileID: 1834811891}
   m_Layer: 3
-  m_Name: Rock4
+  m_Name: BlackRock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9853,7 +9753,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1200914728}
+  m_Father: {fileID: 967465248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1834811890
 SpriteRenderer:
@@ -10230,7 +10130,7 @@ GameObject:
   - component: {fileID: 1955170951}
   - component: {fileID: 1955170950}
   m_Layer: 3
-  m_Name: Rock1
+  m_Name: BlackRock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10249,7 +10149,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 693803690}
+  m_Father: {fileID: 1779160533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1955170949
 SpriteRenderer:
@@ -10374,7 +10274,7 @@ GameObject:
   - component: {fileID: 2026277702}
   - component: {fileID: 2026277701}
   m_Layer: 3
-  m_Name: Rock2
+  m_Name: WhiteRock2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10393,7 +10293,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1089266632}
+  m_Father: {fileID: 661544812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2026277700
 SpriteRenderer:
@@ -10770,7 +10670,7 @@ GameObject:
   - component: {fileID: 2041174427}
   - component: {fileID: 2041174426}
   m_Layer: 3
-  m_Name: Rock1
+  m_Name: WhiteRock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10789,7 +10689,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2057134250}
+  m_Father: {fileID: 1779160533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2041174425
 SpriteRenderer:
@@ -10910,6 +10810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2045059681}
+  - component: {fileID: 2045059682}
   m_Layer: 0
   m_Name: Light1
   m_TagString: Untagged
@@ -10930,10 +10831,29 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2066261647}
-  - {fileID: 481278439}
+  - {fileID: 231536275}
+  - {fileID: 1825374821}
+  - {fileID: 1336519904}
+  - {fileID: 1032414071}
+  - {fileID: 323358767}
+  - {fileID: 1174833795}
+  - {fileID: 691078876}
+  - {fileID: 1724724606}
   m_Father: {fileID: 505216278}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2045059682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045059680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884c2337340dca64dbc034cbfb2feace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <BoardColor>k__BackingField: 1
 --- !u!1 &2057114537
 GameObject:
   m_ObjectHideFlags: 0
@@ -11018,76 +10938,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2057134249
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2057134250}
-  m_Layer: 0
-  m_Name: Row4Rocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2057134250
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2057134249}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2041174424}
-  - {fileID: 697239781}
-  - {fileID: 388878426}
-  - {fileID: 2109718811}
-  m_Father: {fileID: 1779160533}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2066261646
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2066261647}
-  m_Layer: 0
-  m_Name: Row1Rocks
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2066261647
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066261646}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 231536275}
-  - {fileID: 1825374821}
-  - {fileID: 1336519904}
-  - {fileID: 1032414071}
-  m_Father: {fileID: 2045059681}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2067741369
 GameObject:
   m_ObjectHideFlags: 0
@@ -11374,7 +11224,7 @@ GameObject:
   - component: {fileID: 2109718814}
   - component: {fileID: 2109718813}
   m_Layer: 3
-  m_Name: Rock4
+  m_Name: WhiteRock4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11393,7 +11243,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2057134250}
+  m_Father: {fileID: 1779160533}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2109718812
 SpriteRenderer:
@@ -11602,7 +11452,7 @@ GameObject:
   - component: {fileID: 2145163059}
   - component: {fileID: 2145163058}
   m_Layer: 3
-  m_Name: Rock1
+  m_Name: WhiteRock1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11621,7 +11471,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 587652375}
+  m_Father: {fileID: 967465248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2145163057
 SpriteRenderer:
@@ -11740,5 +11590,6 @@ SceneRoots:
   - {fileID: 625312586}
   - {fileID: 847413212}
   - {fileID: 1561779088}
+  - {fileID: 1377176998}
   - {fileID: 164725015}
   - {fileID: 505216278}

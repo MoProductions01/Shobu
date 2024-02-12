@@ -9,8 +9,8 @@ using UnityEngine.EventSystems;
 
 public class Rock : MonoBehaviour
 {    
-    public enum eRockColor {BLACK, WHITE};
-    [field: SerializeField] public eRockColor RockColor {get; set;}   
+    
+    [field: SerializeField] public Shobu.eGameColors RockColor {get; set;}   
      
     public Board MyBoard {get; set;}
 

@@ -50,9 +50,9 @@ public class Board : MonoBehaviour
         return true;      
     }
 
-    void DebugBoardSpaces()
+    public bool IsValidMove(BoardSpace boardSpace)    
     {
-
+       return ValidMoves.Contains(boardSpace);        
     }
     public void UpdateValidMoves(Rock rock, Shobu.eMoveType moveType)
     {
@@ -107,20 +107,7 @@ public class Board : MonoBehaviour
             Vector2Int spaceLoc = new Vector2Int(Int32.Parse(locString[0]), Int32.Parse(locString[1]));                
          //   Debug.Log("spaceLoc (" + spaceLoc.x + "," + spaceLoc.y + ") is getting boardSpace: " + boardSpace.name);  
             BoardSpaces[spaceLoc.x, spaceLoc.y] = boardSpace;
-        }            
-        //boardSpaces = boardSpaces.OrderBy(x => x.name).ToList();
-       /* for(int x = 0; x < NUM_ROWS_COLS; x++)
-        {
-            BoardSpaces.Add(new List<BoardSpace>(NUM_ROWS_COLS));            
-            for(int y = 0; y < NUM_ROWS_COLS; y++)
-            {   
-                BoardSpace boardSpace = boardSpaces[(x*NUM_ROWS_COLS) + y];  
-                Debug.Log("space (" + x + "," + y + ") is getting boardSpace: " + boardSpace.name);        
-                
-                BoardSpaces[x].Add(boardSpace);
-            }
-        }*/
-      //  BoardSpaceLayer = LayerMask.NameToLayer("Board Space");
+        }                    
     }
 
     public void ResetSpaceHighlights()

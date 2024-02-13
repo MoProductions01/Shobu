@@ -78,27 +78,29 @@ public class Board : MonoBehaviour
         List<Rock> rocksToCheck = GetComponentsInChildren<Rock>().ToList();
         List<Rock> validRocks = new List<Rock>();        
         rocksToCheck.RemoveAll(x => x.RockColor != heldRock.RockColor);        
-        foreach(Shobu.RockMove rockMove in Shobu.PassiveMovesToCheck)
+//        foreach(Shobu.RockMove rockMove in Shobu.PassiveMovesToCheck)
+        foreach(Vector2Int passiveMove in Shobu.PassiveMovesToCheck)
         {
             validRocks.Clear();
-            Vector2Int move = MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
+            //Vector2Int move = MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
             foreach(Rock rock in rocksToCheck)
             {
-                if(CheckAggressiveMove(rock, move, true) == true)
+                if(CheckAggressiveMove(rock, passiveMove, true) == true)
                 {
                     validRocks.Add(rock);                    
                 }
             }
-            string s = "Board " + name + "--rockMove: (" + rockMove.moveDir + ", " + rockMove.numSpaces + ") has " + validRocks.Count + " valid rocks: ";
+            string s = "Board " + name + "--rockMove: (" + passiveMove.ToString() +") has " + validRocks.Count + " valid rocks: ";
             foreach(Rock rock in validRocks)
             {
                 s += rock.name + ", ";
             }            
             s += "--CVA--";
-           // Debug.Log(s);
+            Debug.Log(s);
             if(validRocks.Count > 0)
             {
-                Shobu.ValidRockMoves.Add(rockMove);
+               // Shobu.ValidRockMoves.Add(rockMove);
+                Shobu.ValidPassiveMoves.Add(passiveMove);
             }
         }
         
@@ -221,7 +223,7 @@ public class Board : MonoBehaviour
        // if(this.name.Equals("Light1") == false) return;
         ValidMoves.Clear();
         Shobu.PassiveMovesToCheck.Clear();
-        Shobu.ValidRockMoves.Clear();
+        Shobu.ValidPassiveMoves.Clear();
         BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();        
       //  Debug.Log("********************* UpdateValidmoves at: " + rockLoc.ToString());
         for(int dir=0; dir <= (int)eMoveDirs.UP_RIGHT; dir++)
@@ -235,7 +237,8 @@ public class Board : MonoBehaviour
             //    Debug.Log("!!!!!!!!!!move to: " + spaceToCheck.ToString() + " is valid");
                 BoardSpace validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];
                 
-                Shobu.PassiveMovesToCheck.Add(new Shobu.RockMove((eMoveDirs)dir, 1));
+                //Shobu.PassiveMovesToCheck.Add(new Shobu.RockMove((eMoveDirs)dir, 1));
+                Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]);
                 ValidMoves.Add(validSpace);
                 spaceToCheck = rockBoardSpace.SpaceCoords + MoveDeltas[dir]*2;
                 if(CheckSpace(spaceToCheck, moveType))
@@ -243,7 +246,7 @@ public class Board : MonoBehaviour
              //       Debug.Log("Delta is: " + MoveDeltas[dir]*2 + ", spaceToCheck is: " + spaceToCheck);     
              //       Debug.Log("!!!!!!!move to: " + spaceToCheck.ToString() + " is valid");
                     validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];                    
-                    Shobu.PassiveMovesToCheck.Add(new Shobu.RockMove((eMoveDirs)dir, 2));
+                    Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]*2);
                     ValidMoves.Add(validSpace);
                 }
             }            
@@ -254,10 +257,11 @@ public class Board : MonoBehaviour
         }
         string s = "";
 
-        foreach(Shobu.RockMove rockMove in Shobu.PassiveMovesToCheck)
+        //foreach(Shobu.RockMove rockMove in Shobu.PassiveMovesToCheck)
+        foreach(Vector2Int passiveMove in Shobu.PassiveMovesToCheck)
         {
-            Vector2Int move = MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
-            s += move.ToString() + ",";
+            //Vector2Int move = MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
+            s += passiveMove.ToString() + ",";
         }
        // Debug.Log(s);                
 

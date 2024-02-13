@@ -27,7 +27,7 @@ public class Shobu : MonoBehaviour
     List<Board> ValidBoards = new List<Board>();    
     public TMP_Text DebugText;
 
-    public struct RockMove
+    /*public struct RockMove
     {
         public Board.eMoveDirs moveDir;
         public int numSpaces;
@@ -37,10 +37,13 @@ public class Shobu : MonoBehaviour
             this.moveDir = moveDir;
             this.numSpaces = numSpaces;
         }
-    }
+    }*/
 
-    public static List<RockMove> PassiveMovesToCheck = new List<RockMove>();
-    public static List<RockMove> ValidRockMoves =  new List<RockMove>();
+    //public static List<RockMove> PassiveMovesToCheck = new List<RockMove>();
+    //public static List<RockMove> ValidRockMoves =  new List<RockMove>();
+
+    public static List<Vector2Int> PassiveMovesToCheck = new List<Vector2Int>();
+    public static List<Vector2Int> ValidPassiveMoves =  new List<Vector2Int>();
     
     // Start is called before the first frame update
     void Start()
@@ -186,21 +189,23 @@ public class Shobu : MonoBehaviour
                                 bool boardB = Boards[2].CheckIfAnyValidAggressiveMoves(HeldRock);
                               //  Debug.Log("boardA "+ Boards[1].name + ": " + boardA + ", boardB: " + Boards[3].name + ": " + boardB);
                             } 
-                            ValidRockMoves = (List<RockMove>)ValidRockMoves.Distinct().ToList();
-                            List<RockMove> invalidRockMoves = PassiveMovesToCheck.Except(ValidRockMoves).ToList();
-                            //ValidRockMoves = (List<RockMove>) (ValidRockMoves.Distinct());
-                            //ValidRockMoves = (List<RockMove>)v.ToList();
-                            Debug.Log("*******Num ValidRockMoves: " + ValidRockMoves.Count + " ****************** --CVA--");                            
-                            foreach(RockMove rockMove in ValidRockMoves)
+                            //ValidRockMoves = (List<RockMove>)ValidRockMoves.Distinct().ToList();
+                            //List<RockMove> invalidRockMoves = PassiveMovesToCheck.Except(ValidRockMoves).ToList();
+                            ValidPassiveMoves = (List<Vector2Int>)ValidPassiveMoves.Distinct().ToList();
+                            List<Vector2Int> invalidPassiveMoves = PassiveMovesToCheck.Except(ValidPassiveMoves).ToList();
+                            Debug.Log("*******Num ValidPassiveMoves: " + ValidPassiveMoves.Count + " ****************** --CVA--");                            
+                           // foreach(RockMove rockMove in ValidRockMoves)
+                            foreach(Vector2Int passiveMove in ValidPassiveMoves)
                             {
-                                Debug.Log("Valid Rock Move: (" + rockMove.moveDir + ", " + rockMove.numSpaces + ") --CVA--");                                
+                                Debug.Log("Valid Passive Move: (" + passiveMove.ToString() + ") --CVA--");                                
                             }
-                            Debug.Log("*******Num invalidRockMoves: " + invalidRockMoves.Count + " ****************** --CVA--");   
-                            foreach(RockMove rockMove in invalidRockMoves)
+                            Debug.Log("*******Num invalidPassiveMoves: " + invalidPassiveMoves.Count + " ****************** --CVA--");   
+                            //foreach(RockMove rockMove in invalidRockMoves)
+                            foreach(Vector2Int passiveMove in invalidPassiveMoves)
                             {
-                                Debug.Log("inValid Rock Move: (" + rockMove.moveDir + ", " + rockMove.numSpaces + ") --CVA--");               
-                                Vector2Int move = Board.MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
-                                Vector2Int moveCoords = heldRockSpace.SpaceCoords + move;
+                                Debug.Log("inValid Passive Move: (" + passiveMove.ToString() + ") --CVA--");               
+                                //Vector2Int move = Board.MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
+                                Vector2Int moveCoords = heldRockSpace.SpaceCoords + passiveMove;
                                 BoardSpace bs = HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y];
                                 bs.ToggleHighlight(true, Color.red);
                                 HeldRock.MyBoard.ValidMoves.Remove(bs);

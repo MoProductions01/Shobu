@@ -3902,6 +3902,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BoardColor>k__BackingField: 1
   ValidMoves: []
+  PushedRock: {fileID: 0}
+  PushedRockCoords: {x: -1, y: -1}
   PushedOffRocks: {fileID: 1884690090}
 --- !u!1 &662989778
 GameObject:
@@ -4567,7 +4569,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Reset Game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5504,6 +5506,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BoardColor>k__BackingField: 0
   ValidMoves: []
+  PushedRock: {fileID: 0}
+  PushedRockCoords: {x: -1, y: -1}
   PushedOffRocks: {fileID: 643092586}
 --- !u!1 &982782410
 GameObject:
@@ -10957,6 +10961,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BoardColor>k__BackingField: 0
   ValidMoves: []
+  PushedRock: {fileID: 0}
+  PushedRockCoords: {x: -1, y: -1}
   PushedOffRocks: {fileID: 1477169657}
 --- !u!1 &1786034285
 GameObject:
@@ -13128,6 +13134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BoardColor>k__BackingField: 1
   ValidMoves: []
+  PushedRock: {fileID: 0}
+  PushedRockCoords: {x: -1, y: -1}
   PushedOffRocks: {fileID: 852368063}
 --- !u!1 &2090612825
 GameObject:

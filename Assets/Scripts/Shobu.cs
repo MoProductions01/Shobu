@@ -11,9 +11,13 @@ using UnityEngine;
 public class Shobu : MonoBehaviour
 {    
     public static int NUM_BOARDS = 4;
+
+    public enum eGameState {PLAYING, GAME_OVER};
+    eGameState GameState;
                  
     public enum eRockColors {BLACK, WHITE};
     eRockColors CurrentRockColor;
+    eRockColors WinningColor;
     public enum eMoveType {PASSIVE, AGGRESSIVE};  
     eMoveType CurrentMove;          
     [SerializeField] List<Board> Boards = new List<Board>();
@@ -54,7 +58,7 @@ public class Shobu : MonoBehaviour
         ValidBoards.Add(Boards[0]);
         ValidBoards.Add(Boards[1]);
         PassiveMove = Vector2Int.zero;
-
+        GameState = eGameState.PLAYING; 
         // Debug
         Board light0 = Boards[1];
         Board light1 = Boards[3];
@@ -115,6 +119,11 @@ public class Shobu : MonoBehaviour
 
     void Update()
     {
+        if(GameState == eGameState.GAME_OVER)
+        {
+            DebugText.text = WinningColor.ToString() + " WINS!!!!!!!";
+            return;
+        }
         DebugText.text = "Current Player: " + CurrentRockColor.ToString() + "\n";
         DebugText.text += "Current Move: " + CurrentMove.ToString() + "\n";
         if(PassiveMove != Vector2Int.zero) DebugText.text += "PassiveMove: " + PassiveMove.ToString() + "\n";
@@ -307,7 +316,9 @@ public class Shobu : MonoBehaviour
         {
             if(moveBoard.CheckEndGame() == true)
             {
-                Debug.Log("GAME OVER!!! " + HeldRock.RockColor.ToString() + " WINS!!!!!!");
+                GameState = eGameState.GAME_OVER;
+                WinningColor = HeldRock.RockColor;
+                Debug.Log("GAME OVER!!! " + WinningColor.ToString() + " WINS!!!!!!");
             }
             PassiveMove = Vector2Int.zero;
             CurrentMove = eMoveType.PASSIVE;

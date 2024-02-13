@@ -10,7 +10,7 @@ using UnityEngine.EventSystems;
 public class Rock : MonoBehaviour
 {    
     
-    [field: SerializeField] public Shobu.eGameColors RockColor {get; set;}   
+    [field: SerializeField] public Shobu.eRockColors RockColor {get; set;}   
      
     public Board MyBoard {get; set;}
 

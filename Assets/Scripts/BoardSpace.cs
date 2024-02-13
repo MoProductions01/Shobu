@@ -6,7 +6,7 @@ using UnityEngine;
 public class BoardSpace : MonoBehaviour
 {
     SpriteRenderer BoardSpaceHighlight;
-    public Vector2Int SpaceCoords {get; set;}
+    public Vector2Int SpaceCoords {get; set;} // monote - get the script order sorted so that this is handled better
 
     
 

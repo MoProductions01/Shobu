@@ -42,11 +42,17 @@ public class Shobu : MonoBehaviour
         Board light0 = Boards[1];
         Rock rock;
         
+        for(int i=0; i<4; i++)
+        {
+            rock = light0.transform.GetChild(0).GetChild(i).GetComponentInChildren<Rock>();
+            rock.transform.parent = light0.transform.GetChild(2).GetChild(i).transform;
+            rock.transform.localPosition = Vector3.zero; 
+        }
         //rock = light0.transform.GetChild(0).GetChild(1).GetComponentInChildren<Rock>();
         //rock.transform.parent = light0.transform.GetChild(2).GetChild(0).transform;
         //rock.transform.localPosition = Vector3.zero;
 
-        rock = light0.transform.GetChild(3).GetChild(0).GetComponentInChildren<Rock>();
+       /* rock = light0.transform.GetChild(3).GetChild(0).GetComponentInChildren<Rock>();
         rock.transform.parent = light0.transform.GetChild(2).GetChild(0).transform;
         rock.transform.localPosition = Vector3.zero;
 
@@ -54,9 +60,9 @@ public class Shobu : MonoBehaviour
         rock.transform.parent = light0.transform.GetChild(1).GetChild(1).transform;
         rock.transform.localPosition = Vector3.zero;
 
-       // rock = light0.transform.GetChild(3).GetChild(2).GetComponentInChildren<Rock>();
-        //rock.transform.parent = light0.transform.GetChild(2).GetChild(1).transform;
-        //rock.transform.localPosition = Vector3.zero;
+        rock = light0.transform.GetChild(3).GetChild(2).GetComponentInChildren<Rock>();
+        rock.transform.parent = light0.transform.GetChild(2).GetChild(1).transform;
+        rock.transform.localPosition = Vector3.zero;*/
 
      //   rock = light0.transform.GetChild(3).GetChild(3).GetComponentInChildren<Rock>();
       //  rock.transform.parent = light0.transform.GetChild(3).GetChild(0).transform;
@@ -98,6 +104,10 @@ public class Shobu : MonoBehaviour
             {
                 DebugText.text += boardSpaces.SpaceCoords.ToString() + "\n";
             }
+            if(HeldRock.MyBoard.PushedRock != null)
+            {
+                
+            }
         }
 
         if(Input.GetMouseButtonDown(0))
@@ -108,14 +118,14 @@ public class Shobu : MonoBehaviour
                 Rock rock = hit.collider.GetComponent<Rock>();
                 Board hitRockBoard = rock.GetComponentInParent<Board>();
                 //HeldRock = hit.collider.GetComponent<Rock>();
-                if(CurrentPlayer != rock.RockColor)
-                {
-                    Debug.LogWarning("Invalid rock color");                 
-                }                
-                else if(ValidBoards.Contains(hitRockBoard) == false)
+                if(ValidBoards.Contains(hitRockBoard) == false)
                 {
                     Debug.LogWarning("Invalid Board to pick up rock");
                 }
+                else if(CurrentPlayer != rock.RockColor)
+                {
+                    Debug.LogWarning("Invalid rock color");                 
+                }                                
                 else
                 {
                     Debug.Log("-----------------------------clicked on valid board and rock: " + hitRockBoard.name + " - " + rock.name);                      
@@ -166,11 +176,17 @@ public class Shobu : MonoBehaviour
                 {
                     if(hitBoardSpaceBoard.IsValidMove(hitBoardSpace))
                     {
-                        Debug.Log("Valid Move");
-                        //DebugText.text = "Valid Move";
-                        PassiveMove = hitBoardSpace.SpaceCoords - HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords;
-                        HeldRock.transform.parent = hitBoardSpace.transform;
-                        EndMove(hitBoardSpaceBoard.BoardColor);                                                                        
+                        Debug.Log("Valid Move");           
+                        if(CurrentMove == eMoveType.PASSIVE)
+                        {
+                            PassiveMove = hitBoardSpace.SpaceCoords - HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords;
+                        }                                                                                    
+                        else
+                        {
+                            HeldRock.MyBoard.CheckPushedRock();
+                        }
+                        HeldRock.transform.parent = hitBoardSpace.transform;                        
+                        EndMove(hitBoardSpaceBoard);                                                                        
                     }
                     else
                     {                        
@@ -214,14 +230,14 @@ public class Shobu : MonoBehaviour
         }
     }
     
-    void EndMove(Board.eBoardColor moveBoardColor)
+    void EndMove(Board moveBoard)
     {
         ValidBoards.Clear();
         
         if(CurrentMove == eMoveType.PASSIVE)
         {
             CurrentMove = eMoveType.AGGRESSIVE;                   
-            if(moveBoardColor == Board.eBoardColor.DARK)
+            if(moveBoard.BoardColor == Board.eBoardColor.DARK)
             {                
                 ValidBoards.AddRange(new List<Board>{Boards[1], Boards[3]});
             }
@@ -232,6 +248,10 @@ public class Shobu : MonoBehaviour
         }
         else
         {
+            if(moveBoard.CheckEndGame() == true)
+            {
+                Debug.Log("GAME OVER!!! " + HeldRock.RockColor.ToString() + " WINS!!!!!!");
+            }
             PassiveMove = Vector2Int.zero;
             CurrentMove = eMoveType.PASSIVE;
             CurrentPlayer = (eGameColors)( 1 - (int)CurrentPlayer);

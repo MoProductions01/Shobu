@@ -18,6 +18,8 @@ public class Board : MonoBehaviour
     public List<BoardSpace> ValidMoves = new List<BoardSpace>();
     //public List<Shobu.RockMove> ValidRockMoves = new List<Shobu.RockMove>();
     Vector2Int PassiveMove = Vector2Int.zero;
+    public Rock PushedRock = null;
+    public Vector2Int PushedRockCoords = new Vector2Int(-1, -1);
     List<Vector2Int> MoveDeltas = new List<Vector2Int> 
     {
         new Vector2Int(0, 1),    // UP
@@ -36,7 +38,8 @@ public class Board : MonoBehaviour
 
     bool CheckSpace(Vector2Int space, Shobu.eMoveType moveType)
     {        
-        if(space.x < 0 || space.x >= NUM_ROWS_COLS || space.y < 0 || space.y >= NUM_ROWS_COLS)
+        //if(space.x < 0 || space.x >= NUM_ROWS_COLS || space.y < 0 || space.y >= NUM_ROWS_COLS)
+        if(AreCoordsOffBoard(space))
         {
             // off board
             return false;
@@ -56,13 +59,19 @@ public class Board : MonoBehaviour
     {
        return ValidMoves.Contains(newBoardSpace);        
     }
+    bool AreCoordsOffBoard(Vector2Int coords)
+    {
+        return (coords.x < 0 || coords.x >= NUM_ROWS_COLS || 
+                coords.y < 0 || coords.y >= NUM_ROWS_COLS);
+    }
 
     public bool CheckAggressiveMove(Rock rock, Vector2Int move)
     {
         BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();
         Vector2Int moveToSpace = rockBoardSpace.SpaceCoords + move;              
 
-        if(moveToSpace.x < 0 || moveToSpace.x >= NUM_ROWS_COLS || moveToSpace.y < 0 || moveToSpace.y >= NUM_ROWS_COLS)
+        //if(moveToSpace.x < 0 || moveToSpace.x >= NUM_ROWS_COLS || moveToSpace.y < 0 || moveToSpace.y >= NUM_ROWS_COLS)
+        if(AreCoordsOffBoard(moveToSpace))
         {
             Debug.LogWarning("Aggressive move is off board so invalid");
             return false;
@@ -79,7 +88,8 @@ public class Board : MonoBehaviour
         }        
         Debug.Log("movePath was in this dir: " + moveDir.ToString() + " with #moves: " + numSpacesMoved);
         //bool validMove = true;
-        bool pushingRock = false;
+        //bool pushingRock = false;
+        PushedRock = null;
         int i;
         Vector2Int coordsToCheck = Vector2Int.zero;
         for(i=1; i<=numSpacesMoved; i++)
@@ -90,7 +100,7 @@ public class Board : MonoBehaviour
             {
                 Debug.Log("Board space: " + coordsToCheck.ToString() + " has no rock so keep checking");
             }
-            else if(pushingRock == true)
+            else if(PushedRock != null)
             {
                 Debug.LogWarning("Can't push more than 1 rock so invalid");
                 return false;
@@ -103,11 +113,11 @@ public class Board : MonoBehaviour
             else
             {   
                 Debug.Log("Board space: " + coordsToCheck.ToString() + " has a rock of the other color and we're not already pushing a rock so push this new rock");
-                pushingRock = true;                                                
+                PushedRock = rockCheck;                                                
             }
         } 
                                 
-        if(pushingRock == false)
+        if(PushedRock == null)
         {
             Debug.Log("We made it through the checks and aren't pushing a rock so it's a clear path");                        
         }
@@ -115,9 +125,11 @@ public class Board : MonoBehaviour
         {
             Debug.Log("We made it through the checks and are pushing a rock, so check next space. i: " + i);
             coordsToCheck = rockBoardSpace.SpaceCoords + moveDir*i;
-            if(coordsToCheck.x < 0 || coordsToCheck.x >= NUM_ROWS_COLS || coordsToCheck.y < 0 || coordsToCheck.y >= NUM_ROWS_COLS)
+            //if(coordsToCheck.x < 0 || coordsToCheck.x >= NUM_ROWS_COLS || coordsToCheck.y < 0 || coordsToCheck.y >= NUM_ROWS_COLS)
+            if(AreCoordsOffBoard(coordsToCheck))
             {
-                Debug.Log("Pushed rock will go off board");                
+                Debug.Log("Pushed rock will go off board");     
+                PushedRockCoords = coordsToCheck;           
             }
             else if(BoardSpaces[coordsToCheck.x, coordsToCheck.y].GetComponentInChildren<Rock>() != null)
             {
@@ -127,25 +139,40 @@ public class Board : MonoBehaviour
             }
             else
             {
-                Debug.Log("Pushed rock will move into an empty space at: " + coordsToCheck.ToString());                              
+                Debug.Log("Pushed rock will move into an empty space at: " + coordsToCheck.ToString());    
+                PushedRockCoords = coordsToCheck;                          
             }
-        }       
+        }               
 
         // made it so it's a valid move    
         ValidMoves.Add(BoardSpaces[moveToSpace.x, moveToSpace.y]);   
         ValidMoves[0].ToggleHighlight(true, Color.blue); 
         return true; 
     }
+
+    public void CheckPushedRock()
+    {
+        if(PushedRock != null)
+        {
+            if(AreCoordsOffBoard(PushedRockCoords))
+            {
+                PutRockOnPushedList(PushedRock);
+            }
+            else
+            {
+                PushedRock.transform.parent = 
+                    BoardSpaces[PushedRockCoords.x, PushedRockCoords.y].transform;
+                PushedRock.transform.localPosition = Vector3.zero;
+            }
+        }
+    }
+
     public bool UpdatePassiveValidMoves(Rock rock, Shobu.eMoveType moveType)
     {
        // if(this.name.Equals("Light1") == false) return;
         ValidMoves.Clear();
         //ValidRockMoves.Clear();
-        BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();
-        //string[] locString = rockBoardSpace.name.Split(",");
-        //Vector2Int rockLoc = new Vector2Int(Int32.Parse(locString[0]), Int32.Parse(locString[1]));
-       // Debug.Log("UpdateValidMoves rock: " + rock.name + ", at loc: " + rockLoc.ToString());
-
+        BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();        
       //  Debug.Log("********************* UpdateValidmoves at: " + rockLoc.ToString());
         for(int dir=0; dir <= (int)eMoveDirs.UP_RIGHT; dir++)
         {
@@ -211,6 +238,16 @@ public class Board : MonoBehaviour
                 BoardSpaces[x,y].ToggleHighlight(false, Color.clear);
             }
         }  
+    }
+
+    public bool CheckEndGame()
+    {   // boardObjectColliders.RemoveAll(x => x.GetComponentInParent<BoardObject>() == null);                
+        List<Rock> rocksOnBoard = GetComponentsInChildren<Rock>().ToList();
+        int numBlackRemoved = rocksOnBoard.RemoveAll(x => x.RockColor == Shobu.eGameColors.BLACK);
+        int numWhiteRemoved = rocksOnBoard.RemoveAll(x => x.RockColor == Shobu.eGameColors.WHITE);
+
+        Debug.Log("numBlackRemoved: " + numBlackRemoved + ", numWhiteRemoved: " + numWhiteRemoved);
+        return numBlackRemoved == 0 || numWhiteRemoved == 0;
     }
 
     public void ResetBoard()

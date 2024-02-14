@@ -15,28 +15,28 @@ public class Board : MonoBehaviour
     public enum eBoardColor {DARK, LIGHT};
     [field: SerializeField] public eBoardColor BoardColor {get; set;} 
     public enum eMoveDirs {UP, UP_LEFT, LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP_RIGHT};
-    public List<BoardSpace> ValidMoves = new List<BoardSpace>();
+    //public List<BoardSpace> ValidMoves = new List<BoardSpace>();
     //public List<Shobu.RockMove> ValidRockMoves = new List<Shobu.RockMove>();
     Vector2Int PassiveMove = Vector2Int.zero;
     public Rock PushedRock = null;
     public Vector2Int PushedRockCoords = new Vector2Int(-1, -1);
     public static List<Vector2Int> MoveDeltas = new List<Vector2Int> 
     {
-        new Vector2Int(0, 1),    // UP
+        new Vector2Int(0, 1),   // UP
         new Vector2Int(-1, 1),  // UP_LEFT
         new Vector2Int(-1, 0),  // LEFT
-        new Vector2Int(-1, -1),  // DOWN_LEFT
+        new Vector2Int(-1, -1), // DOWN_LEFT
         new Vector2Int(0, -1),  // DOWN
         new Vector2Int(1, -1),  // DOWN_RIGHT
         new Vector2Int(1, 0),   // RIGHT
-        new Vector2Int(1, 1),    // UP_RIGHT
+        new Vector2Int(1, 1),   // UP_RIGHT
     };
     
     //public List<List<BoardSpace>> BoardSpaces = new List<List<BoardSpace>>(NUM_ROWS_COLS);
     public BoardSpace[,] BoardSpaces = new BoardSpace[4,4];
     [SerializeField] GameObject PushedOffRocks;      
 
-    bool CheckSpace(Vector2Int space, Shobu.eMoveType moveType)
+    public bool CheckSpace(Vector2Int space, Shobu.eMoveType moveType)
     {        
         //if(space.x < 0 || space.x >= NUM_ROWS_COLS || space.y < 0 || space.y >= NUM_ROWS_COLS)
         if(AreCoordsOffBoard(space))
@@ -55,21 +55,16 @@ public class Board : MonoBehaviour
         return true;      
     }   
 
-    public bool IsValidMove(BoardSpace newBoardSpace)    
+    /*public bool IsValidMove(BoardSpace newBoardSpace)    
     {
        return ValidMoves.Contains(newBoardSpace);        
-    }
+    }*/
     bool AreCoordsOffBoard(Vector2Int coords)
     {
         return (coords.x < 0 || coords.x >= NUM_ROWS_COLS || 
                 coords.y < 0 || coords.y >= NUM_ROWS_COLS);
     }
-
-    /*foreach(Shobu.RockMove rockMove in Shobu.ValidRockMoves)
-      {
-          Vector2Int move = MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
-          s += move.ToString() + ",";
-      }*/
+    
 
     public bool CheckIfAnyValidAggressiveMoves(Rock heldRock)
     {
@@ -118,7 +113,7 @@ public class Board : MonoBehaviour
             Debug.LogWarning("Aggressive move is off board so invalid");
             return false;
         }
-        if(isTest == false) BoardSpaces[moveToSpace.x, moveToSpace.y].ToggleHighlight(true, Color.red);
+        //if(isTest == false) BoardSpaces[moveToSpace.x, moveToSpace.y].ToggleHighlight(true, Color.red);
         Vector2Int moveDir = moveToSpace - rockBoardSpace.SpaceCoords;
         //Debug.Log("Checking Aggressive move from: " + rockBoardSpace.SpaceCoords.ToString() +" to: " + moveToSpace.ToString() +
        //     ", movePath was: " + moveDir.ToString());
@@ -189,8 +184,8 @@ public class Board : MonoBehaviour
         // made it so it's a valid move    
         if(isTest == false)
         {
-            ValidMoves.Add(BoardSpaces[moveToSpace.x, moveToSpace.y]);   
-            ValidMoves[0].ToggleHighlight(true, Color.blue); 
+           // ValidMoves.Add(BoardSpaces[moveToSpace.x, moveToSpace.y]);   
+           // ValidMoves[0].ToggleHighlight(true, Color.blue); 
         }
         else
         {
@@ -221,7 +216,7 @@ public class Board : MonoBehaviour
     public bool UpdatePossiblePassiveMoves(Rock rock, Shobu.eMoveType moveType)
     {
        // if(this.name.Equals("Light1") == false) return;
-        ValidMoves.Clear();
+       // ValidMoves.Clear();
         Shobu.PassiveMovesToCheck.Clear();
         Shobu.ValidPassiveMoves.Clear();
         BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();        
@@ -239,7 +234,7 @@ public class Board : MonoBehaviour
                 
                 //Shobu.PassiveMovesToCheck.Add(new Shobu.RockMove((eMoveDirs)dir, 1));
                 Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]);
-                ValidMoves.Add(validSpace);
+               // ValidMoves.Add(validSpace);
                 spaceToCheck = rockBoardSpace.SpaceCoords + MoveDeltas[dir]*2;
                 if(CheckSpace(spaceToCheck, moveType))
                 {
@@ -247,17 +242,19 @@ public class Board : MonoBehaviour
              //       Debug.Log("!!!!!!!move to: " + spaceToCheck.ToString() + " is valid");
                     validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];                    
                     Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]*2);
-                    ValidMoves.Add(validSpace);
+                   // ValidMoves.Add(validSpace);
                 }
             }            
         }        
-        foreach(BoardSpace boardSpace in ValidMoves)
+        
+        /*foreach(BoardSpace boardSpace in ValidMoves)
         {
             boardSpace.ToggleHighlight(true, Color.blue);            
         }
-        string s = "";
+        string s = "";*/
 
         //foreach(Shobu.RockMove rockMove in Shobu.PassiveMovesToCheck)
+        string s = "";
         foreach(Vector2Int passiveMove in Shobu.PassiveMovesToCheck)
         {
             //Vector2Int move = MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
@@ -265,7 +262,8 @@ public class Board : MonoBehaviour
         }
        // Debug.Log(s);                
 
-        return ValidMoves.Count > 0;
+        //return ValidMoves.Count > 0;
+        return Shobu.PassiveMovesToCheck.Count > 0;
     }
 
     
@@ -295,7 +293,7 @@ public class Board : MonoBehaviour
     {
        // if(this.name.Equals("Light1") == false) return;
 //        Debug.Log("ResetSpaceHighlights");
-        ValidMoves.Clear();
+       // ValidMoves.Clear();
         for(int x = 0; x < NUM_ROWS_COLS; x++)
         {
             for(int y = 0; y < NUM_ROWS_COLS; y++)

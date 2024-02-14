@@ -78,8 +78,7 @@ public class Shobu : MonoBehaviour
     {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;       
-        Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);
-        //public static bool Raycast(Ray ray, out RaycastHit hitInfo, float maxDistance, int layerMask)
+        Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask);        
         return hit;
     }    
 
@@ -96,12 +95,7 @@ public class Shobu : MonoBehaviour
         if(HeldRock == null) DebugText.text += "No HeldRock\n";
         else 
         {
-            DebugText.text += "HeldRock at: " + HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords.ToString() + "\n";        
-            /*DebugText.text += "Board Valid Moves: " + HeldRock.MyBoard.ValidMoves.Count + "\n";
-            foreach(BoardSpace boardSpaces in HeldRock.MyBoard.ValidMoves)
-            {
-                DebugText.text += boardSpaces.SpaceCoords.ToString();
-            }        */   
+            DebugText.text += "HeldRock at: " + HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords.ToString() + "\n";                     
         }
         if(ValidBoardSpaces.Count != 0)
         {
@@ -112,7 +106,6 @@ public class Shobu : MonoBehaviour
             }
         }
         
-
         if(Input.GetMouseButtonDown(0))
         {                        
             RaycastHit hit = RayCast(RockMask);
@@ -194,7 +187,7 @@ public class Shobu : MonoBehaviour
                             Debug.LogWarning("No valid Aggressive move");
                             if(rock.MyBoard.CheckSpace(new Vector2Int(moveCoords.x, moveCoords.y), eMoveType.PASSIVE))
                             {
-                                HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.red);       
+                                rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.red);       
                             }
                         }
                     }                                 

@@ -185,7 +185,7 @@ public class Shobu : MonoBehaviour
                         else
                         {                            
                             Debug.LogWarning("No valid Aggressive move");
-                            if(rock.MyBoard.CheckSpace(new Vector2Int(moveCoords.x, moveCoords.y), eMoveType.PASSIVE))
+                            if(rock.MyBoard.CheckPassiveSpace(new Vector2Int(moveCoords.x, moveCoords.y)))
                             {
                                 rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.red);       
                             }

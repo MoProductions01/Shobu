@@ -36,29 +36,18 @@ public class Board : MonoBehaviour
     public BoardSpace[,] BoardSpaces = new BoardSpace[4,4];
     [SerializeField] GameObject PushedOffRocks;      
 
-    public bool CheckSpace(Vector2Int space, Shobu.eMoveType moveType)
+    public bool CheckPassiveSpace(Vector2Int space)
     {        
         //if(space.x < 0 || space.x >= NUM_ROWS_COLS || space.y < 0 || space.y >= NUM_ROWS_COLS)
-        if(AreCoordsOffBoard(space))
+        if(AreCoordsOffBoard(space) ||
+                            BoardSpaces[space.x,space.y].GetComponentInChildren<Rock>() != null)
         {
-            // off board
+            // off board or space has a rock
             return false;
-        }
-        bool hasRock = BoardSpaces[space.x,space.y].GetComponentInChildren<Rock>() != null;
-        if(hasRock)
-        {   // There's a rock on this space
-            if(moveType == Shobu.eMoveType.PASSIVE)
-            {   // can't move onto a rock in Passive move
-                return false;
-            }            
-        }
+        }       
         return true;      
     }   
-
-    /*public bool IsValidMove(BoardSpace newBoardSpace)    
-    {
-       return ValidMoves.Contains(newBoardSpace);        
-    }*/
+    
     bool AreCoordsOffBoard(Vector2Int coords)
     {
         return (coords.x < 0 || coords.x >= NUM_ROWS_COLS || 
@@ -67,13 +56,10 @@ public class Board : MonoBehaviour
     
 
     public bool CheckIfAnyValidAggressiveMoves(Rock heldRock)
-    {
-        //Debug.Log("Check agg moves on board: " + this.name + ", rockColor: " + heldRock.RockColor);
-       
+    {               
         List<Rock> rocksToCheck = GetComponentsInChildren<Rock>().ToList();
         List<Rock> validRocks = new List<Rock>();        
         rocksToCheck.RemoveAll(x => x.RockColor != heldRock.RockColor);        
-//        foreach(Shobu.RockMove rockMove in Shobu.PassiveMovesToCheck)
         foreach(Vector2Int passiveMove in Shobu.PassiveMovesToCheck)
         {
             validRocks.Clear();
@@ -85,20 +71,18 @@ public class Board : MonoBehaviour
                     validRocks.Add(rock);                    
                 }
             }
-            string s = "Board " + name + "--rockMove: (" + passiveMove.ToString() +") has " + validRocks.Count + " valid rocks: ";
+            /*string s = "Board " + name + "--rockMove: (" + passiveMove.ToString() +") has " + validRocks.Count + " valid rocks: ";
             foreach(Rock rock in validRocks)
             {
                 s += rock.name + ", ";
             }            
             s += "--CVA--";
-            Debug.Log(s);
+            Debug.Log(s);*/
             if(validRocks.Count > 0)
-            {
-               // Shobu.ValidRockMoves.Add(rockMove);
+            {               
                 Shobu.ValidPassiveMoves.Add(passiveMove);
             }
-        }
-        
+        }        
         return false;
     }
 
@@ -106,26 +90,22 @@ public class Board : MonoBehaviour
     {
         BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();
         Vector2Int moveToSpace = rockBoardSpace.SpaceCoords + move;              
-
-        //if(moveToSpace.x < 0 || moveToSpace.x >= NUM_ROWS_COLS || moveToSpace.y < 0 || moveToSpace.y >= NUM_ROWS_COLS)
+        
         if(AreCoordsOffBoard(moveToSpace))
         {
             Debug.LogWarning("Aggressive move is off board so invalid");
             return false;
         }
-        //if(isTest == false) BoardSpaces[moveToSpace.x, moveToSpace.y].ToggleHighlight(true, Color.red);
+        
         Vector2Int moveDir = moveToSpace - rockBoardSpace.SpaceCoords;
-        //Debug.Log("Checking Aggressive move from: " + rockBoardSpace.SpaceCoords.ToString() +" to: " + moveToSpace.ToString() +
-       //     ", movePath was: " + moveDir.ToString());
+        //Debug.Log("Checking Aggressive move from: " + rockBoardSpace.SpaceCoords.ToString() +" to: " + moveToSpace.ToString() + ", movePath was: " + moveDir.ToString());
         int numSpacesMoved = 1;
         if(Math.Abs(moveDir.x) == 2 || Math.Abs(moveDir.y) == 2) 
         {
             numSpacesMoved = 2;
             moveDir /= 2;
         }        
-       // Debug.Log("movePath was in this dir: " + moveDir.ToString() + " with #moves: " + numSpacesMoved);
-        //bool validMove = true;
-        //bool pushingRock = false;
+       // Debug.Log("movePath was in this dir: " + moveDir.ToString() + " with #moves: " + numSpacesMoved);        
         PushedRock = null;
         int i;
         Vector2Int coordsToCheck = Vector2Int.zero;
@@ -170,7 +150,7 @@ public class Board : MonoBehaviour
             }
             else if(BoardSpaces[coordsToCheck.x, coordsToCheck.y].GetComponentInChildren<Rock>() != null)
             {
-                Rock rockCheck = BoardSpaces[coordsToCheck.x, coordsToCheck.y].GetComponentInChildren<Rock>();
+               // Rock rockCheck = BoardSpaces[coordsToCheck.x, coordsToCheck.y].GetComponentInChildren<Rock>();
                 Debug.LogWarning("Will push rock into another rock so invalid");
                 return false;
             }
@@ -226,8 +206,8 @@ public class Board : MonoBehaviour
          //   Debug.Log("---------------------------------------------");            
             Vector2Int spaceToCheck = rockBoardSpace.SpaceCoords + MoveDeltas[dir];       
         //    Debug.Log("Delta is: " + MoveDeltas[dir] + ", spaceToCheck is: " + spaceToCheck);     
-            bool checkSpace = CheckSpace(spaceToCheck, moveType);
-            if(checkSpace)
+            //bool checkSpace = CheckSpace(spaceToCheck);
+            if(CheckPassiveSpace(spaceToCheck))
             {   
             //    Debug.Log("!!!!!!!!!!move to: " + spaceToCheck.ToString() + " is valid");
                 BoardSpace validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];
@@ -236,7 +216,7 @@ public class Board : MonoBehaviour
                 Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]);
                // ValidMoves.Add(validSpace);
                 spaceToCheck = rockBoardSpace.SpaceCoords + MoveDeltas[dir]*2;
-                if(CheckSpace(spaceToCheck, moveType))
+                if(CheckPassiveSpace(spaceToCheck))
                 {
              //       Debug.Log("Delta is: " + MoveDeltas[dir]*2 + ", spaceToCheck is: " + spaceToCheck);     
              //       Debug.Log("!!!!!!!move to: " + spaceToCheck.ToString() + " is valid");

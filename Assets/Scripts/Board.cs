@@ -78,6 +78,10 @@ namespace Radient
                 if(validRocks.Count > 0)
                 {               
                     //Shobu.ValidPassiveMoves.Add(passiveMove);
+                    if(AreCoordsOffBoard(passiveMove))
+                    {
+                        Debug.Log("WTF");
+                    }
                     RockMove.GetInstance().AddValidPassiveMove(passiveMove);
                 }
             }        

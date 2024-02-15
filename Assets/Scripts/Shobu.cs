@@ -18,10 +18,10 @@ namespace Radient
         eGameState GameState;
                     
         public enum eRockColors {BLACK, WHITE};
-        eRockColors CurrentRockColor;
+        public eRockColors CurrentRockColor {get; private set;}
         eRockColors WinningColor;
         public enum eMoveType {PASSIVE, AGGRESSIVE};  
-        eMoveType CurrentMove;          
+        public eMoveType CurrentMove {get; private set;}
         [SerializeField] List<Board> Boards = new List<Board>();    
         int RockMask, BoardSpaceMask;
         List<Board> ValidBoards = new List<Board>();    
@@ -36,10 +36,10 @@ namespace Radient
             BoardSpaceMask = LayerMask.GetMask("Board Space");
         }
 
-        void ResetGame()
+        public void ResetGame()
         {
             ResetBoards();
-            RockMove.GetInstance().Reset(eMoveType.AGGRESSIVE);        
+            RockMove.GetInstance().Reset();        
             CurrentRockColor = eRockColors.BLACK;
             CurrentMove = eMoveType.PASSIVE;
             ValidBoards.Add(Boards[0]);
@@ -58,10 +58,7 @@ namespace Radient
             }
         }
 
-        public void ResetGameDebug()
-        {
-            ResetGame();
-        }    
+          
 
         RaycastHit RayCast(int layerMask)
         {
@@ -99,7 +96,7 @@ namespace Radient
                     {
                         //Debug.Log("-----------------------------clicked on valid board and rock: " + hitRockBoard.name + " - " + rock.name);                      
                     // Debug.Log("-----------------------------clicked on valid board and rock: " + rock.MyBoard.name + " - " + rock.name);                                          
-                        //RockMove.GetInstance().Reset();
+                        RockMove.GetInstance().Reset();
                         if(CurrentMove == eMoveType.PASSIVE)
                         {   
                             if(rock.MyBoard.UpdatePossiblePassiveMoves(rock))
@@ -120,6 +117,10 @@ namespace Radient
                                 {
                                 // Debug.Log("Valid Passive Move: (" + passiveMove.ToString() + ") --CVA--");                                
                                     Vector2Int moveCoords = clickedRockSpace.SpaceCoords + passiveMove;
+                                    if(moveCoords.x > 3 || moveCoords.x < 0 || moveCoords.y > 3 || moveCoords.y < 0)
+                                    {
+                                        Debug.LogError("WTF: " + moveCoords.ToString());
+                                    }
                                     rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.blue);  
                                     //RockMove.GetInstance().AddValidBoardSpace(rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
                                     RockMove.GetInstance().ValidBoardSpaces.Add(rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
@@ -154,7 +155,7 @@ namespace Radient
                             }
                         }    
                         else
-                        {
+                        {                            
                             Vector2Int moveCoords = rock.GetComponentInParent<BoardSpace>().SpaceCoords + RockMove.GetInstance().PassiveMove;
                             if(rock.MyBoard.CheckAggressiveMove(rock, RockMove.GetInstance().PassiveMove, false))
                             {                          
@@ -162,7 +163,7 @@ namespace Radient
                                 HeldRock.transform.localScale *= 1.2f;                            
                                 //ValidBoardSpaces.Add(HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);   
                                 // monote - make BoardSpaces private and use an accessor                                
-                                //RockMove.GetInstance().AddValidBoardSpace(HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
+                                //RockMove.GetInstance().AddValidBoardSpace(HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);                                
                                 RockMove.GetInstance().ValidBoardSpaces.Add(HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
                                 HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.blue);                               
                             }
@@ -246,8 +247,7 @@ namespace Radient
         void EndMove(Board moveBoard)
         {
             ValidBoards.Clear();
-            
-            RockMove.GetInstance().Reset(CurrentMove);
+                        
             if(CurrentMove == eMoveType.PASSIVE)
             {
                 CurrentMove = eMoveType.AGGRESSIVE;                   
@@ -286,7 +286,7 @@ namespace Radient
         {
             DebugText.text = "Current Player: " + CurrentRockColor.ToString() + "\n";
             DebugText.text += "Current Move: " + CurrentMove.ToString() + "\n";
-            if(RockMove.GetInstance().PassiveMove != Vector2Int.zero) DebugText.text += "PassiveMove: " + RockMove.GetInstance().PassiveMove.ToString() + "\n";
+            DebugText.text += "PassiveMove: " + RockMove.GetInstance().PassiveMove.ToString() + "\n";
             if(HeldRock == null) DebugText.text += "No HeldRock\n";
             else 
             {

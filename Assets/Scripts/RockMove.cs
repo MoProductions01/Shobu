@@ -31,19 +31,22 @@ namespace Radient
 
         public void AddValidPassiveMove(Vector2Int validPassiveMove)
         {    
+            if(validPassiveMove.x > 3 || validPassiveMove.x < 0 || validPassiveMove.y > 3 || validPassiveMove.y < 0)
+            {
+                //Debug.LogError("WTF: " + validPassiveMove.ToString());
+            }            
             if(ValidPassiveMoves.Contains(validPassiveMove) == false)
             {
                 ValidPassiveMoves.Add(validPassiveMove);
             }            
         }     
                 
-        public void Reset(Shobu.eMoveType moveType)
+        public void Reset()
         {      
             PossiblePassiveMoves.Clear();
             ValidPassiveMoves.Clear();
             ValidBoardSpaces.Clear();
-            PushedRock = null;
-            if(moveType == Shobu.eMoveType.AGGRESSIVE) PassiveMove = Vector2Int.zero;
+            PushedRock = null;            
         }  
     } 
 }

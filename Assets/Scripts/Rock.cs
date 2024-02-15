@@ -13,7 +13,7 @@ public class Rock : MonoBehaviour
     [field: SerializeField] public Shobu.eRockColors RockColor {get; set;}   
      
     public Board MyBoard {get; set;}
-    public Rock PushedRock {get; set;}
+    public Vector2Int PushedCoords {get; set;}
 
     private void Start() 
     {

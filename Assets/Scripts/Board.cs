@@ -60,27 +60,22 @@ public class Board : MonoBehaviour
         List<Rock> rocksToCheck = GetComponentsInChildren<Rock>().ToList();
         List<Rock> validRocks = new List<Rock>();        
         rocksToCheck.RemoveAll(x => x.RockColor != heldRock.RockColor);        
-        foreach(Vector2Int passiveMove in Shobu.PassiveMovesToCheck)
+        foreach(Vector2Int passiveMove in RockMove.GetInstance().PassiveMoves())       
+        //foreach(Vector2Int passiveMove in Shobu.PassiveMovesToCheck)
         {
-            validRocks.Clear();
-            //Vector2Int move = MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
+            validRocks.Clear();            
             foreach(Rock rock in rocksToCheck)
             {
                 if(CheckAggressiveMove(rock, passiveMove, true) == true)
                 {
-                    validRocks.Add(rock);                    
+                    validRocks.Add(rock);      
+                    // monote - add a continue/break here              
                 }
-            }
-            /*string s = "Board " + name + "--rockMove: (" + passiveMove.ToString() +") has " + validRocks.Count + " valid rocks: ";
-            foreach(Rock rock in validRocks)
-            {
-                s += rock.name + ", ";
             }            
-            s += "--CVA--";
-            Debug.Log(s);*/
             if(validRocks.Count > 0)
             {               
-                Shobu.ValidPassiveMoves.Add(passiveMove);
+                //Shobu.ValidPassiveMoves.Add(passiveMove);
+                RockMove.GetInstance().AddValidPassiveMove(passiveMove);
             }
         }        
         return false;
@@ -193,57 +188,30 @@ public class Board : MonoBehaviour
         }
     }
 
-    public bool UpdatePossiblePassiveMoves(Rock rock, Shobu.eMoveType moveType)
-    {
-       // if(this.name.Equals("Light1") == false) return;
-       // ValidMoves.Clear();
-        Shobu.PassiveMovesToCheck.Clear();
-        Shobu.ValidPassiveMoves.Clear();
-        BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();        
-      //  Debug.Log("********************* UpdateValidmoves at: " + rockLoc.ToString());
+    public bool UpdatePossiblePassiveMoves(Rock rock)
+    {               
+        BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();              
         for(int dir=0; dir <= (int)eMoveDirs.UP_RIGHT; dir++)
-        {
-         //   Debug.Log("---------------------------------------------");            
-            Vector2Int spaceToCheck = rockBoardSpace.SpaceCoords + MoveDeltas[dir];       
-        //    Debug.Log("Delta is: " + MoveDeltas[dir] + ", spaceToCheck is: " + spaceToCheck);     
-            //bool checkSpace = CheckSpace(spaceToCheck);
+        {            
+            Vector2Int spaceToCheck = rockBoardSpace.SpaceCoords + MoveDeltas[dir];      
             if(CheckPassiveSpace(spaceToCheck))
-            {   
-            //    Debug.Log("!!!!!!!!!!move to: " + spaceToCheck.ToString() + " is valid");
-                BoardSpace validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];
-                
-                //Shobu.PassiveMovesToCheck.Add(new Shobu.RockMove((eMoveDirs)dir, 1));
-                Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]);
-               // ValidMoves.Add(validSpace);
+            {                   
+                BoardSpace validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];                                
+                RockMove.GetInstance().AddPassiveMove(MoveDeltas[dir]);
+               // Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]);               
                 spaceToCheck = rockBoardSpace.SpaceCoords + MoveDeltas[dir]*2;
                 if(CheckPassiveSpace(spaceToCheck))
-                {
-             //       Debug.Log("Delta is: " + MoveDeltas[dir]*2 + ", spaceToCheck is: " + spaceToCheck);     
-             //       Debug.Log("!!!!!!!move to: " + spaceToCheck.ToString() + " is valid");
-                    validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];                    
-                    Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]*2);
-                   // ValidMoves.Add(validSpace);
+                {                    
+                    validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];    
+                    RockMove.GetInstance().AddPassiveMove(MoveDeltas[dir]*2);                
+                   // Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]*2);                   
                 }
             }            
-        }        
-        
-        /*foreach(BoardSpace boardSpace in ValidMoves)
-        {
-            boardSpace.ToggleHighlight(true, Color.blue);            
-        }
-        string s = "";*/
+        }                           
 
-        //foreach(Shobu.RockMove rockMove in Shobu.PassiveMovesToCheck)
-        string s = "";
-        foreach(Vector2Int passiveMove in Shobu.PassiveMovesToCheck)
-        {
-            //Vector2Int move = MoveDeltas[(int)rockMove.moveDir] * rockMove.numSpaces;
-            s += passiveMove.ToString() + ",";
-        }
-       // Debug.Log(s);                
-
-        //return ValidMoves.Count > 0;
-        return Shobu.PassiveMovesToCheck.Count > 0;
+        //return RockMove.GetInstance().NumPassiveMovesToCheck() > 0;             
+        return RockMove.GetInstance().NumPassiveMoves() > 0;
+        //return Shobu.PassiveMovesToCheck.Count > 0;
     }
 
     

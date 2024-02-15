@@ -20,16 +20,13 @@ public class Shobu : MonoBehaviour
     eRockColors WinningColor;
     public enum eMoveType {PASSIVE, AGGRESSIVE};  
     eMoveType CurrentMove;          
-    [SerializeField] List<Board> Boards = new List<Board>();
-    Rock HeldRock;
+    [SerializeField] List<Board> Boards = new List<Board>();    
     int RockMask, BoardSpaceMask;
+    
+    Rock HeldRock;
     Vector2Int PassiveMove = new Vector2Int(-1, -1);
     List<Board> ValidBoards = new List<Board>();    
-    public TMP_Text DebugText;    
-
-    public static List<Vector2Int> PassiveMovesToCheck = new List<Vector2Int>();
-    public static List<Vector2Int> ValidPassiveMoves =  new List<Vector2Int>();
-    List<BoardSpace> ValidBoardSpaces = new List<BoardSpace>();
+    public TMP_Text DebugText;            
     
     // Start is called before the first frame update
     void Start()
@@ -37,14 +34,6 @@ public class Shobu : MonoBehaviour
         ResetGame();
         RockMask = LayerMask.GetMask("Rock");
         BoardSpaceMask = LayerMask.GetMask("Board Space");
-    }
-
-    void SetupRockDebug(Board board, Vector2Int curRockPos, Vector2Int newRockPos)
-    {
-        Rock rock;
-        rock = board.transform.GetChild(curRockPos.y).GetChild(curRockPos.x).GetComponentInChildren<Rock>();
-        rock.transform.parent = board.transform.GetChild(newRockPos.y).GetChild(newRockPos.x).transform;
-        rock.transform.localPosition = Vector3.zero; 
     }
 
     void ResetGame()
@@ -97,14 +86,14 @@ public class Shobu : MonoBehaviour
         {
             DebugText.text += "HeldRock at: " + HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords.ToString() + "\n";                     
         }
-        if(ValidBoardSpaces.Count != 0)
+       /* if(ValidBoardSpaces.Count != 0)
         {
             DebugText.text += "\nValid BoardSpaces:\n";
             foreach(BoardSpace boardSpace in ValidBoardSpaces)
             {
                 DebugText.text += "(" + boardSpace.SpaceCoords.x + ", " + boardSpace.SpaceCoords.y + ")";
             }
-        }
+        }*/
         
         if(Input.GetMouseButtonDown(0))
         {                        
@@ -124,9 +113,12 @@ public class Shobu : MonoBehaviour
                 {
                     //Debug.Log("-----------------------------clicked on valid board and rock: " + hitRockBoard.name + " - " + rock.name);                      
                    // Debug.Log("-----------------------------clicked on valid board and rock: " + rock.MyBoard.name + " - " + rock.name);                      
+                    //PassiveMovesToCheck.Clear();
+                    //ValidPassiveMoves.Clear();
+                    RockMove.GetInstance().Reset();
                     if(CurrentMove == eMoveType.PASSIVE)
                     {   
-                        if(rock.MyBoard.UpdatePossiblePassiveMoves(rock, eMoveType.PASSIVE) == true)
+                        if(rock.MyBoard.UpdatePossiblePassiveMoves(rock))
                         {
                             List<Board> boardsToCheck = new List<Board>(Boards);
                             boardsToCheck.RemoveAll(x => x.BoardColor == rock.MyBoard.BoardColor);
@@ -135,21 +127,24 @@ public class Shobu : MonoBehaviour
                                 board.CheckIfAnyValidAggressiveMoves(rock);
                             }  
                             BoardSpace clickedRockSpace = rock.GetComponentInParent<BoardSpace>();
-                            ValidPassiveMoves = (List<Vector2Int>)ValidPassiveMoves.Distinct().ToList();
-                            ValidBoardSpaces.Clear();
+                           // ValidPassiveMoves = (List<Vector2Int>)ValidPassiveMoves.Distinct().ToList();
+                            //ValidBoardSpaces.Clear();
                             //Debug.Log("*******Num ValidPassiveMoves: " + ValidPassiveMoves.Count + " ****************** --CVA--");                                                                                                                                     
-                            foreach(Vector2Int passiveMove in ValidPassiveMoves)
+                           // foreach(Vector2Int passiveMove in ValidPassiveMoves)
+                            foreach(Vector2Int passiveMove in RockMove.GetInstance().GetValidPassiveMoves())
                             {
                                // Debug.Log("Valid Passive Move: (" + passiveMove.ToString() + ") --CVA--");                                
                                 Vector2Int moveCoords = clickedRockSpace.SpaceCoords + passiveMove;
                                 rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.blue);  
-                                ValidBoardSpaces.Add(rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);                              
+                                RockMove.GetInstance().AddValidBoardSpace(rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
+                                //ValidBoardSpaces.Add(rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);                              
                             }
 
-                            List<Vector2Int> invalidPassiveMoves = PassiveMovesToCheck.Except(ValidPassiveMoves).ToList();     
+                            //List<Vector2Int> invalidPassiveMoves = PassiveMovesToCheck.Except(ValidPassiveMoves).ToList();  
+                            //List<Vector2Int> invalidPassiveMoves = RockMove.GetInstance().PassiveMoves().Except(ValidPassiveMoves).ToList();   
                             //Debug.Log("*******Num invalidPassiveMoves: " + invalidPassiveMoves.Count + " ****************** --CVA--");                               
                             
-                            foreach(Vector2Int passiveMove in invalidPassiveMoves)
+                            foreach(Vector2Int passiveMove in RockMove.GetInstance().GetInvalidPassiveMoves())
                             {
                                // Debug.Log("inValid Passive Move: (" + passiveMove.ToString() + ") --CVA--");                                               
                                 Vector2Int moveCoords = clickedRockSpace.SpaceCoords + passiveMove;
@@ -157,7 +152,7 @@ public class Shobu : MonoBehaviour
                                 bs.ToggleHighlight(true, Color.red);
                                // rock.MyBoard.ValidMoves.Remove(bs);
                             }  
-                            if(ValidPassiveMoves.Count != 0)
+                            if(RockMove.GetInstance().GetNumValidPassiveMoves() != 0)
                             {
                                 HeldRock = rock;
                                 HeldRock.transform.localScale *= 1.2f;
@@ -179,7 +174,9 @@ public class Shobu : MonoBehaviour
                         {                          
                             HeldRock = rock;
                             HeldRock.transform.localScale *= 1.2f;                            
-                            ValidBoardSpaces.Add(HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);                                   
+                            //ValidBoardSpaces.Add(HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);   
+                            // monote - make BoardSpaces private and use an accessor                                
+                            RockMove.GetInstance().AddValidBoardSpace(HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
                             HeldRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.blue);                               
                         }
                         else
@@ -212,7 +209,8 @@ public class Shobu : MonoBehaviour
                 if(HeldRock.MyBoard == hitBoardSpaceBoard)
                 {
                     //if(hitBoardSpaceBoard.IsValidMove(hitBoardSpace))
-                    if(ValidBoardSpaces.Contains(hitBoardSpace))
+                    //if(ValidBoardSpaces.Contains(hitBoardSpace))
+                    if(RockMove.GetInstance().GetValidBoardSpaces().Contains(hitBoardSpace))
                     {
                        // Debug.Log("Valid Move");           
                         if(CurrentMove == eMoveType.PASSIVE)
@@ -231,17 +229,7 @@ public class Shobu : MonoBehaviour
                         Debug.LogWarning("Valid Board and Rock but Invalid Move");
                         HeldRock.MyBoard.ResetSpaceHighlights();
                         //DebugText.text = "Valid Board but Invalid Move";
-                    }
-                  //  Debug.Log("Let go on correct board");
-                   /* if(hitBoardSpace.GetComponentInChildren<Rock>() != null)
-                    {
-                   //     Debug.Log("There's a rock on this space so don't put it here");
-                    }
-                    else
-                    {
-                     //   Debug.Log("Space is free so place rock");
-                        HeldRock.transform.parent = hitBoardSpace.transform;
-                    }*/
+                    }                  
                 }
                 else
                 {
@@ -256,8 +244,7 @@ public class Shobu : MonoBehaviour
             }   
             HeldRock.transform.localScale /= 1.2f;         
             HeldRock.transform.localPosition = Vector3.zero;
-            HeldRock.MyBoard.ResetSpaceHighlights();
-            ValidBoardSpaces.Clear();
+            HeldRock.MyBoard.ResetSpaceHighlights();            
             HeldRock = null;            
         }
         else if(Input.GetMouseButtonUp(0))

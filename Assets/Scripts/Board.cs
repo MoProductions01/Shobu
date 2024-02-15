@@ -17,9 +17,9 @@ public class Board : MonoBehaviour
     public enum eMoveDirs {UP, UP_LEFT, LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP_RIGHT};
     //public List<BoardSpace> ValidMoves = new List<BoardSpace>();
     //public List<Shobu.RockMove> ValidRockMoves = new List<Shobu.RockMove>();
-    Vector2Int PassiveMove = Vector2Int.zero;
+    /*Vector2Int PassiveMove = Vector2Int.zero;
     public Rock PushedRock = null;
-    public Vector2Int PushedRockCoords = new Vector2Int(-1, -1);
+    public Vector2Int PushedRockCoords = new Vector2Int(-1, -1);*/
     public static List<Vector2Int> MoveDeltas = new List<Vector2Int> 
     {
         new Vector2Int(0, 1),   // UP
@@ -60,8 +60,9 @@ public class Board : MonoBehaviour
         List<Rock> rocksToCheck = GetComponentsInChildren<Rock>().ToList();
         List<Rock> validRocks = new List<Rock>();        
         rocksToCheck.RemoveAll(x => x.RockColor != heldRock.RockColor);        
-        foreach(Vector2Int passiveMove in RockMove.GetInstance().PassiveMoves())       
+        //foreach(Vector2Int passiveMove in RockMove.GetInstance().PassiveMoves())       
         //foreach(Vector2Int passiveMove in Shobu.PassiveMovesToCheck)
+        foreach(Vector2Int passiveMove in RockMove.GetInstance().PossiblePassiveMoves)
         {
             validRocks.Clear();            
             foreach(Rock rock in rocksToCheck)
@@ -101,7 +102,8 @@ public class Board : MonoBehaviour
             moveDir /= 2;
         }        
        // Debug.Log("movePath was in this dir: " + moveDir.ToString() + " with #moves: " + numSpacesMoved);        
-        PushedRock = null;
+        //PushedRock = null;
+        Rock pushedRock = null;
         int i;
         Vector2Int coordsToCheck = Vector2Int.zero;
         for(i=1; i<=numSpacesMoved; i++)
@@ -112,7 +114,7 @@ public class Board : MonoBehaviour
             {
               //  Debug.Log("Board space: " + coordsToCheck.ToString() + " has no rock so keep checking");
             }
-            else if(PushedRock != null)
+            else if(pushedRock != null)
             {
                 Debug.LogWarning("Can't push more than 1 rock so invalid");
                 return false;
@@ -125,11 +127,11 @@ public class Board : MonoBehaviour
             else
             {   
                // Debug.Log("Board space: " + coordsToCheck.ToString() + " has a rock of the other color and we're not already pushing a rock so push this new rock");
-                PushedRock = rockCheck;                                                
+                pushedRock = rockCheck;                                                
             }
         } 
                                 
-        if(PushedRock == null)
+        if(pushedRock == null)
         {
            // Debug.Log("We made it through the checks and aren't pushing a rock so it's a clear path");                        
         }
@@ -141,7 +143,8 @@ public class Board : MonoBehaviour
             if(AreCoordsOffBoard(coordsToCheck))
             {
               //  Debug.Log("Pushed rock will go off board");     
-                PushedRockCoords = coordsToCheck;           
+                //PushedRockCoords = coordsToCheck;           
+                pushedRock.PushedCoords = coordsToCheck;
             }
             else if(BoardSpaces[coordsToCheck.x, coordsToCheck.y].GetComponentInChildren<Rock>() != null)
             {
@@ -152,7 +155,8 @@ public class Board : MonoBehaviour
             else
             {
                // Debug.Log("Pushed rock will move into an empty space at: " + coordsToCheck.ToString());    
-                PushedRockCoords = coordsToCheck;                          
+                //PushedRockCoords = coordsToCheck;                          
+                pushedRock.PushedCoords = coordsToCheck;
             }
         }               
 
@@ -161,11 +165,12 @@ public class Board : MonoBehaviour
         {
            // ValidMoves.Add(BoardSpaces[moveToSpace.x, moveToSpace.y]);   
            // ValidMoves[0].ToggleHighlight(true, Color.blue); 
+           RockMove.GetInstance().PushedRock = pushedRock;
         }
         else
         {
-            PushedRock = null;
-            PushedRockCoords = new Vector2Int(-1,-1);
+           // PushedRock = null;
+            //PushedRockCoords = new Vector2Int(-1,-1);
         }
         
         return true; 
@@ -173,17 +178,18 @@ public class Board : MonoBehaviour
 
     public void CheckPushedRock()
     {
-        if(PushedRock != null)
+        Rock pushedRock = RockMove.GetInstance().PushedRock;
+        if(pushedRock != null)
         {
-            if(AreCoordsOffBoard(PushedRockCoords))
+            if(AreCoordsOffBoard(pushedRock.PushedCoords))
             {
-                PutRockOnPushedList(PushedRock);
+                PutRockOnPushedList(pushedRock);
             }
             else
             {
-                PushedRock.transform.parent = 
-                    BoardSpaces[PushedRockCoords.x, PushedRockCoords.y].transform;
-                PushedRock.transform.localPosition = Vector3.zero;
+                pushedRock.transform.parent = 
+                    BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;
+                pushedRock.transform.localPosition = Vector3.zero;
             }
         }
     }
@@ -197,20 +203,21 @@ public class Board : MonoBehaviour
             if(CheckPassiveSpace(spaceToCheck))
             {                   
                 BoardSpace validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];                                
-                RockMove.GetInstance().AddPassiveMove(MoveDeltas[dir]);
-               // Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]);               
+                //RockMove.GetInstance().AddPassiveMove(MoveDeltas[dir]);
+                RockMove.GetInstance().PossiblePassiveMoves.Add(MoveDeltas[dir]);
                 spaceToCheck = rockBoardSpace.SpaceCoords + MoveDeltas[dir]*2;
                 if(CheckPassiveSpace(spaceToCheck))
                 {                    
                     validSpace = BoardSpaces[spaceToCheck.x,spaceToCheck.y];    
-                    RockMove.GetInstance().AddPassiveMove(MoveDeltas[dir]*2);                
-                   // Shobu.PassiveMovesToCheck.Add(MoveDeltas[dir]*2);                   
+                    //RockMove.GetInstance().AddPassiveMove(MoveDeltas[dir]*2);                                                      
+                    RockMove.GetInstance().PossiblePassiveMoves.Add(MoveDeltas[dir]*2);                                                      
                 }
             }            
         }                           
 
         //return RockMove.GetInstance().NumPassiveMovesToCheck() > 0;             
-        return RockMove.GetInstance().NumPassiveMoves() > 0;
+        //return RockMove.GetInstance().NumPassiveMoves() > 0;
+        return RockMove.GetInstance().PossiblePassiveMoves.Count > 0;
         //return Shobu.PassiveMovesToCheck.Count > 0;
     }
 

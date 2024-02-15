@@ -22,13 +22,11 @@ public class Shobu : MonoBehaviour
     eMoveType CurrentMove;          
     [SerializeField] List<Board> Boards = new List<Board>();    
     int RockMask, BoardSpaceMask;
-    
-    Rock HeldRock;
-    Vector2Int PassiveMove = new Vector2Int(-1, -1);
     List<Board> ValidBoards = new List<Board>();    
+    Rock HeldRock;    
+    
     public TMP_Text DebugText;            
     
-    // Start is called before the first frame update
     void Start()
     {        
         ResetGame();
@@ -39,11 +37,11 @@ public class Shobu : MonoBehaviour
     void ResetGame()
     {
         ResetBoards();
+        RockMove.GetInstance().Reset(eMoveType.AGGRESSIVE);        
         CurrentRockColor = eRockColors.BLACK;
         CurrentMove = eMoveType.PASSIVE;
         ValidBoards.Add(Boards[0]);
-        ValidBoards.Add(Boards[1]);
-        PassiveMove = Vector2Int.zero;
+        ValidBoards.Add(Boards[1]);        
         GameState = eGameState.PLAYING; 
         
         // Debug       
@@ -77,24 +75,10 @@ public class Shobu : MonoBehaviour
         {
             DebugText.text = WinningColor.ToString() + " WINS!!!!!!!";
             return;
-        }
-        DebugText.text = "Current Player: " + CurrentRockColor.ToString() + "\n";
-        DebugText.text += "Current Move: " + CurrentMove.ToString() + "\n";
-        if(PassiveMove != Vector2Int.zero) DebugText.text += "PassiveMove: " + PassiveMove.ToString() + "\n";
-        if(HeldRock == null) DebugText.text += "No HeldRock\n";
-        else 
-        {
-            DebugText.text += "HeldRock at: " + HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords.ToString() + "\n";                     
-        }
-       /* if(ValidBoardSpaces.Count != 0)
-        {
-            DebugText.text += "\nValid BoardSpaces:\n";
-            foreach(BoardSpace boardSpace in ValidBoardSpaces)
-            {
-                DebugText.text += "(" + boardSpace.SpaceCoords.x + ", " + boardSpace.SpaceCoords.y + ")";
-            }
-        }*/
-        
+        }        
+        PrintDebugInfo();
+
+
         if(Input.GetMouseButtonDown(0))
         {                        
             RaycastHit hit = RayCast(RockMask);
@@ -112,10 +96,8 @@ public class Shobu : MonoBehaviour
                 else
                 {
                     //Debug.Log("-----------------------------clicked on valid board and rock: " + hitRockBoard.name + " - " + rock.name);                      
-                   // Debug.Log("-----------------------------clicked on valid board and rock: " + rock.MyBoard.name + " - " + rock.name);                      
-                    //PassiveMovesToCheck.Clear();
-                    //ValidPassiveMoves.Clear();
-                    RockMove.GetInstance().Reset();
+                   // Debug.Log("-----------------------------clicked on valid board and rock: " + rock.MyBoard.name + " - " + rock.name);                                          
+                    //RockMove.GetInstance().Reset();
                     if(CurrentMove == eMoveType.PASSIVE)
                     {   
                         if(rock.MyBoard.UpdatePossiblePassiveMoves(rock))
@@ -171,8 +153,8 @@ public class Shobu : MonoBehaviour
                     }    
                     else
                     {
-                        Vector2Int moveCoords = rock.GetComponentInParent<BoardSpace>().SpaceCoords + PassiveMove;
-                        if(rock.MyBoard.CheckAggressiveMove(rock, PassiveMove, false))
+                        Vector2Int moveCoords = rock.GetComponentInParent<BoardSpace>().SpaceCoords + RockMove.GetInstance().PassiveMove;
+                        if(rock.MyBoard.CheckAggressiveMove(rock, RockMove.GetInstance().PassiveMove, false))
                         {                          
                             HeldRock = rock;
                             HeldRock.transform.localScale *= 1.2f;                            
@@ -218,7 +200,7 @@ public class Shobu : MonoBehaviour
                        // Debug.Log("Valid Move");           
                         if(CurrentMove == eMoveType.PASSIVE)
                         {
-                            PassiveMove = hitBoardSpace.SpaceCoords - HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords;
+                            RockMove.GetInstance().PassiveMove = hitBoardSpace.SpaceCoords - HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords;
                         }                                                                                    
                         else
                         {
@@ -263,7 +245,7 @@ public class Shobu : MonoBehaviour
     {
         ValidBoards.Clear();
         
-        
+        RockMove.GetInstance().Reset(CurrentMove);
         if(CurrentMove == eMoveType.PASSIVE)
         {
             CurrentMove = eMoveType.AGGRESSIVE;                   
@@ -282,9 +264,9 @@ public class Shobu : MonoBehaviour
             {
                 GameState = eGameState.GAME_OVER;
                 WinningColor = HeldRock.RockColor;
-                Debug.Log("GAME OVER!!! " + WinningColor.ToString() + " WINS!!!!!!");
+                //Debug.Log("GAME OVER!!! " + WinningColor.ToString() + " WINS!!!!!!");
             }
-            PassiveMove = Vector2Int.zero;
+            RockMove.GetInstance().PassiveMove = Vector2Int.zero;
             CurrentMove = eMoveType.PASSIVE;
             CurrentRockColor = (eRockColors)( 1 - (int)CurrentRockColor);
             if(CurrentRockColor == eRockColors.BLACK)
@@ -295,6 +277,26 @@ public class Shobu : MonoBehaviour
             {
                 ValidBoards.AddRange(new List<Board>{Boards[2], Boards[3]});
             } 
+        }        
+    }
+
+    void PrintDebugInfo()
+    {
+        DebugText.text = "Current Player: " + CurrentRockColor.ToString() + "\n";
+        DebugText.text += "Current Move: " + CurrentMove.ToString() + "\n";
+        if(RockMove.GetInstance().PassiveMove != Vector2Int.zero) DebugText.text += "PassiveMove: " + RockMove.GetInstance().PassiveMove.ToString() + "\n";
+        if(HeldRock == null) DebugText.text += "No HeldRock\n";
+        else 
+        {
+            DebugText.text += "HeldRock at: " + HeldRock.GetComponentInParent<BoardSpace>().SpaceCoords.ToString() + "\n";                     
+        }
+        if(RockMove.GetInstance().ValidBoardSpaces.Count != 0)
+        {
+            DebugText.text += "\nValid BoardSpaces:\n";
+            foreach(BoardSpace boardSpace in RockMove.GetInstance().ValidBoardSpaces)
+            {
+                DebugText.text += "(" + boardSpace.SpaceCoords.x + ", " + boardSpace.SpaceCoords.y + ")";
+            }
         }
     }
 }

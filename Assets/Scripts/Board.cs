@@ -177,10 +177,10 @@ public class Board : MonoBehaviour
     }
 
     public void CheckPushedRock()
-    {
-        Rock pushedRock = RockMove.GetInstance().PushedRock;
-        if(pushedRock != null)
+    {        
+        if(RockMove.GetInstance().PushedRock != null)
         {
+            Rock pushedRock = RockMove.GetInstance().PushedRock;
             if(AreCoordsOffBoard(pushedRock.PushedCoords))
             {
                 PutRockOnPushedList(pushedRock);

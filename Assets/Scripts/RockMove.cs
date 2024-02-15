@@ -15,11 +15,12 @@ public class RockMove
         }        
         return instance;
     }
-
+    
     public List<Vector2Int> PossiblePassiveMoves {get; private set; } = new List<Vector2Int>();
     public List<Vector2Int> ValidPassiveMoves {get; private set;} =  new List<Vector2Int>();    
     public List<BoardSpace> ValidBoardSpaces {get; private set; } = new List<BoardSpace>();
     public Rock PushedRock {get; set;}
+    public Vector2Int PassiveMove {get; set;}
 
     public IEnumerable<Vector2Int> GetInvalidPassiveMoves()
     {
@@ -32,47 +33,14 @@ public class RockMove
         {
             ValidPassiveMoves.Add(validPassiveMove);
         }            
-    } 
-
-    /*public void AddValidBoardSpace(BoardSpace boardSpace)
-    {
-        ValidBoardSpaces.Add(boardSpace);
-    }*/
-    /*public IEnumerable<BoardSpace> GetValidBoardSpaces()
-    {
-        return ValidBoardSpaces;
-    }  */
-
-   /* public IEnumerable<Vector2Int> GetValidPassiveMoves()
-    {
-        return ValidPassiveMoves;
-    }*/
-    /*public int GetNumValidPassiveMoves()
-    {
-        return ValidPassiveMoves.Count();
-    }*/
-    
-
-    
-   /* public void AddPassiveMove(Vector2Int passiveMove)
-    {
-        PossiblePassiveMoves.Add(passiveMove);
-    }*/
-    /*public IEnumerable<Vector2Int> PassiveMoves()
-    {
-        return PossiblePassiveMoves;
-    }*/
-    /*public int NumPassiveMoves()
-    {
-        return PossiblePassiveMoves.Count;
-    }*/
+    }     
             
-    public void Reset()
-    {
-        //Debug.Log("RockMove.Reset() --Sin--");
+    public void Reset(Shobu.eMoveType moveType)
+    {      
         PossiblePassiveMoves.Clear();
         ValidPassiveMoves.Clear();
         ValidBoardSpaces.Clear();
         PushedRock = null;
+        if(moveType == Shobu.eMoveType.AGGRESSIVE) PassiveMove = Vector2Int.zero;
     }  
 } // monote - add a namespace

@@ -6,7 +6,9 @@ using System.Xml;
 using TMPro;
 using Unity.PlasticSCM.Editor.WebApi;
 using UnityEditor;
+using System;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Radient
 {
@@ -18,16 +20,38 @@ namespace Radient
         eGameState GameState;
                     
         public enum eRockColors {BLACK, WHITE};
-        public eRockColors CurrentRockColor {get; private set;}
-        eRockColors WinningColor;
+        eRockColors CurrentRockColor;
+        
         public enum eMoveType {PASSIVE, AGGRESSIVE};  
-        public eMoveType CurrentMove {get; private set;}
+        eMoveType CurrentMove;
+
+        //public eRockColors WinningColor {get; private set;}
         [SerializeField] List<Board> Boards = new List<Board>();    
         int RockMask, BoardSpaceMask;
         List<Board> ValidBoards = new List<Board>();    
         Rock HeldRock;    
         
         public TMP_Text DebugText;            
+
+        //[SerializeField] UnityEvent OnGameStateChange;
+        public delegate void CallbackType(eGameState gameState, eRockColors player, eMoveType moveType);
+        public event CallbackType OnGameStateChangeAction;
+        // event that prevents you from doing anything but  C# mechanim called Event.
+        // allows public expose subscribing to an event and de-subscribing yourself
+        // but can't remove anyone else's listeners
+
+         void ChangeGameState(eGameState gameState, eRockColors player, eMoveType move)
+        {
+            GameState = gameState; 
+            CurrentRockColor = player;
+            CurrentMove = move;
+            //OnGameStateChange.Invoke();
+            if(OnGameStateChangeAction != null)
+            {
+                OnGameStateChangeAction(GameState, CurrentRockColor, CurrentMove);
+            }            
+        }          
+
         
         void Start()
         {        
@@ -39,12 +63,13 @@ namespace Radient
         public void ResetGame()
         {
             ResetBoards();
-            RockMove.GetInstance().Reset();        
-            CurrentRockColor = eRockColors.BLACK;
-            CurrentMove = eMoveType.PASSIVE;
+            RockMove.GetInstance().Reset();                    
             ValidBoards.Add(Boards[0]);
-            ValidBoards.Add(Boards[1]);        
-            GameState = eGameState.PLAYING; 
+            ValidBoards.Add(Boards[1]);     
+            ChangeGameState(eGameState.PLAYING, eRockColors.BLACK, eMoveType.PASSIVE);   
+            //CurrentRockColor = eRockColors.BLACK;
+            //CurrentMove = eMoveType.PASSIVE;
+            //GameState = eGameState.PLAYING; 
             
             // Debug       
         // SetupRockDebug(Boards[0], new Vector2Int(0,0), new Vector2Int(0,2));        
@@ -58,8 +83,7 @@ namespace Radient
             }
         }
 
-          
-
+       
         RaycastHit RayCast(int layerMask)
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -71,8 +95,7 @@ namespace Radient
         void Update()
         {
             if(GameState == eGameState.GAME_OVER)
-            {
-                DebugText.text = WinningColor.ToString() + " WINS!!!!!!!";
+            {                
                 return;
             }        
             PrintDebugInfo();
@@ -248,9 +271,12 @@ namespace Radient
         {
             ValidBoards.Clear();
                         
+            eGameState newGameState = GameState;
+            eRockColors newRockColor = CurrentRockColor; 
+            eMoveType newMoveType = CurrentMove;                                   
             if(CurrentMove == eMoveType.PASSIVE)
             {
-                CurrentMove = eMoveType.AGGRESSIVE;                   
+                newMoveType = eMoveType.AGGRESSIVE;                   
                 if(moveBoard.BoardColor == Board.eBoardColor.DARK)
                 {                
                     ValidBoards.AddRange(new List<Board>{Boards[1], Boards[3]});
@@ -264,22 +290,24 @@ namespace Radient
             {
                 if(moveBoard.CheckEndGame() == true)
                 {
-                    GameState = eGameState.GAME_OVER;
-                    WinningColor = HeldRock.RockColor;
-                    //Debug.Log("GAME OVER!!! " + WinningColor.ToString() + " WINS!!!!!!");
-                }
-                RockMove.GetInstance().PassiveMove = Vector2Int.zero;
-                CurrentMove = eMoveType.PASSIVE;
-                CurrentRockColor = (eRockColors)( 1 - (int)CurrentRockColor);
-                if(CurrentRockColor == eRockColors.BLACK)
-                {                
-                    ValidBoards.AddRange(new List<Board>{Boards[0], Boards[1]});
+                    newGameState = eGameState.GAME_OVER;                    
                 }
                 else
                 {
-                    ValidBoards.AddRange(new List<Board>{Boards[2], Boards[3]});
+                    RockMove.GetInstance().PassiveMove = Vector2Int.zero;
+                    newMoveType = eMoveType.PASSIVE;
+                    newRockColor = (eRockColors)( 1 - (int)CurrentRockColor);
+                    if(newRockColor == eRockColors.BLACK)
+                    {                
+                        ValidBoards.AddRange(new List<Board>{Boards[0], Boards[1]});
+                    }
+                    else
+                    {
+                        ValidBoards.AddRange(new List<Board>{Boards[2], Boards[3]});
+                    }
                 } 
-            }        
+            }    
+            ChangeGameState(newGameState, newRockColor, newMoveType);    
         }
 
         void PrintDebugInfo()

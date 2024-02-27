@@ -25,6 +25,7 @@ namespace Radient
 
         public enum eMoveState{NONE_SELECTED, ROCK_SELECTED, ROCK_MOVEMENT};
         eMoveState MoveState;
+        Vector3 MoveToPosition = Vector3.zero;
 
         //public eRockColors WinningColor {get; private set;}
         [SerializeField] List<Board> Boards = new List<Board>();    
@@ -81,6 +82,19 @@ namespace Radient
                 board.ResetBoard();
             }
         }
+
+        void ResetSelectedRock()
+        {
+            Debug.Log("ResetSelectedRock()");
+            if(SelectedRock != null)
+            {
+                SelectedRock.transform.localScale /= 1.2f;         
+                SelectedRock.transform.localPosition = Vector3.zero;
+                SelectedRock.MyBoard.ResetSpaceHighlights();            
+                SelectedRock = null; 
+            }            
+            MoveState = eMoveState.NONE_SELECTED;  
+        }
        
         RaycastHit RayCast(int layerMask)
         {
@@ -108,7 +122,7 @@ namespace Radient
                 {                                                         
                     RockMove.GetInstance().Reset();
                     if(CurrentMove == eMoveType.PASSIVE)
-                    {   
+                    {   // PASSIVE move
                         if(rock.MyBoard.UpdatePossiblePassiveMoves(rock))
                         {
                             BoardSpace clickedRockSpace = rock.GetComponentInParent<BoardSpace>();
@@ -144,7 +158,7 @@ namespace Radient
                             else
                             {
                                 Debug.LogWarning("No valid aggressive moves");                                
-                            }                                               
+                            }
                         }
                         else
                         {                                                        
@@ -152,15 +166,16 @@ namespace Radient
                         }
                     }    
                     else
-                    {                            
+                    {   // AGGRESSIVE move                    
                         Vector2Int moveCoords = rock.GetComponentInParent<BoardSpace>().SpaceCoords + RockMove.GetInstance().PassiveMove;
                         if(rock.MyBoard.CheckAggressiveMove(rock, RockMove.GetInstance().PassiveMove, false))
                         {                          
                             SelectedRock = rock;
-                            SelectedRock.transform.localScale *= 1.2f;                                                            
+                            SelectedRock.transform.localScale *= 1.2f;                                                                                    
                             // monote - make BoardSpaces private and use an accessor                                                                
                             RockMove.GetInstance().ValidBoardSpaces.Add(SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
                             SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.blue);                               
+                            MoveState = eMoveState.ROCK_SELECTED;    
                         }
                         else
                         {                            
@@ -194,54 +209,65 @@ namespace Radient
                         {
                             SelectedRock.MyBoard.CheckPushedRock();
                         }
-                        SelectedRock.transform.parent = hitBoardSpace.transform;                        
-                        EndMove(hitBoardSpaceBoard);                                                                        
+                        //SelectedRock.transform.parent = hitBoardSpace.transform;                        
+                        //EndMove(hitBoardSpaceBoard);    
+                        MoveToPosition = hitBoardSpace.transform.position;
+                        SelectedRock.transform.parent = hitBoardSpace.transform.parent;
+                        MoveState = eMoveState.ROCK_MOVEMENT;                                                                                                                
                     }
                     else
                     {                        
                         Debug.LogWarning("Valid Board and Rock but Invalid Move");
                         SelectedRock.MyBoard.ResetSpaceHighlights();                            
+                        ResetSelectedRock(); 
                     }                  
                 }
                 else
                 {
-                    Debug.Log("Invalid Board");                        
+                    Debug.Log("Invalid Board");    
+                    ResetSelectedRock();                         
                 }               
             }            
             else
             {
-                Debug.Log("Released over a non BoardSpace");                
+                Debug.Log("Released over a non BoardSpace");  
+                ResetSelectedRock();              
             }   
-            SelectedRock.transform.localScale /= 1.2f;         
-            SelectedRock.transform.localPosition = Vector3.zero;
-            SelectedRock.MyBoard.ResetSpaceHighlights();            
-            SelectedRock = null;  
+           // ResetSelectedRock(); 
         }
-
-
+        
         void Update()
         {
             if(GameState == eGameState.GAME_OVER) return;                
             PrintDebugInfo();
+            if(MoveState == eMoveState.ROCK_MOVEMENT) return;
 
             if(Input.GetMouseButtonDown(0))
-            {                       
-                HandleSelectRock();                                          
+            {                   
+                if(MoveState == eMoveState.NONE_SELECTED)
+                {
+                    HandleSelectRock();                        
+                }                    
+                else if(MoveState == eMoveState.ROCK_SELECTED)
+                {
+                    HandleSelectBoardSpace();   
+                }
             }
-            else if(Input.GetMouseButton(0) && SelectedRock != null)
+            /*else if(Input.GetMouseButton(0) && SelectedRock != null)
             {
                 Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 SelectedRock.transform.position = new Vector3(mouseWorld.x, mouseWorld.y, 0f);
-            }
-            else if(Input.GetMouseButtonUp(0) && SelectedRock )
+            }*/
+            /*else if(Input.GetMouseButtonUp(0) && SelectedRock )
             {
                 HandleSelectBoardSpace();          
-            }
+            }*/
             else if(Input.GetMouseButtonUp(0))
             {
+                //Debug.Log("MousebuttonUp");
                 foreach(Board board in Boards)
                 {
-                    board.ResetSpaceHighlights();
+                   // board.ResetSpaceHighlights();
                 }
             }
         }
@@ -294,10 +320,20 @@ namespace Radient
             DebugText.text = "Current Player: " + CurrentRockColor.ToString() + "\n";
             DebugText.text += "Current Move: " + CurrentMove.ToString() + "\n";
             DebugText.text += "PassiveMove: " + RockMove.GetInstance().PassiveMove.ToString() + "\n";
-            if(SelectedRock == null) DebugText.text += "No HeldRock\n";
-            else 
+            DebugText.text += "MoveState: " + MoveState.ToString() + "\n";      
+            //if(MoveToPosition != Vector3.zero) DebugText.text += "MoveToPosition: " + MoveToPosition.ToString("F2") + "\n";      
+            if(SelectedRock == null) DebugText.text += "No SelectedRock\n";
+            else //if (SelectedRock.GetComponentInParent<BoardSpace>() != null)
             {
-                DebugText.text += "HeldRock at: " + SelectedRock.GetComponentInParent<BoardSpace>().SpaceCoords.ToString() + "\n";                     
+                DebugText.text += "SelectedRock: " + SelectedRock.name;// + ", selected at: " + SelectedRock.GetComponentInParent<BoardSpace>().SpaceCoords.ToString() + "\n";                     
+                if( SelectedRock.GetComponentInParent<BoardSpace>() != null )
+                {
+                    DebugText.text += ", selected at: " + SelectedRock.GetComponentInParent<BoardSpace>().SpaceCoords.ToString() + "\n";                     
+                }
+                else
+                {
+                    DebugText.text += ", is moving to: " + MoveToPosition.ToString("F2") + "\n";
+                }
             }
             if(RockMove.GetInstance().ValidBoardSpaces.Count != 0)
             {

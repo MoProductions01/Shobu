@@ -90,7 +90,7 @@ namespace Radient
             
             if(AreCoordsOffBoard(moveToSpace))
             {
-                Debug.LogWarning("Aggressive move is off board so invalid");
+                //Debug.LogWarning("Aggressive move is off board so invalid");
                 return false;
             }
             

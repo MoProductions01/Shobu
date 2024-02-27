@@ -25,7 +25,7 @@ namespace Radient
 
         public enum eMoveState{NONE_SELECTED, ROCK_SELECTED, ROCK_MOVEMENT};
         eMoveState MoveState;
-        Vector3 MoveToPosition = Vector3.zero;
+        BoardSpace MoveToBoardSpace;        
 
         //public eRockColors WinningColor {get; private set;}
         [SerializeField] List<Board> Boards = new List<Board>();    
@@ -83,9 +83,17 @@ namespace Radient
             }
         }
 
+        void TweenDone()
+        {
+           // Debug.Log("TweenDone");
+            SelectedRock.transform.parent = MoveToBoardSpace.transform;
+            ResetSelectedRock();
+            EndMove(MoveToBoardSpace.GetComponentInParent<Board>());
+        }
+
         void ResetSelectedRock()
         {
-            Debug.Log("ResetSelectedRock()");
+           // Debug.Log("ResetSelectedRock()");
             if(SelectedRock != null)
             {
                 SelectedRock.transform.localScale /= 1.2f;         
@@ -190,6 +198,8 @@ namespace Radient
             }
         }
 
+        
+
         void HandleSelectBoardSpace()
         {
             RaycastHit hit = RayCast(BoardSpaceMask);
@@ -210,9 +220,12 @@ namespace Radient
                             SelectedRock.MyBoard.CheckPushedRock();
                         }
                         //SelectedRock.transform.parent = hitBoardSpace.transform;                        
-                        //EndMove(hitBoardSpaceBoard);    
-                        MoveToPosition = hitBoardSpace.transform.position;
-                        SelectedRock.transform.parent = hitBoardSpace.transform.parent;
+                        //EndMove(hitBoardSpaceBoard);  
+                        MoveToBoardSpace = hitBoardSpace;                          
+                        SelectedRock.transform.parent = MoveToBoardSpace.transform.parent;
+                        LeanTween.move(SelectedRock.gameObject, MoveToBoardSpace.transform.position, .3f).
+                                setEase(LeanTweenType.easeInOutBack ).setOnComplete(this.TweenDone);
+                        //TweenService.
                         MoveState = eMoveState.ROCK_MOVEMENT;                                                                                                                
                     }
                     else
@@ -240,7 +253,10 @@ namespace Radient
         {
             if(GameState == eGameState.GAME_OVER) return;                
             PrintDebugInfo();
-            if(MoveState == eMoveState.ROCK_MOVEMENT) return;
+            if(MoveState == eMoveState.ROCK_MOVEMENT) 
+            {                                
+                return;
+            }
 
             if(Input.GetMouseButtonDown(0))
             {                   
@@ -332,7 +348,7 @@ namespace Radient
                 }
                 else
                 {
-                    DebugText.text += ", is moving to: " + MoveToPosition.ToString("F2") + "\n";
+                    DebugText.text += ", is moving\n";
                 }
             }
             if(RockMove.GetInstance().ValidBoardSpaces.Count != 0)

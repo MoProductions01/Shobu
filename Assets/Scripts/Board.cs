@@ -50,7 +50,7 @@ namespace Radient
             return true;      
         }   
         
-        bool AreCoordsOffBoard(Vector2Int coords)
+        public static bool AreCoordsOffBoard(Vector2Int coords)
         {
             return (coords.x < 0 || coords.x >= NUM_ROWS_COLS || 
                     coords.y < 0 || coords.y >= NUM_ROWS_COLS);
@@ -83,7 +83,7 @@ namespace Radient
             return false;
         }
 
-        public bool CheckAggressiveMove(Rock rock, Vector2Int move, bool isTest)
+        public bool CheckAggressiveMove(Rock rock, Vector2Int move, bool isValidAggressiveMoveTest)
         {
             BoardSpace rockBoardSpace = rock.GetComponentInParent<BoardSpace>();
             Vector2Int moveToSpace = rockBoardSpace.SpaceCoords + move;              
@@ -155,18 +155,20 @@ namespace Radient
                 }
                 else
                 {
-                // Debug.Log("Pushed rock will move into an empty space at: " + coordsToCheck.ToString());    
+                    // Debug.Log("Pushed rock will move into an empty space at: " + coordsToCheck.ToString());    
                     //PushedRockCoords = coordsToCheck;                          
                     pushedRock.PushedCoords = coordsToCheck;
                 }
             }               
 
             // made it so it's a valid move    
-            if(isTest == false)
+            if(isValidAggressiveMoveTest == false)
             {
-            // ValidMoves.Add(BoardSpaces[moveToSpace.x, moveToSpace.y]);   
-            // ValidMoves[0].ToggleHighlight(true, Color.blue); 
-            RockMove.GetInstance().PushedRock = pushedRock;
+                // ValidMoves.Add(BoardSpaces[moveToSpace.x, moveToSpace.y]);   
+                // ValidMoves[0].ToggleHighlight(true, Color.blue); 
+                if(pushedRock == null) Debug.Log("------------null pushed rock");
+                else Debug.Log("------------" + rock.name + " will push: " + pushedRock + ", to " + pushedRock.PushedCoords.ToString());
+                RockMove.GetInstance().PushedRock = pushedRock;                
             }
             else
             {
@@ -177,10 +179,11 @@ namespace Radient
             return true; 
         }
 
-        public void CheckPushedRock()
+       /* public void CheckPushedRock()
         {        
             if(RockMove.GetInstance().PushedRock != null)
             {
+                
                 Rock pushedRock = RockMove.GetInstance().PushedRock;
                 if(AreCoordsOffBoard(pushedRock.PushedCoords))
                 {
@@ -193,7 +196,7 @@ namespace Radient
                     pushedRock.transform.localPosition = Vector3.zero;
                 }
             }
-        }
+        }*/
 
         public bool UpdatePossiblePassiveMoves(Rock rock)
         {               

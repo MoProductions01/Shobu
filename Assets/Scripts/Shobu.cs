@@ -29,11 +29,17 @@ namespace Radient
 
         //public eRockColors WinningColor {get; private set;}
         [SerializeField] List<Board> Boards = new List<Board>();    
-        int RockMask, BoardSpaceMask;
+        int RockMask, BoardSpaceMask, RockLayer;
         List<Board> ValidBoards = new List<Board>();    
         Rock SelectedRock;    
+
+        public LeanTweenType TweenType;
+
         
-        public TMP_Text DebugText;            
+        public TMP_Text DebugText;     
+
+        List<Rock> LightRocks = new List<Rock>();       
+        List<Rock> DarkRocks = new List<Rock>();
 
         //[SerializeField] UnityEvent OnGameStateChange;
         public delegate void CallbackType(eGameState gameState, eRockColors player, eMoveType moveType);
@@ -46,20 +52,26 @@ namespace Radient
         {
             GameState = gameState; 
             CurrentRockColor = player;
-            CurrentMove = move;
-            //OnGameStateChange.Invoke();
+            CurrentMove = move;            
             if(OnGameStateChangeAction != null)
             {
                 OnGameStateChangeAction(GameState, CurrentRockColor, CurrentMove);
             }            
         }          
 
-        
+        Vector2 BoardSpaceDist;
         void Start()
-        {        
+        {                    
+            BoardSpaceDist.x = Boards[0].BoardSpaces[1,0].transform.position.x - Boards[0].BoardSpaces[0,0].transform.position.x;
+            BoardSpaceDist.y = Boards[0].BoardSpaces[0,1].transform.position.y - Boards[0].BoardSpaces[0,0].transform.position.y;
+            //Debug.Log("BoardSpaceDist: " + BoardSpaceDist);            
+            
             ResetGame();
             RockMask = LayerMask.GetMask("Rock");
             BoardSpaceMask = LayerMask.GetMask("Board Space");
+            RockLayer = LayerMask.NameToLayer("Rock");
+          //  Debug.Log("-----------------RockLayer: " + RockLayer);
+            Physics.IgnoreLayerCollision(RockLayer, RockLayer, true);
         }
 
         public void ResetGame()
@@ -82,13 +94,43 @@ namespace Radient
                 board.ResetBoard();
             }
         }
+        
+        void PushedRockTweenDone()
+        {    
+            Debug.Log("PushedRockTweenDone");        
+            if(RockMove.GetInstance().PushedRock == null) return;
+            Rock pushedRock = RockMove.GetInstance().PushedRock;
+            if(Board.AreCoordsOffBoard(pushedRock.PushedCoords) == false)
+            {                
+                pushedRock.transform.parent = 
+                    pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;
+            }
+            else
+            {
+                Debug.Log("FALL!!!");
+                pushedRock.MyBoard.PutRockOnPushedList(pushedRock);
+            }
+            EndSelectedRockMove();
+        }
 
-        void TweenDone()
+        void EndSelectedRockMove()
         {
-           // Debug.Log("TweenDone");
-            SelectedRock.transform.parent = MoveToBoardSpace.transform;
             ResetSelectedRock();
             EndMove(MoveToBoardSpace.GetComponentInParent<Board>());
+        }
+
+        void SelectedRockTweenDone()
+        {           
+            Debug.Log("SelectedRockTweenDone");
+            if(SelectedRock == null)
+            {
+                Debug.LogError("Null selected rock");
+            }
+            SelectedRock.transform.parent = MoveToBoardSpace.transform;
+            if(RockMove.GetInstance().PushedRock == null)
+            {
+                EndSelectedRockMove();
+            }            
         }
 
         void ResetSelectedRock()
@@ -99,9 +141,10 @@ namespace Radient
                 SelectedRock.transform.localScale /= 1.2f;         
                 SelectedRock.transform.localPosition = Vector3.zero;
                 SelectedRock.MyBoard.ResetSpaceHighlights();            
-                SelectedRock = null; 
+                Debug.Log("-------------------set SelectedRock to null"); SelectedRock = null; 
             }            
-            MoveState = eMoveState.NONE_SELECTED;  
+            MoveState = eMoveState.NONE_SELECTED; 
+            Physics.IgnoreLayerCollision(RockLayer, RockLayer, true);  
         }
        
         RaycastHit RayCast(int layerMask)
@@ -198,7 +241,22 @@ namespace Radient
             }
         }
 
-        
+        public void CheckPushedRockCollision(Rock otherRock)
+        {
+            if(otherRock == RockMove.GetInstance().PushedRock)
+            {
+                Debug.Log("HIT PUSHED ROCK!!!!");
+                Physics.IgnoreLayerCollision(RockLayer, RockLayer, true); 
+                Vector3 moveToPosition = Vector3.zero;
+                moveToPosition.x = otherRock.MyBoard.BoardSpaces[0,0].transform.position.x + 
+                                    BoardSpaceDist.x * otherRock.PushedCoords.x;
+                moveToPosition.y = otherRock.MyBoard.BoardSpaces[0,0].transform.position.y + 
+                                    BoardSpaceDist.y * otherRock.PushedCoords.y;
+                otherRock.transform.parent = otherRock.transform.parent.parent;
+                LeanTween.move(otherRock.gameObject, moveToPosition, .2f).
+                        setEase(LeanTweenType.linear).setOnComplete(this.PushedRockTweenDone);                              
+            }
+        }
 
         void HandleSelectBoardSpace()
         {
@@ -217,15 +275,18 @@ namespace Radient
                         }                                                                                    
                         else
                         {
-                            SelectedRock.MyBoard.CheckPushedRock();
+                            //SelectedRock.MyBoard.CheckPushedRock();
+                            if(RockMove.GetInstance().PushedRock != null)
+                            {
+                                Physics.IgnoreLayerCollision(RockLayer, RockLayer, false);                                
+                            }                            
                         }
                         //SelectedRock.transform.parent = hitBoardSpace.transform;                        
                         //EndMove(hitBoardSpaceBoard);  
                         MoveToBoardSpace = hitBoardSpace;                          
                         SelectedRock.transform.parent = MoveToBoardSpace.transform.parent;
                         LeanTween.move(SelectedRock.gameObject, MoveToBoardSpace.transform.position, .3f).
-                                setEase(LeanTweenType.easeInOutBack ).setOnComplete(this.TweenDone);
-                        //TweenService.
+                                setEase(TweenType).setOnComplete(this.SelectedRockTweenDone);                        
                         MoveState = eMoveState.ROCK_MOVEMENT;                                                                                                                
                     }
                     else
@@ -253,10 +314,7 @@ namespace Radient
         {
             if(GameState == eGameState.GAME_OVER) return;                
             PrintDebugInfo();
-            if(MoveState == eMoveState.ROCK_MOVEMENT) 
-            {                                
-                return;
-            }
+            if(MoveState == eMoveState.ROCK_MOVEMENT) return;            
 
             if(Input.GetMouseButtonDown(0))
             {                   

@@ -94,57 +94,68 @@ namespace Radient
                 board.ResetBoard();
             }
         }
+
+        void RockFallTweenDone()
+        {
+            Rock pushedRock = RockMove.GetInstance().PushedRock;
+            if(pushedRock == null) {Debug.LogError("WTF"); return;}                   
+            pushedRock.transform.localScale = PreFallScale;            
+            pushedRock.MyBoard.PutRockOnPushedList(pushedRock);  
+            RockDoneMoving();         
+        }
         
+        Vector3 PreFallScale;
         void PushedRockTweenDone()
         {    
-            Debug.Log("PushedRockTweenDone");        
-            if(RockMove.GetInstance().PushedRock == null) return;
+            //Debug.Log("PushedRockTweenDone");        
+            if(RockMove.GetInstance().PushedRock == null) {Debug.LogError("Null pushed rock"); return;}
+             
+            
             Rock pushedRock = RockMove.GetInstance().PushedRock;
             if(Board.AreCoordsOffBoard(pushedRock.PushedCoords) == false)
             {                
                 pushedRock.transform.parent = 
-                    pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;
+                    pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;                
+                RockDoneMoving();
             }
             else
-            {
-                Debug.Log("FALL!!!");
-                pushedRock.MyBoard.PutRockOnPushedList(pushedRock);
-            }
-            EndSelectedRockMove();
-        }
-
-        void EndSelectedRockMove()
-        {
-            ResetSelectedRock();
-            EndMove(MoveToBoardSpace.GetComponentInParent<Board>());
-        }
-
-        void SelectedRockTweenDone()
-        {           
-            Debug.Log("SelectedRockTweenDone");
-            if(SelectedRock == null)
-            {
-                Debug.LogError("Null selected rock");
-            }
+            {                
+                PreFallScale = pushedRock.transform.localScale;
+                LeanTween.scale(pushedRock.gameObject, Vector3.zero, .5f).
+                        setEase(LeanTweenType.linear).setOnComplete(this.RockFallTweenDone);            
+            }            
+        }    
+        
+        void SelectedRockMoveTweenDone()
+        {                       
+            if(SelectedRock == null) { Debug.LogError("Null selected rock"); return; }            
+            
             SelectedRock.transform.parent = MoveToBoardSpace.transform;
-            if(RockMove.GetInstance().PushedRock == null)
-            {
-                EndSelectedRockMove();
-            }            
-        }
+            SelectedRock.transform.localScale /= 1.2f;         
+            SelectedRock.transform.localPosition = Vector3.zero;
+            RockDoneMoving();           
+        }        
 
-        void ResetSelectedRock()
+        void RockDoneMoving()
         {
-           // Debug.Log("ResetSelectedRock()");
-            if(SelectedRock != null)
+            if(NumRocksMoving <= 0) Debug.LogError("Why less than 0 rocks moving?");
+            
+            NumRocksMoving--;                        
+            if(NumRocksMoving == 0)
             {
-                SelectedRock.transform.localScale /= 1.2f;         
-                SelectedRock.transform.localPosition = Vector3.zero;
-                SelectedRock.MyBoard.ResetSpaceHighlights();            
-                Debug.Log("-------------------set SelectedRock to null"); SelectedRock = null; 
-            }            
+                AllRockMovementDone();
+            }
+        }  
+
+        void AllRockMovementDone()
+        {
+            if(SelectedRock == null) { Debug.LogError("Null selected rock"); return; }
+            
+            SelectedRock.MyBoard.ResetSpaceHighlights();            
+            SelectedRock = null;                        
             MoveState = eMoveState.NONE_SELECTED; 
             Physics.IgnoreLayerCollision(RockLayer, RockLayer, true);  
+            EndMove(MoveToBoardSpace.GetComponentInParent<Board>());
         }
        
         RaycastHit RayCast(int layerMask)
@@ -258,6 +269,15 @@ namespace Radient
             }
         }
 
+        void UndoSelectedRock()
+        {
+            SelectedRock.MyBoard.ResetSpaceHighlights();         
+            SelectedRock.transform.localScale /= 1.2f;
+            SelectedRock = null; 
+            MoveState = eMoveState.NONE_SELECTED; 
+        }
+
+        int NumRocksMoving = 0;
         void HandleSelectBoardSpace()
         {
             RaycastHit hit = RayCast(BoardSpaceMask);
@@ -266,7 +286,8 @@ namespace Radient
                 BoardSpace hitBoardSpace = hit.collider.GetComponent<BoardSpace>();
                 Board hitBoardSpaceBoard = hitBoardSpace.GetComponentInParent<Board>();                 
                 if(SelectedRock.MyBoard == hitBoardSpaceBoard)
-                {                        
+                {         
+                    NumRocksMoving = 1;               
                     if(RockMove.GetInstance().ValidBoardSpaces.Contains(hitBoardSpace))
                     {                     
                         if(CurrentMove == eMoveType.PASSIVE)
@@ -274,40 +295,37 @@ namespace Radient
                             RockMove.GetInstance().PassiveMove = hitBoardSpace.SpaceCoords - SelectedRock.GetComponentInParent<BoardSpace>().SpaceCoords;
                         }                                                                                    
                         else
-                        {
-                            //SelectedRock.MyBoard.CheckPushedRock();
+                        {                            
                             if(RockMove.GetInstance().PushedRock != null)
                             {
-                                Physics.IgnoreLayerCollision(RockLayer, RockLayer, false);                                
+                                Physics.IgnoreLayerCollision(RockLayer, RockLayer, false);  
+                                NumRocksMoving++;                              
                             }                            
-                        }
-                        //SelectedRock.transform.parent = hitBoardSpace.transform;                        
-                        //EndMove(hitBoardSpaceBoard);  
+                        }                        
                         MoveToBoardSpace = hitBoardSpace;                          
                         SelectedRock.transform.parent = MoveToBoardSpace.transform.parent;
                         LeanTween.move(SelectedRock.gameObject, MoveToBoardSpace.transform.position, .3f).
-                                setEase(TweenType).setOnComplete(this.SelectedRockTweenDone);                        
+                                setEase(TweenType).setOnComplete(this.SelectedRockMoveTweenDone);                        
                         MoveState = eMoveState.ROCK_MOVEMENT;                                                                                                                
                     }
                     else
                     {                        
                         Debug.LogWarning("Valid Board and Rock but Invalid Move");
                         SelectedRock.MyBoard.ResetSpaceHighlights();                            
-                        ResetSelectedRock(); 
+                        UndoSelectedRock();    
                     }                  
                 }
                 else
                 {
                     Debug.Log("Invalid Board");    
-                    ResetSelectedRock();                         
+                    UndoSelectedRock();
                 }               
             }            
             else
             {
                 Debug.Log("Released over a non BoardSpace");  
-                ResetSelectedRock();              
-            }   
-           // ResetSelectedRock(); 
+                UndoSelectedRock();
+            }              
         }
         
         void Update()

@@ -14,8 +14,8 @@ namespace Radient
 
         Shobu Shobu;
 
-        public enum eBoardColor {DARK, LIGHT};
-        [field: SerializeField] public eBoardColor BoardColor {get; set;} 
+        
+        [field: SerializeField] public Shobu.eBoardColor BoardColor {get; set;} 
         public enum eMoveDirs {UP, UP_LEFT, LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP_RIGHT};
         //public List<BoardSpace> ValidMoves = new List<BoardSpace>();
         //public List<Shobu.RockMove> ValidRockMoves = new List<Shobu.RockMove>();
@@ -177,26 +177,7 @@ namespace Radient
             }
             
             return true; 
-        }
-
-       /* public void CheckPushedRock()
-        {        
-            if(RockMove.GetInstance().PushedRock != null)
-            {
-                
-                Rock pushedRock = RockMove.GetInstance().PushedRock;
-                if(AreCoordsOffBoard(pushedRock.PushedCoords))
-                {
-                    PutRockOnPushedList(pushedRock);
-                }
-                else
-                {
-                    pushedRock.transform.parent = 
-                        BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;
-                    pushedRock.transform.localPosition = Vector3.zero;
-                }
-            }
-        }*/
+        }      
 
         public bool UpdatePossiblePassiveMoves(Rock rock)
         {               
@@ -249,10 +230,7 @@ namespace Radient
         }
 
         public void ResetSpaceHighlights()
-        {
-        // if(this.name.Equals("Light1") == false) return;
-    //        Debug.Log("ResetSpaceHighlights");
-        // ValidMoves.Clear();
+        {        
             for(int x = 0; x < NUM_ROWS_COLS; x++)
             {
                 for(int y = 0; y < NUM_ROWS_COLS; y++)

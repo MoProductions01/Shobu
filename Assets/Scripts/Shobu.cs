@@ -242,10 +242,10 @@ namespace Radient
                         else
                         {                            
                             Debug.LogWarning("No valid Aggressive move");
-                            if(rock.MyBoard.CheckPassiveSpace(new Vector2Int(moveCoords.x, moveCoords.y)))
+                            /*if(rock.MyBoard.CheckPassiveSpace(new Vector2Int(moveCoords.x, moveCoords.y)))
                             {
                                 rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.red);       
-                            }
+                            }*/
                         }
                     }                                 
                 }                        
@@ -256,7 +256,7 @@ namespace Radient
         {
             if(otherRock == RockMove.GetInstance().PushedRock)
             {
-                Debug.Log("HIT PUSHED ROCK!!!!");
+               // Debug.Log("HIT PUSHED ROCK!!!!");
                 Physics.IgnoreLayerCollision(RockLayer, RockLayer, true); 
                 Vector3 moveToPosition = Vector3.zero;
                 moveToPosition.x = otherRock.MyBoard.BoardSpaces[0,0].transform.position.x + 
@@ -311,7 +311,7 @@ namespace Radient
                     else
                     {                        
                         Debug.LogWarning("Valid Board and Rock but Invalid Move");
-                        SelectedRock.MyBoard.ResetSpaceHighlights();                            
+                       // SelectedRock.MyBoard.ResetSpaceHighlights();                            
                         UndoSelectedRock();    
                     }                  
                 }

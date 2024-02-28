@@ -122,7 +122,7 @@ namespace Radient
                 }
                 else if(rockCheck.RockColor == rock.RockColor)
                 {
-                    Debug.LogWarning("Board space: " + coordsToCheck.ToString() + " has Rock of own color in path so invalid.");
+                   // Debug.LogWarning("Board space: " + coordsToCheck.ToString() + " has Rock of own color in path so invalid.");
                     return false;
                 }
                 else

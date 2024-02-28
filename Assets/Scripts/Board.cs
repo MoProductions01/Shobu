@@ -35,7 +35,7 @@ namespace Radient
         };
         
         //public List<List<BoardSpace>> BoardSpaces = new List<List<BoardSpace>>(NUM_ROWS_COLS);
-        public BoardSpace[,] BoardSpaces = new BoardSpace[4,4];
+        public BoardSpace[,] BoardSpaces {get; private set; } = new BoardSpace[4,4];
         [SerializeField] GameObject PushedOffRocks;      
 
         public bool CheckPassiveSpace(Vector2Int space)

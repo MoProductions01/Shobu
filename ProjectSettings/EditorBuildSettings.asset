@@ -5,9 +5,14 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Scratch.unity
     guid: cf354c1caac3b92418b2b28c021da475
+  - enabled: 1
+    path: Assets/Scenes/MainGame.unity
+    guid: 61af0944b0278e842ab26b87eff03916
   m_configObjects:
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: a522a1db426551647bf83a36e606aaf4, type: 2}
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 3aebc5f893ff0964c87b964ae70c19ed, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: a4b84448ea702d540837d0237b954afe, type: 2}
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: d0c2c5441e5f94145ac03bc02e042215, type: 2}

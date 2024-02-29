@@ -1,19 +1,17 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Radient
 {
+    /// <summary>
+    /// Class for each of the 4 boards in the game.  Does stuff like managing board spaces, rocks
+    /// on the board and calculcating possible Passive and Aggressive moves.
+    /// </summary>
     public class Board : MonoBehaviour
     {
-        public static int NUM_ROWS_COLS = 4; // It's a 4x4 grid on each board        
-
-        private Shobu Shobu; // Reference to the Shobo game manager        
-        [field: SerializeField] public Shobu.eBoardColor BoardColor {get; set;} // this Board's color
+        public static int NUM_ROWS_COLS = 4; // It's a 4x4 grid on each board      
         // The 8 directions a rock piece can move        
         public enum eMoveDirs {UP, UP_LEFT, LEFT, DOWN_LEFT, DOWN, DOWN_RIGHT, RIGHT, UP_RIGHT};
         // The delta x,y for each of the 8 different move types
@@ -27,7 +25,11 @@ namespace Radient
             new Vector2Int(1, -1),  // DOWN_RIGHT
             new Vector2Int(1, 0),   // RIGHT
             new Vector2Int(1, 1),   // UP_RIGHT
-        };
+        };  
+
+        private Shobu Shobu; // Reference to the Shobo game manager        
+        [field: SerializeField] public Shobu.eBoardColor BoardColor {get; private set;} // this Board's color
+                
         // The 16 BoardSpaces that are on each board        
         public BoardSpace[,] BoardSpaces {get; private set; } = new BoardSpace[4,4];
         [SerializeField] GameObject PushedOffRocks; // List of rocks that were pushed off the board     

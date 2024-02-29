@@ -1,47 +1,61 @@
-using System.Collections;
-using System.Collections.Generic;
-using Radient;
 using TMPro;
 using UnityEngine;
 
-public class UI : MonoBehaviour
+namespace Radient
 {
-    //Shobu Shobu;
-    [SerializeField] TMP_Text GameStateText;
-
-    // Start is called before the first frame update
-    void Awake()
-    {
-       // Shobu = FindObjectOfType<Shobu>();
-        //Shobu.OnGameStateChange.AddListener(UpdateUI);
-       // Shobu.OnGameStateChangeAction += UpdateUI; // Actions prevent anything but subscribing and unsubscribing
-    }    
-
-    private void OnEnable()     
+    /// <summary>
+    /// The main UI script for the in-game UI elements
+    /// </summary>
+    public class UI : MonoBehaviour
     {        
-        FindObjectOfType<Shobu>().OnGameStateChangeAction += UpdateUI;
-    }
+        [SerializeField] TMP_Text GameStateText; // Text for the current game state        
 
-    private void OnDisable() 
-    {
-        FindObjectOfType<Shobu>().OnGameStateChangeAction -= UpdateUI;    
-    }
-
-    public void ResetGame()
-    {
-        FindObjectOfType<Shobu>().ResetGame();
-    }
-
-    void UpdateUI(Shobu.eGameState gameState, Shobu.eRockColors player, Shobu.eMoveType moveType)
-    {
-        //Debug.Log("Update the UI");
-        if(gameState == Shobu.eGameState.PLAYING)
-        {
-            GameStateText.text = "Player: " + player + "  Move: " + moveType;            
+        /// <summary>
+        /// When enabled, subscribe to the game state change stuff so we can update
+        /// </summary>
+        private void OnEnable()     
+        {        
+           if(FindObjectOfType<Shobu>() != null )
+            {
+                FindObjectOfType<Shobu>().OnGameStateChangeAction += UpdateUI;    
+            }   
         }
-        else
+
+        /// <summary>
+        /// When disabled, unsubscribe to the game state change stuff
+        /// </summary>
+        private void OnDisable() 
         {
-            GameStateText.text = "WINNER: " + player + "!!!!!!!!!";
+            if(FindObjectOfType<Shobu>() != null )
+            {
+                FindObjectOfType<Shobu>().OnGameStateChangeAction -= UpdateUI;    
+            }            
+        }
+
+        /// <summary>
+        /// Callback for the ResetGame button
+        /// </summary>
+        public void ResetGame()
+        {
+            FindObjectOfType<Shobu>().ResetGame();
+        }
+
+        /// <summary>
+        /// Called from Shobu to update the UI elements
+        /// </summary>
+        /// <param name="gameState">Current GameState</param>
+        /// <param name="player">Which color rock has current turn</param>
+        /// <param name="moveType">Passive or Aggressive move</param>
+        void UpdateUI(Shobu.eGameState gameState, Shobu.eRockColors player, Shobu.eMoveType moveType)
+        {            
+            if(gameState == Shobu.eGameState.PLAYING)
+            {
+                GameStateText.text = "Player: " + player + "  Move: " + moveType;            
+            }
+            else
+            {
+                GameStateText.text = "WINNER: " + player + "!!!!!!!!!";
+            }
         }
     }
 }

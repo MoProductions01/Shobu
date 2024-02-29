@@ -1,40 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Camera))][ExecuteAlways]
-public class CameraResize : MonoBehaviour
+namespace Radient
 {
-    [SerializeField]
-    private Camera GameCamera;
-    
-    private Vector2 targetAspectRatio = new(1,1);
-    private Vector2 rectCenter = new(0.5f, 0.5f);
-    
-    private Vector2 lastResolution;   
-
-    private void OnValidate()
+    /// <summary>
+    /// This class takes care of the majority of the issues involved with multiple
+    /// screen resolutions rather than all of the UI anchoring.
+    /// </summary>
+    [RequireComponent(typeof(Camera))][ExecuteAlways]
+    public class CameraResize : MonoBehaviour
     {
-        GameCamera ??= GetComponent<Camera>();
-    }
+        [SerializeField]
+        private Camera GameCamera;        
+        private Vector2 TargetAspectRatio = new(1,1);   // Default resolution for the game
+        private Vector2 RectCenter = new(0.5f, 0.5f);   // Center of the default screen rectangle        
+        private Vector2 LastResolution;                 // Last resolution of the screen
 
-    public void LateUpdate()
-    {        
-        var currentScreenResolution = new Vector2(Screen.width, Screen.height);
- 
-        // Don't run all the calculations if the screen resolution has not changed
-        if (lastResolution != currentScreenResolution)
+        /// <summary>
+        /// Grab a reference to the camera once this script is validated
+        /// </summary>
+        private void OnValidate()
         {
-            CalculateCameraRect(currentScreenResolution);
+            GameCamera ??= GetComponent<Camera>();
         }
- 
-        lastResolution = currentScreenResolution;
-    }
- 
-    private void CalculateCameraRect(Vector2 currentScreenResolution)
-    {
-        var normalizedAspectRatio = targetAspectRatio / currentScreenResolution;
-        var size = normalizedAspectRatio / Mathf.Max(normalizedAspectRatio.x, normalizedAspectRatio.y);
-        GameCamera.rect = new Rect(default, size) { center = rectCenter };
+
+        /// <summary>
+        /// Check if the screen resesolution has changed during the engine's
+        /// LateUpdate calls
+        /// </summary>
+        public void LateUpdate()
+        {        
+            // Current screen resolution
+            Vector2 currentScreenResolution = new Vector2(Screen.width, Screen.height);
+    
+            // Don't run all the calculations if the screen resolution has not changed
+            if (LastResolution != currentScreenResolution)
+            {
+                CalculateCameraRect(currentScreenResolution);
+            }
+
+            LastResolution = currentScreenResolution;
+        }
+
+        /// <summary>
+        /// Calculates the current rectangle for the camera based on it's resolution/aspect ratio.
+        /// Only called if the resolution has changed.
+        /// </summary>
+        /// <param name="currentScreenResolution"></param>
+        private void CalculateCameraRect(Vector2 currentScreenResolution)
+        {
+            var normalizedAspectRatio = TargetAspectRatio / currentScreenResolution;
+            var size = normalizedAspectRatio / Mathf.Max(normalizedAspectRatio.x, normalizedAspectRatio.y);
+            GameCamera.rect = new Rect(default, size) { center = RectCenter };
+        }
     }
 }
+

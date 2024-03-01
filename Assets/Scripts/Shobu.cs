@@ -9,6 +9,8 @@ namespace Radient
     /// player control
     /// </summary>
     public class Shobu : MonoBehaviour
+ 
+
     {           
         // Overall state of the game.
         public enum eGameState {PLAYING, GAME_OVER};
@@ -47,6 +49,13 @@ namespace Radient
         Vector3 RockScale;  // The starting scale for Rocks.  Used after rocks shrinking to simulate falling off board   
         
         public TMP_Text DebugText; // Text element for debugging on Display 2
+
+        //AUDIO
+        public AudioSource audioSource1;//HighlightRock
+        public AudioSource audioSource2;//MoveRock
+        public AudioSource audioSource3;//PushAnotherRock
+        public AudioSource audioSource4;//PushedOffBoard
+        public AudioSource audioSource5;//Win
 
         /// <summary>
         /// Start is called before the first frame update
@@ -122,6 +131,12 @@ namespace Radient
             Rock pushedRock = RockMove.GetInstance().PushedRock;
             pushedRock.transform.localScale = RockScale;    // Reset the scale of the pushed rock after it's tweened to 0
             pushedRock.MyBoard.PutRockOnPushedList(pushedRock); // Remove rock from board
+
+            //AUDIO
+             if (audioSource4 != null && audioSource4.clip != null)
+        {
+            audioSource4.Play();
+        }
             RockDoneMoving();   // Let game know this rock is done moving to check for state changes
         }
         
@@ -137,7 +152,14 @@ namespace Radient
             {   // If the pushed rock is staying on the board then just re-parent it to the BoardSpace
                 // and let the game know it's done moving.                                                               
                 pushedRock.transform.parent = 
-                    pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;                
+                    pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform; 
+                    
+                    //AUDIO
+                    if (audioSource3 != null && audioSource3.clip != null)
+        {
+            audioSource3.Play();
+        }
+
                 RockDoneMoving();
             }
             else
@@ -242,7 +264,12 @@ namespace Radient
             {
                 if(moveBoard.CheckEndGame() == true)
                 {   // If a user has won then change the state to that.                    
-                    ChangeGameState(eGameState.GAME_OVER, CurrentRockColor, CurrentMove);  
+                    ChangeGameState(eGameState.GAME_OVER, CurrentRockColor, CurrentMove); 
+                    
+                    if (audioSource5 != null && audioSource5.clip != null)
+        {
+            audioSource5.Play();
+        }
                 }
                 else
                 {   // Switch to Passive mode, resetting the RockMove and determining
@@ -338,7 +365,9 @@ namespace Radient
                 SelectedRock.transform.localScale *= 1.2f; // Make rock a little bigger                                                                                             
                 RockMove.GetInstance().ValidBoardSpaces.Add(SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
                 SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.blue);                               
-                MoveState = eMoveState.ROCK_SELECTED;    
+                MoveState = eMoveState.ROCK_SELECTED; 
+                
+                
             }            
         }
 
@@ -350,6 +379,7 @@ namespace Radient
             RaycastHit hit = RayCast(RockMask);
             if(hit.collider == null) return; // bail if you didn't click on a rock
 
+
             Rock rock = hit.collider.GetComponent<Rock>();  // get the rock component
             // Leave if the selected rock isn't on a valid board or it's the wrong color
             if(ValidBoards.Contains(rock.MyBoard) == false || (CurrentRockColor != rock.RockColor)) return;                                           
@@ -358,11 +388,23 @@ namespace Radient
             RockMove.GetInstance().Reset();  
             if(CurrentMove == eMoveType.PASSIVE)
             {   // PASSIVE move
-                HandlePassiveMoveChecks(rock);                               
+                HandlePassiveMoveChecks(rock);   
+                
+                //AUDIO
+            if (audioSource1 != null && audioSource1.clip != null)
+        {
+            audioSource1.Play();
+        }
             }    
             else
             {   // AGGRESSIVE move
-                HandleAggressiveMoveChecks(rock);                                    
+                HandleAggressiveMoveChecks(rock);   
+                
+                //AUDIO
+            if (audioSource1 != null && audioSource1.clip != null)
+        {
+            audioSource1.Play();
+        }
             }                                                                               
         }
 
@@ -379,11 +421,23 @@ namespace Radient
             if(SelectedRock.MyBoard != hitBoardSpaceBoard) {  UndoSelectedRock(); return; } // invalid board           
             if(RockMove.GetInstance().ValidBoardSpaces.Contains(hitBoardSpace) == false) {UndoSelectedRock();  return; } // valid board but invalid move                                
 
+             //AUDIO
+                if (audioSource2 != null && audioSource2.clip != null)
+        {
+            audioSource2.Play();
+        }
+
             // We have a valid move so there's at least 1 rock that's going to be moving to keep track of   
             NumRocksMoving = 1;             
             if(CurrentMove == eMoveType.PASSIVE)
             {   // Passive move, so keep track of what the move was for the Aggressive move part
                 RockMove.GetInstance().PassiveMove = hitBoardSpace.SpaceCoords - SelectedRock.GetComponentInParent<BoardSpace>().SpaceCoords;
+               
+                //AUDIO
+                if (audioSource2 != null && audioSource2.clip != null)
+        {
+            audioSource2.Play();
+        }
             }                                                                                    
             else
             {   // Aggressive move, so see if any rocks will be pushed by this move                         
@@ -391,6 +445,8 @@ namespace Radient
                 {   // We've got a rock that will get pushed so turn the collision back on
                     Physics.IgnoreLayerCollision(RockLayer, RockLayer, false);  
                     NumRocksMoving++; // Increase num rocks moving so that the game won't move on until both are done
+
+                   
                 }                            
             }             
             // Set up the tween for the selected rock to move           

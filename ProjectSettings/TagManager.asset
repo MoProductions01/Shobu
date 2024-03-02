@@ -47,6 +47,9 @@ TagManager:
   - name: Board
     uniqueID: 927802567
     locked: 0
+  - name: Shadows
+    uniqueID: 2715673567
+    locked: 0
   - name: Pieces
     uniqueID: 1281487805
     locked: 0

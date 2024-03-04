@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b0f414140f8320540aa70aa249a3f981
+guid: 44fb2aca02804af4da7d8badb3f24f71
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,889 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Circle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3022.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db3bfa5cdf7dea4894333613695fd36
+      internalID: 1052251415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_1
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 3022.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46269968a97ba4c4792745a840309279
+      internalID: -768635223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_2
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 3022.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 188521ad39fa364409861f845bcb94d0
+      internalID: -1271487445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_3
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 3022.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c71a1d0498b1f042ac16aa5c6f2f232
+      internalID: 1156183325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_4
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 3022.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d54b17a3566b1444b99661507cc2e3c6
+      internalID: -168063348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2645.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a8b5332ecc9bd548bb197e4c7b4c275
+      internalID: 2122883242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_6
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 2645.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a26cf217bce2c84399dd8120d1bd297
+      internalID: 1308263304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_7
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 2645.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00a91b4e03cf3e04887f9fb400354ed7
+      internalID: 813840536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_8
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 2645.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58f26f4fb47465f4395bf3400906cfbb
+      internalID: -1827958067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_9
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 2645.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99069806a9aab7b42895e9341872fa56
+      internalID: 605602076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2268.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7491286f510e4ab4ab6f5457b466a5eb
+      internalID: 1463018199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_11
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 2268.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2afea0b5ba50f0143bf7ef5eea256cd5
+      internalID: 1583003704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_12
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 2268.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae7abfd4fed0f0b41b386991a11a6583
+      internalID: -1667293278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_13
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 2268.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ccefb90cf40e82441a1b3226e9d87820
+      internalID: 273241152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_14
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 2268.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82deda110922cb34b87794cffd355a84
+      internalID: 1819893192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1891.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc5699db20d45d54f9e697963d0a5bf7
+      internalID: 98778425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_16
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1891.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812886268d549d64ead0025cdb2914ab
+      internalID: 1290513867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_17
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1891.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84874f60a4503d04c8098ff13ec58a43
+      internalID: 72980893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_18
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 1891.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 685fa8b1319f3e741a87f5061ce20d0b
+      internalID: -620256519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_19
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 1891.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ccee79ffa0510a40b8c1a53a3c0efc1
+      internalID: -2067921022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1514.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a4e0054bff55b459e71ba2680d7717
+      internalID: 1946421272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_21
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1514.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21a65ddefb8bd24da326a3fb780a31a
+      internalID: 680392511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_22
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1514.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 583760d639d7f0b45bd801da4f15f154
+      internalID: -718081561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_23
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 1514.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b43f630a1e83c94aa82064fe6771594
+      internalID: 1980966086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_24
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 1514.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a921ff946316e5d45b51596e7d9ffd86
+      internalID: 97981434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_25
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1137.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d384857a7bd4664a8c88fd8d2c3c3d8
+      internalID: -239007361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_26
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 1137.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b842ff7c32e45b429f7f9c41fe938be
+      internalID: 401339112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_27
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 1137.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71825c9e531c53543b6f472dee401128
+      internalID: -1595391649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_28
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 1137.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eccf9c89f3b9bbf4b863e552a029ed17
+      internalID: 1082762156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_29
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 1137.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b51e9cb6ffd48ad4980d0ef1e77a220f
+      internalID: 1961017387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_30
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 760.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ab6cb899ae20b4ebacaad049295602
+      internalID: 2139766366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_31
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 760.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78703789aee3fca44a8c0b077ac98247
+      internalID: -668145630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_32
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 760.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3892b21bc32103840bd3d23d0f5999f8
+      internalID: -1030768685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_33
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 760.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c57a6ae2d7746b64a9cccdfe9d50e3f5
+      internalID: 279759490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_34
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 760.2222
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 595f80b60ce2d8140bd1dd17c77701eb
+      internalID: -2021611467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 383.22223
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e7eeee3a9ab8a48a605e0c69c6ab14
+      internalID: -1982203598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_36
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 383.22223
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ae383204e6fb1a4f9a234856b738143
+      internalID: 376590287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_37
+      rect:
+        serializedVersion: 2
+        x: 756
+        y: 383.22223
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db62ceb10f302641b87148dcaee5f0c
+      internalID: -192005206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_38
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 383.22223
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14f51d97efca57e4fa3494b494320ec6
+      internalID: 1992557841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_39
+      rect:
+        serializedVersion: 2
+        x: 1512
+        y: 383.22223
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8b423fbd7e566e459a13acfdd98c041
+      internalID: 859586373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_40
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 6.222229
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2111b5b03d441d409e09f4ef2b5c550
+      internalID: 1435227348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Circle_41
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 6.222229
+        width: 378
+        height: 377.77777
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6617ac0bdbf8e2f43a0db6edde24ea8b
+      internalID: 112644009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +1001,49 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Circle_0: 1052251415
+      Circle_1: -768635223
+      Circle_10: 1463018199
+      Circle_11: 1583003704
+      Circle_12: -1667293278
+      Circle_13: 273241152
+      Circle_14: 1819893192
+      Circle_15: 98778425
+      Circle_16: 1290513867
+      Circle_17: 72980893
+      Circle_18: -620256519
+      Circle_19: -2067921022
+      Circle_2: -1271487445
+      Circle_20: 1946421272
+      Circle_21: 680392511
+      Circle_22: -718081561
+      Circle_23: 1980966086
+      Circle_24: 97981434
+      Circle_25: -239007361
+      Circle_26: 401339112
+      Circle_27: -1595391649
+      Circle_28: 1082762156
+      Circle_29: 1961017387
+      Circle_3: 1156183325
+      Circle_30: 2139766366
+      Circle_31: -668145630
+      Circle_32: -1030768685
+      Circle_33: 279759490
+      Circle_34: -2021611467
+      Circle_35: -1982203598
+      Circle_36: 376590287
+      Circle_37: -192005206
+      Circle_38: 1992557841
+      Circle_39: 859586373
+      Circle_4: -168063348
+      Circle_40: 1435227348
+      Circle_41: 112644009
+      Circle_5: 2122883242
+      Circle_6: 1308263304
+      Circle_7: 813840536
+      Circle_8: -1827958067
+      Circle_9: 605602076
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

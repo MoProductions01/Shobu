@@ -50,6 +50,9 @@ namespace Radient
         
         public TMP_Text DebugText; // Text element for debugging on Display 2
 
+        [SerializeField] private GameObject circleVFX;
+        [SerializeField] private GameObject triangleVFX;
+
         //AUDIO
         public AudioSource audioSource1;//HighlightRock
         public AudioSource audioSource2;//MoveRock
@@ -204,7 +207,9 @@ namespace Radient
             
             // Re-parent, re-positoin and resize the slected rock
             SelectedRock.transform.parent = MoveToBoardSpace.transform;
-            SelectedRock.transform.localScale /= 1.2f;         
+            SelectedRock.transform.localScale /= 1.2f;
+            triangleVFX.SetActive(false);
+            circleVFX.SetActive(false);
             SelectedRock.transform.localPosition = Vector3.zero;            
             RockDoneMoving(); // Let game know a rock has finished moving
         }        
@@ -338,6 +343,18 @@ namespace Radient
                 {   // We've got at least one valid passive move
                     SelectedRock = rock; // Update the Selected rock
                     SelectedRock.transform.localScale *= 1.2f;  // Make selected rock a little bigger
+                    if (CurrentRockColor == eRockColors.BLACK)
+                    {
+                        triangleVFX.SetActive(true);
+                        triangleVFX.transform.localPosition = SelectedRock.transform.position;
+
+                    }
+                    else if (CurrentRockColor == eRockColors.WHITE)
+                    {
+                        circleVFX.SetActive(true);
+                        circleVFX.transform.localPosition = SelectedRock.transform.position;
+                    }
+
                     MoveState = eMoveState.ROCK_SELECTED; // Change the move state since we have a valid space we can move to
                 }                                                       
                 // Loop through any invalid moves
@@ -362,7 +379,19 @@ namespace Radient
             if(rock.MyBoard.CheckAggressiveMove(rock, RockMove.GetInstance().PassiveMove, false))
             {   // There's at least one valid aggressive move                   
                 SelectedRock = rock; // Update user selected rock
-                SelectedRock.transform.localScale *= 1.2f; // Make rock a little bigger                                                                                             
+                SelectedRock.transform.localScale *= 1.2f; // Make rock a little bigger
+                if(CurrentRockColor == eRockColors.BLACK)
+                {
+                    triangleVFX.SetActive(true);
+                    triangleVFX.transform.localPosition = SelectedRock.transform.position;
+
+                }
+                else if(CurrentRockColor == eRockColors.WHITE)
+                {
+                    circleVFX.SetActive(true);
+                    circleVFX.transform.localPosition = SelectedRock.transform.position;
+                }
+
                 RockMove.GetInstance().ValidBoardSpaces.Add(SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
                 SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, "agressive");                               
                 MoveState = eMoveState.ROCK_SELECTED; 
@@ -464,6 +493,8 @@ namespace Radient
         {   
             SelectedRock.MyBoard.ResetSpaceHighlights(); // Reset all the highlights         
             SelectedRock.transform.localScale /= 1.2f;  // Reset scale
+            triangleVFX.SetActive(false);
+            circleVFX.SetActive(false);
             SelectedRock = null; // No more selected rock
             MoveState = eMoveState.NONE_SELECTED; 
         }

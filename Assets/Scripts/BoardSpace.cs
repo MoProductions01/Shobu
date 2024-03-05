@@ -10,11 +10,16 @@ namespace Radient
     public class BoardSpace : MonoBehaviour
     {
         SpriteRenderer BoardSpaceHighlight; // Graphic for the space highlight
+        [SerializeField] private GameObject purpleSquareVFX;
+        [SerializeField] private GameObject redSquareVFX;
         public Vector2Int SpaceCoords {get; private set;} // x,y coords for the space
 
         void Awake()
-        {            
+        {
+            purpleSquareVFX.SetActive(false);
+            redSquareVFX.SetActive(false);
             BoardSpaceHighlight = GetComponent<SpriteRenderer>(); // Get a reference to the highlight graphic
+            BoardSpaceHighlight.enabled = false;
             // Get the coordinates based on the GameObjectname
             string[] locString = name.Split(",");
             SpaceCoords = new Vector2Int(Int32.Parse(locString[0]), Int32.Parse(locString[1]));
@@ -24,11 +29,26 @@ namespace Radient
         /// Enables/disables the highlight as well as changing it's color
         /// </summary>
         /// <param name="isEnabled">Whether or not it's even on</param>
-        /// <param name="color">Color for the highlight</param>
-        public void ToggleHighlight(bool isEnabled, Color color)
-        {            
-            BoardSpaceHighlight.enabled = isEnabled;
-            BoardSpaceHighlight.color = new Color(color.r, color.g, color.b, .5f);
+        /// <param name="typeOfMove">Type of move that is referencing</param>
+        public void ToggleHighlight(bool isEnabled, string typeOfMove)
+        {
+            switch (typeOfMove)
+            {
+                case "passive":
+                    purpleSquareVFX.SetActive(isEnabled);
+                    break;
+
+                case "agressive":
+                    redSquareVFX.SetActive(isEnabled);
+                    break;
+
+                case "both":
+                    purpleSquareVFX.SetActive(isEnabled);
+                    redSquareVFX.SetActive(isEnabled);
+                    break;
+            }
+            //BoardSpaceHighlight.enabled = isEnabled;
+            //BoardSpaceHighlight.color = new Color(color.r, color.g, color.b, .5f);
         }
     }
 }

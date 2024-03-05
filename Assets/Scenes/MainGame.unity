@@ -1232,6 +1232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1060671774}
+  redSquareVFX: {fileID: 550281715}
 --- !u!65 &89020091
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1354,6 +1356,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 169186214}
+  redSquareVFX: {fileID: 1157914317}
 --- !u!65 &95568067
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1856,6 +1860,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1107679468}
+  redSquareVFX: {fileID: 1782209533}
 --- !u!65 &131712043
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3227,6 +3233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1764410004}
+  redSquareVFX: {fileID: 288217250}
 --- !u!65 &203589146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4714,6 +4722,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 237067938}
+  redSquareVFX: {fileID: 171897611}
 --- !u!65 &299643011
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4941,6 +4951,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1038402041}
+  redSquareVFX: {fileID: 373917011}
 --- !u!65 &307008387
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5211,6 +5223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1927289444}
+  redSquareVFX: {fileID: 1923484338}
 --- !u!65 &326571259
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5332,6 +5346,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 357025843}
+  redSquareVFX: {fileID: 11216740}
 --- !u!65 &330338722
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5785,6 +5801,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1276600261}
+  redSquareVFX: {fileID: 416110848}
 --- !u!65 &366315147
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6771,6 +6789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 902407669}
+  redSquareVFX: {fileID: 204367552}
 --- !u!65 &409214025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7612,6 +7632,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1280374310}
+  redSquareVFX: {fileID: 1666563153}
 --- !u!65 &488616221
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7733,6 +7755,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1984101091}
+  redSquareVFX: {fileID: 451711978}
 --- !u!65 &493871492
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7995,6 +8019,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1677028520}
+  redSquareVFX: {fileID: 1304168124}
 --- !u!65 &515801932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8891,6 +8917,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1000907853}
+  redSquareVFX: {fileID: 175637203}
 --- !u!65 &560369903
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9013,6 +9041,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 2000365763}
+  redSquareVFX: {fileID: 1156234326}
 --- !u!65 &569157253
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9134,6 +9164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1825519316}
+  redSquareVFX: {fileID: 230375522}
 --- !u!65 &574935805
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9573,6 +9605,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 214340952}
+  redSquareVFX: {fileID: 860344262}
 --- !u!65 &617084304
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10113,6 +10147,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1697602865}
+  redSquareVFX: {fileID: 379785809}
 --- !u!65 &652137215
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10285,6 +10321,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1472517550}
+  redSquareVFX: {fileID: 331810429}
 --- !u!65 &662989783
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11191,6 +11229,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1066804921}
+  redSquareVFX: {fileID: 1446988726}
 --- !u!65 &723336528
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12809,6 +12849,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1264325711}
+  redSquareVFX: {fileID: 1353510058}
 --- !u!65 &861858433
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13015,6 +13057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1669236346}
+  redSquareVFX: {fileID: 57982255}
 --- !u!65 &877787497
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13243,6 +13287,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 420826870}
+  redSquareVFX: {fileID: 1243461062}
 --- !u!65 &898020157
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13555,6 +13601,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1094782471}
+  redSquareVFX: {fileID: 1957241534}
 --- !u!65 &907896096
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14460,6 +14508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 453426215}
+  redSquareVFX: {fileID: 984286321}
 --- !u!65 &982782415
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -14794,6 +14844,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 794167211}
+  redSquareVFX: {fileID: 1361206030}
 --- !u!65 &989925404
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15021,6 +15073,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 582074866}
+  redSquareVFX: {fileID: 147071328}
 --- !u!65 &990226331
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16399,6 +16453,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1388089741}
+  redSquareVFX: {fileID: 1722911689}
 --- !u!65 &1102856733
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16733,6 +16789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 926918985}
+  redSquareVFX: {fileID: 1203739226}
 --- !u!65 &1113527234
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16975,6 +17033,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1230635134}
+  redSquareVFX: {fileID: 501966223}
 --- !u!65 &1121273279
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18233,6 +18293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 730369797}
+  redSquareVFX: {fileID: 886147707}
 --- !u!65 &1211727228
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18461,6 +18523,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 266436441}
+  redSquareVFX: {fileID: 2096833476}
 --- !u!65 &1231672146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -18688,6 +18752,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 990063685}
+  redSquareVFX: {fileID: 1126031326}
 --- !u!65 &1258831010
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19170,6 +19236,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1686729825}
+  redSquareVFX: {fileID: 524461814}
 --- !u!65 &1275788405
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19397,6 +19465,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 193799379}
+  redSquareVFX: {fileID: 1646914415}
 --- !u!65 &1278668808
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19867,6 +19937,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1186987052}
+  redSquareVFX: {fileID: 816962797}
 --- !u!65 &1297104184
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -19989,6 +20061,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 2057965220}
+  redSquareVFX: {fileID: 408570422}
 --- !u!65 &1303628290
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20385,6 +20459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1014675191}
+  redSquareVFX: {fileID: 984382457}
 --- !u!65 &1325458285
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21158,6 +21234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 680604592}
+  redSquareVFX: {fileID: 1328141692}
 --- !u!65 &1363735434
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21853,6 +21931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1932979757}
+  redSquareVFX: {fileID: 1596197482}
 --- !u!65 &1427925911
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -21974,6 +22054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1485924682}
+  redSquareVFX: {fileID: 538992583}
 --- !u!65 &1436168932
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22702,6 +22784,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1268153314}
+  redSquareVFX: {fileID: 694118822}
 --- !u!65 &1475047474
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23081,6 +23165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 188480463}
+  redSquareVFX: {fileID: 95577104}
 --- !u!65 &1493137451
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23449,6 +23535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1460635782}
+  redSquareVFX: {fileID: 1407125521}
 --- !u!65 &1538155750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23773,6 +23861,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 191828502}
+  redSquareVFX: {fileID: 546305337}
 --- !u!65 &1572709658
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -23895,6 +23985,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 174581587}
+  redSquareVFX: {fileID: 743033311}
 --- !u!65 &1575675463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24017,6 +24109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 780402785}
+  redSquareVFX: {fileID: 1906600302}
 --- !u!65 &1579439613
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24139,6 +24233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 62666188}
+  redSquareVFX: {fileID: 1537508113}
 --- !u!65 &1585893707
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24641,6 +24737,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 382473865}
+  redSquareVFX: {fileID: 1025082121}
 --- !u!65 &1642035501
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25757,6 +25855,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 160774146}
+  redSquareVFX: {fileID: 1111426981}
 --- !u!65 &1715690009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26323,6 +26423,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1751187818}
+  redSquareVFX: {fileID: 438307696}
 --- !u!65 &1746793624
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -26550,6 +26652,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1333791680}
+  redSquareVFX: {fileID: 1041809416}
 --- !u!65 &1751508169
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27360,6 +27464,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1188724674}
+  redSquareVFX: {fileID: 1358982862}
 --- !u!65 &1817534429
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28086,6 +28192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 592786767}
+  redSquareVFX: {fileID: 1768602826}
 --- !u!65 &1908146712
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28738,6 +28846,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1729749455}
+  redSquareVFX: {fileID: 64125510}
 --- !u!65 &1947902054
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28982,6 +29092,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 67143898}
+  redSquareVFX: {fileID: 641984851}
 --- !u!65 &1957231752
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29316,6 +29428,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 716066244}
+  redSquareVFX: {fileID: 945650939}
 --- !u!65 &1984217452
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29470,6 +29584,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 926670703}
+  redSquareVFX: {fileID: 2083084249}
 --- !u!65 &1989044530
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -29591,6 +29707,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 980297469}
+  redSquareVFX: {fileID: 598645510}
 --- !u!65 &1992384708
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30002,6 +30120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1522816868}
+  redSquareVFX: {fileID: 303884707}
 --- !u!65 &2032222198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30124,6 +30244,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 139299911}
+  redSquareVFX: {fileID: 107004380}
 --- !u!65 &2032729546
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30246,6 +30368,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 796786723}
+  redSquareVFX: {fileID: 412937412}
 --- !u!65 &2035044989
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31002,6 +31126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 1612603379}
+  redSquareVFX: {fileID: 260118945}
 --- !u!65 &2090612830
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -31379,6 +31505,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 180f4a7ccd4f8b34f9505f5df21c95cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  purpleSquareVFX: {fileID: 851874497}
+  redSquareVFX: {fileID: 2067700375}
 --- !u!65 &2117045507
 BoxCollider:
   m_ObjectHideFlags: 0

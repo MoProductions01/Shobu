@@ -330,7 +330,7 @@ namespace Radient
                 {   // For each valid Passive move on both valid boards highlight it and add
                     // it to the global ValidBoardSpaces for checking in the next step
                     Vector2Int moveCoords = clickedRockSpace.SpaceCoords + passiveMove;                    
-                    rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.blue);                                   
+                    rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, "passive");                                   
                     RockMove.GetInstance().ValidBoardSpaces.Add(rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);                                    
                 }
                 // Check if we have any valid passive moves   
@@ -345,7 +345,7 @@ namespace Radient
                 {   // Turn on the invalid highlight for each invalid move
                     Vector2Int moveCoords = clickedRockSpace.SpaceCoords + passiveMove;
                     BoardSpace boardSpace = rock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y];
-                    boardSpace.ToggleHighlight(true, Color.red);                                
+                    boardSpace.ToggleHighlight(true, "agressive");                                
                 }                                  
             }  
         }
@@ -364,7 +364,7 @@ namespace Radient
                 SelectedRock = rock; // Update user selected rock
                 SelectedRock.transform.localScale *= 1.2f; // Make rock a little bigger                                                                                             
                 RockMove.GetInstance().ValidBoardSpaces.Add(SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
-                SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, Color.blue);                               
+                SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, "agressive");                               
                 MoveState = eMoveState.ROCK_SELECTED; 
                 
                 

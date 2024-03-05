@@ -216,7 +216,7 @@ namespace Radient
         {                    
             foreach(BoardSpace b in BoardSpaces)
             {
-                b.ToggleHighlight(false, Color.clear);
+                b.ToggleHighlight(false, "both");
             }            
         }
         public void ResetBoard()

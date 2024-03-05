@@ -47,6 +47,14 @@ namespace Radient
                     redSquareVFX.SetActive(isEnabled);
                     break;
             }
+
+            if (typeOfMove == "passive")
+                purpleSquareVFX.SetActive(isEnabled);
+            if (typeOfMove == "agressive")
+                redSquareVFX.SetActive(isEnabled);
+            if (typeOfMove == "both")
+                purpleSquareVFX.SetActive(isEnabled);
+                redSquareVFX.SetActive(isEnabled);
             //BoardSpaceHighlight.enabled = isEnabled;
             //BoardSpaceHighlight.color = new Color(color.r, color.g, color.b, .5f);
         }

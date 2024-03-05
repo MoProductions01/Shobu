@@ -5,9 +5,9 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Scratch.unity
-    guid: cf354c1caac3b92418b2b28c021da475
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: edb9d6e11f9d3f449867f546acdab560
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 61af0944b0278e842ab26b87eff03916

@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,889 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: CircleEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eda5ecce4ce3504482eac9e50fcb403
+      internalID: -937471518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a3656cc24915ee449c54a9c6207d175
+      internalID: 981445178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_2
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6023e0992c422a445ad94ca6e2ec11d9
+      internalID: 1385385419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_3
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 772cc24dcef46554c9b716042bd63dfe
+      internalID: 1995894473
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_4
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 021eed08bd5c4784fbaf119e654febd3
+      internalID: -714731690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_5
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44f13baa0710c2d41856afceffc4e0d7
+      internalID: 1819133518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_6
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84e5b2727eae9b04bbcc264cbd7af738
+      internalID: 610780163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46c8f5a68353ca845b0c519a75011b64
+      internalID: -999667166
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_8
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd41ff3aff9e5c7408964e6b312488f5
+      internalID: -746834523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_9
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 047262ffc091329478c89ee96f39b600
+      internalID: -214766871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_10
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f6ff9ff87b34f445909f36354a1fe4f
+      internalID: 689819201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_11
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ca22f7e38e83df44b062c9cadd9fcd4
+      internalID: 683988613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_12
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5061995824b7f3444ad2ff5989c1ccef
+      internalID: 500779967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_13
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a162843030938804a953c35dfe55b382
+      internalID: 193760820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e6197ae7d9457347a923a0087a9122c
+      internalID: 932247293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_15
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f13611f72544285468c83d2efaf18716
+      internalID: 1898586336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_16
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056158cb3abc06546becae92b1b30be7
+      internalID: 1081295926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_17
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 160eb52483afc4f418fd4b05cedd01c7
+      internalID: 1608245756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_18
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b14864f2ccb844aa2f3e2ee7a85675
+      internalID: -671054450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_19
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df7ab3a46ce402b4598939c7ee5c8912
+      internalID: -1584078432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_20
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4754f1752303a7640b1555935360e03f
+      internalID: -614693213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7c34f6350a34c74e945c9d2f0311fb3
+      internalID: 343832943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_22
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cf4e04cfeabe2b145883601500abf6a4
+      internalID: 1972828915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_23
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5be2e48238e55194b8ee3c77fab976eb
+      internalID: -317381854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_24
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12a82015735151f4882c829589f7e380
+      internalID: 410823562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_25
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca4f640d711ae484eb188dd7ebd2df49
+      internalID: -874404765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_26
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9fe02dde16ffcb4ab138ce242066fa2
+      internalID: 1587255209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_27
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddce1f730278fca4ea156b045e4b1593
+      internalID: 1846557578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee7aeee2986099c4490cc23adfe31b34
+      internalID: -872743898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_29
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cafd68de36fcf994eb0ca18b32782db7
+      internalID: -507029718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_30
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0ad23183d382144888aa7ca1b3c2bcc
+      internalID: -1269888578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_31
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c86ad6b913ddb5449b5374a8e12acaa4
+      internalID: 169985454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_32
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00054a688ae3b8044b90bdeec6080cb7
+      internalID: 1154323552
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_33
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35f0b89389d892349901884df73f79ef
+      internalID: 654041165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_34
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6baf39edf6e159247b414300c78de9e8
+      internalID: 839483486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0468f8ad74ebf04b899400c9c4ca835
+      internalID: 1873855975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_36
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b594a80e7b0d2454bac69f8942c1e7ef
+      internalID: 626510947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_37
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02e74d2fba1cae941a4225953ed11796
+      internalID: -1496301259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_38
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6266f6549dc1c0e48ac9251fb08133e0
+      internalID: 1748457740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_39
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de7c8b5a83d015d489b958fd18f16d08
+      internalID: -1727955296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_40
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b0ada26006746242811c2abe17edd8a
+      internalID: 677226969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: CircleEffect_41
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77eefa76fe401d44ca86cd02fc279535
+      internalID: -128009065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +1001,49 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CircleEffect_0: -937471518
+      CircleEffect_1: 981445178
+      CircleEffect_10: 689819201
+      CircleEffect_11: 683988613
+      CircleEffect_12: 500779967
+      CircleEffect_13: 193760820
+      CircleEffect_14: 932247293
+      CircleEffect_15: 1898586336
+      CircleEffect_16: 1081295926
+      CircleEffect_17: 1608245756
+      CircleEffect_18: -671054450
+      CircleEffect_19: -1584078432
+      CircleEffect_2: 1385385419
+      CircleEffect_20: -614693213
+      CircleEffect_21: 343832943
+      CircleEffect_22: 1972828915
+      CircleEffect_23: -317381854
+      CircleEffect_24: 410823562
+      CircleEffect_25: -874404765
+      CircleEffect_26: 1587255209
+      CircleEffect_27: 1846557578
+      CircleEffect_28: -872743898
+      CircleEffect_29: -507029718
+      CircleEffect_3: 1995894473
+      CircleEffect_30: -1269888578
+      CircleEffect_31: 169985454
+      CircleEffect_32: 1154323552
+      CircleEffect_33: 654041165
+      CircleEffect_34: 839483486
+      CircleEffect_35: 1873855975
+      CircleEffect_36: 626510947
+      CircleEffect_37: -1496301259
+      CircleEffect_38: 1748457740
+      CircleEffect_39: -1727955296
+      CircleEffect_4: -714731690
+      CircleEffect_40: 677226969
+      CircleEffect_41: -128009065
+      CircleEffect_5: 1819133518
+      CircleEffect_6: 610780163
+      CircleEffect_7: -999667166
+      CircleEffect_8: -746834523
+      CircleEffect_9: -214766871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

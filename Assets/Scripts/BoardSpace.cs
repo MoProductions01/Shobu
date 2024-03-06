@@ -20,8 +20,9 @@ namespace Radient
         {
             purpleSquareVFX.SetActive(false);
             redSquareVFX.SetActive(false);
-            //BoardSpaceHighlight = GetComponent<SpriteRenderer>(); // Get a reference to the highlight graphic
-            //BoardSpaceHighlight.enabled = false;
+            spaceShadowVFX.SetActive(false);
+            BoardSpaceHighlight = GetComponent<SpriteRenderer>(); // Get a reference to the highlight graphic
+            BoardSpaceHighlight.enabled = false;
             // Get the coordinates based on the GameObjectname
             string[] locString = name.Split(",");
             SpaceCoords = new Vector2Int(Int32.Parse(locString[0]), Int32.Parse(locString[1]));
@@ -38,23 +39,19 @@ namespace Radient
             {
                 case "passive":
                     purpleSquareVFX.SetActive(isEnabled);
-                    BoardSpaceHighlight.enabled = isEnabled;
-                    BoardSpaceHighlight.color = new UnityEngine.Color(0.643f, 0.18f, 1, .2f);
                     break;
 
                 case "agressive":
                     redSquareVFX.SetActive(isEnabled);
-                    BoardSpaceHighlight.color = new UnityEngine.Color(1, 0.118f, 0.118f, .2f);
-                    BoardSpaceHighlight.enabled = isEnabled;
                     break;
 
                 case "both":
-                    BoardSpaceHighlight.enabled = isEnabled;
                     purpleSquareVFX.SetActive(isEnabled);
                     redSquareVFX.SetActive(isEnabled);
                     break;
             }
-            BoardSpaceHighlight.enabled = isEnabled;
+            spaceShadowVFX.SetActive(isEnabled);
+            //BoardSpaceHighlight.enabled = isEnabled;
             //BoardSpaceHighlight.color = new Color(color.r, color.g, color.b, .5f);
         }
     }

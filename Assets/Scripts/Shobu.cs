@@ -55,6 +55,7 @@ namespace Radient
         [SerializeField] private GameObject circleVFX;
         [SerializeField] private GameObject triangleVFX;
         [SerializeField] private GameObject shineVFX;
+        [SerializeField] private GameObject explosionVFX;
 
         //AUDIO
         public AudioSource audioSource1;//HighlightRock
@@ -241,6 +242,7 @@ namespace Radient
             SelectedRock.transform.localScale /= 1.2f;
             triangleVFX.SetActive(false);
             circleVFX.SetActive(false);
+            explosionVFX.SetActive(false);
             SelectedRock.transform.localPosition = Vector3.zero;
             shineVFX.transform.position = SelectedRock.GetComponentInParent<Transform>().position;
             shineVFX.GetComponent<Animator>().SetTrigger("Play");
@@ -377,6 +379,8 @@ namespace Radient
                 {   // We've got at least one valid passive move
                     SelectedRock = rock; // Update the Selected rock
                     SelectedRock.transform.localScale *= 1.2f;  // Make selected rock a little bigger
+                    explosionVFX.SetActive(true);
+                    explosionVFX.transform.localPosition = SelectedRock.transform.position;
                     if (CurrentRockColor == eRockColors.BLACK)
                     {
                         triangleVFX.SetActive(true);
@@ -414,7 +418,9 @@ namespace Radient
             {   // There's at least one valid aggressive move                   
                 SelectedRock = rock; // Update user selected rock
                 SelectedRock.transform.localScale *= 1.2f; // Make rock a little bigger
-                if(CurrentRockColor == eRockColors.BLACK)
+                explosionVFX.SetActive(true);
+                explosionVFX.transform.localPosition = SelectedRock.transform.position;
+                if (CurrentRockColor == eRockColors.BLACK)
                 {
                     triangleVFX.SetActive(true);
                     triangleVFX.transform.localPosition = SelectedRock.transform.position;
@@ -529,6 +535,7 @@ namespace Radient
             SelectedRock.transform.localScale /= 1.2f;  // Reset scale
             triangleVFX.SetActive(false);
             circleVFX.SetActive(false);
+            explosionVFX.SetActive(false);
             SelectedRock = null; // No more selected rock
             MoveState = eMoveState.NONE_SELECTED; 
         }

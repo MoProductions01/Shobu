@@ -1,0 +1,1161 @@
+fileFormatVersion: 2
+guid: 6b6a8d7cafbae9147a15af455d9f5b42
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ShadowSpace_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2124
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f82d6c7a9f38c3940b3a834af6ba865b
+      internalID: 321722165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_1
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 2124
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 981a20760e88bea4da1bb89dfa7ee8cf
+      internalID: 228772643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_2
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 2124
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c2919c6681efd54d8b4f3ac1acdc3c5
+      internalID: -245314305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_3
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 2124
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e98faaf7f40ea884fbe79def4d41376d
+      internalID: -1246683434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_4
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 2124
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ca7fd16b5b12445a5d12e2a0fc01a9
+      internalID: 584492362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_5
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 2124
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a25a2a278a3de4395f1ffa871acaae
+      internalID: 329218766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_6
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 2124
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0216ce1117cd21d4a90660dd30b3178c
+      internalID: 1527155800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f3d7a474177a3248bb83d0d66e92987
+      internalID: 959466612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_8
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e51988c80384e75468f63aa3486c22b9
+      internalID: 695824924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_9
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85ad5fc3c943bf849847eb9a36650b53
+      internalID: 526206362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_10
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c63a4a1f892b8144b1a0e927aeaadf5
+      internalID: -902865684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_11
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc091038defd52c43a66e39e47e15df2
+      internalID: -323241019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_12
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7da6a11dd2dad54bbc18aa1a07c6b03
+      internalID: -794783543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_13
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 1770
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e75d22ca813bec4bb5668d345f91808
+      internalID: 1978510108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75d4eb1535b65e04eb29823775c2c96f
+      internalID: -212965383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_15
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 999c6c73aaf669c4199ed6f6e6976426
+      internalID: 1325936356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_16
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd0ecba85779bb04a94a82335d7e823c
+      internalID: 1804532699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_17
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab68a671888abff47b5701cbb58db0f8
+      internalID: -709246054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_18
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88bbfab0f817620439811a522cf4aa22
+      internalID: -2111605046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_19
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b0ba6947c0522d4a8739d3a8bc36cbb
+      internalID: 2136296614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_20
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 1416
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f679ed10638d79f49acaa84ca638f122
+      internalID: 988207794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f9400e0e56295408142c24b27b9de0
+      internalID: -1943748820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_22
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2daecb9e3d203354096b885dad9e9f19
+      internalID: -1561518613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_23
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c73067b17ba27104dbaf3846f71dfee9
+      internalID: 1316822245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_24
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84853e26ba748d340b35f2754e43466b
+      internalID: -1435461041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_25
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 503d5d6878b48e64a93630d3217c7f3d
+      internalID: 2023948822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_26
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cdd9c5996a25de408a49cc4fbcb1880
+      internalID: -954044669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_27
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 1062
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1933f5279328b9b4a9362bb7422d99d3
+      internalID: -1631698798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7778139bcc1827f4a86c8240cddcbdc8
+      internalID: -2034390271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_29
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36ee3e4728dee6549b55893b71bf7290
+      internalID: 26912015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_30
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbed5ac41ccf10944a1fe91d31688fad
+      internalID: -1446102647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_31
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d463380225bb01347920e4594fb048a0
+      internalID: 1151489340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_32
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b32ae3b9b0635947ba6964d9d6b6f4c
+      internalID: 484680057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_33
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22ee568eaf398e44fbbab3b43ecc1da9
+      internalID: -1507869040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_34
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 708
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cb28df2ced48c64699b18f239123f2e
+      internalID: -2103524764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45562af5b3d83a54b8f074b6535fa6b2
+      internalID: -1963835859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_36
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29334284a17f90744a9e3b645c1ac049
+      internalID: -1637252927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_37
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc9254b15863c044285d5c2f7e110dfd
+      internalID: -1402164057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_38
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cd61fad3842715409ed4cd4d94f2413
+      internalID: -1922809608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_39
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1f0b45a904ee1c44abe7a0887b87c64
+      internalID: 1178099206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_40
+      rect:
+        serializedVersion: 2
+        x: 1770
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39537fc2aeb78542bc2b1ffe7cb82ca
+      internalID: -551100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_41
+      rect:
+        serializedVersion: 2
+        x: 2124
+        y: 354
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6fa29fc5ccd99047b1c63d5fde7ca23
+      internalID: 900490997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 719e78a88d9c74f4cb227e1e6f53bdbd
+      internalID: 1125490841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_43
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8f10f6ae7b2f1145b2ed1c3f4ac3d6f
+      internalID: 713511018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_44
+      rect:
+        serializedVersion: 2
+        x: 708
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e036acef275c46c4a8bf559acc9c71f8
+      internalID: -458813526
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_45
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a83d2b2b3d56ae640a7db7ba76371d0d
+      internalID: -313903234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShadowSpace_46
+      rect:
+        serializedVersion: 2
+        x: 1416
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f14dccacda9e96446878169f04b5d692
+      internalID: 42250976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ShadowSpace_0: 321722165
+      ShadowSpace_1: 228772643
+      ShadowSpace_10: -902865684
+      ShadowSpace_11: -323241019
+      ShadowSpace_12: -794783543
+      ShadowSpace_13: 1978510108
+      ShadowSpace_14: -212965383
+      ShadowSpace_15: 1325936356
+      ShadowSpace_16: 1804532699
+      ShadowSpace_17: -709246054
+      ShadowSpace_18: -2111605046
+      ShadowSpace_19: 2136296614
+      ShadowSpace_2: -245314305
+      ShadowSpace_20: 988207794
+      ShadowSpace_21: -1943748820
+      ShadowSpace_22: -1561518613
+      ShadowSpace_23: 1316822245
+      ShadowSpace_24: -1435461041
+      ShadowSpace_25: 2023948822
+      ShadowSpace_26: -954044669
+      ShadowSpace_27: -1631698798
+      ShadowSpace_28: -2034390271
+      ShadowSpace_29: 26912015
+      ShadowSpace_3: -1246683434
+      ShadowSpace_30: -1446102647
+      ShadowSpace_31: 1151489340
+      ShadowSpace_32: 484680057
+      ShadowSpace_33: -1507869040
+      ShadowSpace_34: -2103524764
+      ShadowSpace_35: -1963835859
+      ShadowSpace_36: -1637252927
+      ShadowSpace_37: -1402164057
+      ShadowSpace_38: -1922809608
+      ShadowSpace_39: 1178099206
+      ShadowSpace_4: 584492362
+      ShadowSpace_40: -551100
+      ShadowSpace_41: 900490997
+      ShadowSpace_42: 1125490841
+      ShadowSpace_43: 713511018
+      ShadowSpace_44: -458813526
+      ShadowSpace_45: -313903234
+      ShadowSpace_46: 42250976
+      ShadowSpace_5: 329218766
+      ShadowSpace_6: 1527155800
+      ShadowSpace_7: 959466612
+      ShadowSpace_8: 695824924
+      ShadowSpace_9: 526206362
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

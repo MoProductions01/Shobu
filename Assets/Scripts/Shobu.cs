@@ -1,3 +1,5 @@
+using Microsoft.Unity.VisualStudio.Editor;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -156,9 +158,12 @@ namespace Radient
             {   // If the pushed rock is staying on the board then just re-parent it to the BoardSpace
                 // and let the game know it's done moving.                                                               
                 pushedRock.transform.parent = pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;
-                shineVFX.transform.localPosition = pushedRock.GetComponentInParent<Transform>().position;
-                shineVFX.GetComponent<Animator>().SetTrigger("Play");
-                shineVFX.SetActive(true);
+                GameObject pushedRockGO = pushedRock.gameObject;
+                StartCoroutine(BlinkingPushedRock(pushedRockGO));
+
+                //shineVFX.transform.localPosition = pushedRock.GetComponentInParent<Transform>().position;
+                //shineVFX.GetComponent<Animator>().SetTrigger("Play");
+                //shineVFX.SetActive(true);
                 //AUDIO
                 if (audioSource3 != null && audioSource3.clip != null)
         {
@@ -171,15 +176,39 @@ namespace Radient
             {   // The rock is being pushed off the board, so get it's "falling" starting
                 // The rock "falls" by tweening it's scale to zero.                
                 LeanTween.scale(pushedRock.gameObject, Vector3.zero, .5f).
-                        setEase(LeanTweenType.linear).setOnComplete(this.PushedRockFallTweenDone);            
-            }            
-        }    
+                        setEase(LeanTweenType.linear).setOnComplete(this.PushedRockFallTweenDone);
+            }
+        }
 
         /// <summary>
         /// I turned rock to rock collision (trigger) on when the SelectedRock gets going, so if there's
         /// a collision check if it's the rock that will be pushed.  If so, handle it.
         /// </summary>
         /// <param name="otherRock">Other rock that collided with the Selected Rock</param>
+        /// 
+        IEnumerator BlinkingPushedRock(GameObject pushedRock)
+        {
+            bool isTransparent = false;
+            float totalTimeInAnimation = 1f;
+            float elapsedTime = 0;
+            SpriteRenderer rock = pushedRock.GetComponent<SpriteRenderer>();
+            while (elapsedTime < totalTimeInAnimation)
+            {
+                if (isTransparent)
+                {
+                    rock.color = new Color32(255, 46, 46, 220);
+                    isTransparent = false;
+                }
+                else
+                {
+                    rock.color = new Color32(255, 46, 46, 100);
+                    isTransparent = true;
+                }
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            rock.color = new Color32(255, 255, 255, 255);
+        }
         public void CheckPushedRockCollision(Rock otherRock)
         {
             if(otherRock == RockMove.GetInstance().PushedRock)

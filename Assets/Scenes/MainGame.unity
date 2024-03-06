@@ -14704,7 +14704,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &779406643
 Transform:
   m_ObjectHideFlags: 0
@@ -14715,7 +14715,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -6.14, y: -0.57, z: 0}
-  m_LocalScale: {x: 0.23236416, y: 0.23236416, z: 0.23236416}
+  m_LocalScale: {x: 0.23, y: 0.23, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1988990688}
@@ -14779,8 +14779,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1579882981
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 137168605, guid: fa02b58b227fe2b40a7f7cc81aea9b60, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -26476,6 +26476,7 @@ MonoBehaviour:
   triangleVFX: {fileID: 672798862}
   shineVFX: {fileID: 1218583766}
   explosionVFX: {fileID: 241755875}
+  MovementVFX: {fileID: 779406642}
   audioSource1: {fileID: 2147243745}
   audioSource2: {fileID: 383777999}
   audioSource3: {fileID: 1803684476}

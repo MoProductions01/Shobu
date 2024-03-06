@@ -2,6 +2,7 @@ using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Radient
@@ -56,6 +57,7 @@ namespace Radient
         [SerializeField] private GameObject triangleVFX;
         [SerializeField] private GameObject shineVFX;
         [SerializeField] private GameObject explosionVFX;
+        [SerializeField] private GameObject MovementVFX;
 
         //AUDIO
         public AudioSource audioSource1;//HighlightRock
@@ -482,6 +484,9 @@ namespace Radient
         /// </summary>
         void HandleSelectMoveSpace()
         {
+            Vector2 startPosition;
+            Vector2 endPosition;
+
             RaycastHit hit = RayCast(BoardSpaceMask);
             if(hit.collider == null) return;
                              
@@ -490,11 +495,11 @@ namespace Radient
             if(SelectedRock.MyBoard != hitBoardSpaceBoard) {  UndoSelectedRock(); return; } // invalid board           
             if(RockMove.GetInstance().ValidBoardSpaces.Contains(hitBoardSpace) == false) {UndoSelectedRock();  return; } // valid board but invalid move                                
 
-             //AUDIO
-                if (audioSource2 != null && audioSource2.clip != null)
-        {
-            audioSource2.Play();
-        }
+            //AUDIO
+            if (audioSource2 != null && audioSource2.clip != null)
+            {
+                audioSource2.Play();
+            }
 
             // We have a valid move so there's at least 1 rock that's going to be moving to keep track of   
             NumRocksMoving = 1;             
@@ -504,13 +509,14 @@ namespace Radient
                
                 //AUDIO
                 if (audioSource2 != null && audioSource2.clip != null)
-        {
-            audioSource2.Play();
-        }
+                {
+                    audioSource2.Play();
+                }
             }                                                                                    
             else
-            {   // Aggressive move, so see if any rocks will be pushed by this move                         
-                if(RockMove.GetInstance().PushedRock != null)
+            {
+                // Aggressive move, so see if any rocks will be pushed by this move                         
+                if (RockMove.GetInstance().PushedRock != null)
                 {   // We've got a rock that will get pushed so turn the collision back on
                     Physics.IgnoreLayerCollision(RockLayer, RockLayer, false);  
                     NumRocksMoving++; // Increase num rocks moving so that the game won't move on until both are done
@@ -518,8 +524,11 @@ namespace Radient
                    
                 }                            
             }             
-            // Set up the tween for the selected rock to move           
-            MoveToBoardSpace = hitBoardSpace;                          
+            // Set up the tween for the selected rock to move
+            MoveToBoardSpace = hitBoardSpace;
+            startPosition = SelectedRock.transform.position;
+            endPosition = MoveToBoardSpace.transform.position;
+            ShowMovementVFX(startPosition, endPosition);
             SelectedRock.transform.parent = MoveToBoardSpace.transform.parent;
             LeanTween.move(SelectedRock.gameObject, MoveToBoardSpace.transform.position, .3f).
                     setEase(LeanTweenType.easeInCubic).setOnComplete(this.SelectedRockMoveTweenDone);                        
@@ -529,6 +538,50 @@ namespace Radient
         /// <summary>
         /// Handles when the user had a selected rock but chose an invalid move
         /// </summary>
+         
+        private void ShowMovementVFX(Vector2 startPos, Vector2 endPos)
+        {
+            Debug.Log("Jaló la animación");
+            Vector2 midPosition;
+            float moveDistanceY;
+            float moveDistanceX;
+
+
+            midPosition = startPos + ((endPos - startPos) / 2);
+            moveDistanceX = endPos.x - startPos.x;
+            moveDistanceY = endPos.y - startPos.y;
+            MovementVFX.transform.localPosition = midPosition;
+            Debug.Log(Mathf.Abs(moveDistanceX));
+            Debug.Log(Mathf.Abs(moveDistanceY));
+            if (Mathf.Abs(moveDistanceX) > 1 || Mathf.Abs(moveDistanceY) > 1) 
+            {
+                MovementVFX.transform.localScale = new Vector3(0.23f, 0.69f, 1f);
+            }
+            else
+            {
+                MovementVFX.transform.localScale = new Vector3(0.23f, 0.23f, 1f);
+            }
+            if (moveDistanceY > 0 && moveDistanceX == 0) //North
+                MovementVFX.transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (moveDistanceY > 0 && moveDistanceX < 0) //NorthWest
+                MovementVFX.transform.rotation = Quaternion.Euler(0, 0, 45);
+            if (moveDistanceY == 0 && moveDistanceX < 0) //West
+                MovementVFX.transform.rotation = Quaternion.Euler(0, 0, 90);
+            if (moveDistanceY < 0 && moveDistanceX < 0) //SouthWest
+                MovementVFX.transform.rotation = Quaternion.Euler(0, 0, 135);
+            if (moveDistanceY < 0 && moveDistanceX == 0) //South
+                MovementVFX.transform.rotation = Quaternion.Euler(0, 0, 180);
+            if (moveDistanceY < 0 && moveDistanceX > 0) //SouthEast
+                MovementVFX.transform.rotation = Quaternion.Euler(0, 0, 225);
+            if (moveDistanceY == 0 && moveDistanceX > 0) //East
+                MovementVFX.transform.rotation = Quaternion.Euler(0, 0, 270);
+            if (moveDistanceY > 0 && moveDistanceX > 0) //NorthEast
+                MovementVFX.transform.rotation = Quaternion.Euler(0, 0, 315);
+
+            MovementVFX.SetActive(true);
+            MovementVFX.GetComponent<Animator>().SetTrigger("Play");
+        }
+
         void UndoSelectedRock()
         {   
             SelectedRock.MyBoard.ResetSpaceHighlights(); // Reset all the highlights         

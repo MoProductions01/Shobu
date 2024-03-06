@@ -8,7 +8,8 @@ namespace Radient
     /// </summary>
     public class UI : MonoBehaviour
     {        
-        [SerializeField] TMP_Text GameStateText; // Text for the current game state        
+        [SerializeField] private TMP_Text DarkText; // Text for the current game state        
+        [SerializeField] private TMP_Text LightText; // Text for the current game state        
 
         /// <summary>
         /// When enabled, subscribe to the game state change stuff so we can update
@@ -47,14 +48,27 @@ namespace Radient
         /// <param name="player">Which color rock has current turn</param>
         /// <param name="moveType">Passive or Aggressive move</param>
         void UpdateUI(Shobu.eGameState gameState, Shobu.eRockColors player, Shobu.eMoveType moveType)
-        {            
-            if(gameState == Shobu.eGameState.PLAYING)
+        {                            
+            TMP_Text activeText;
+            if(player == Shobu.eRockColors.BLACK)
             {
-                GameStateText.text = "Player: " + player + "  Move: " + moveType;            
-            }
+                DarkText.gameObject.SetActive(true);
+                activeText = DarkText;
+                LightText.gameObject.SetActive(false);
+            }                                
             else
             {
-                GameStateText.text = "WINNER: " + player + "!!!!!!!!!";
+                DarkText.gameObject.SetActive(false);                
+                LightText.gameObject.SetActive(true);
+                activeText = LightText;
+            }
+            if(gameState == Shobu.eGameState.PLAYING)
+            {
+                activeText.text = "Move: " + moveType;                                
+            }
+            else
+            {                
+                activeText.text = "WINNER: " + player + "!!!!!!!!!";
             }
         }
     }

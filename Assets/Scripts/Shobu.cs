@@ -52,6 +52,7 @@ namespace Radient
 
         [SerializeField] private GameObject circleVFX;
         [SerializeField] private GameObject triangleVFX;
+        [SerializeField] private GameObject shineVFX;
 
         //AUDIO
         public AudioSource audioSource1;//HighlightRock
@@ -136,10 +137,10 @@ namespace Radient
             pushedRock.MyBoard.PutRockOnPushedList(pushedRock); // Remove rock from board
 
             //AUDIO
-             if (audioSource4 != null && audioSource4.clip != null)
-        {
-            audioSource4.Play();
-        }
+            if (audioSource4 != null && audioSource4.clip != null)
+            {
+                audioSource4.Play();
+            }
             RockDoneMoving();   // Let game know this rock is done moving to check for state changes
         }
         
@@ -154,11 +155,12 @@ namespace Radient
             if(Board.AreCoordsOffBoard(pushedRock.PushedCoords) == false)
             {   // If the pushed rock is staying on the board then just re-parent it to the BoardSpace
                 // and let the game know it's done moving.                                                               
-                pushedRock.transform.parent = 
-                    pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform; 
-                    
-                    //AUDIO
-                    if (audioSource3 != null && audioSource3.clip != null)
+                pushedRock.transform.parent = pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;
+                shineVFX.transform.localPosition = pushedRock.GetComponentInParent<Transform>().position;
+                shineVFX.GetComponent<Animator>().SetTrigger("Play");
+                shineVFX.SetActive(true);
+                //AUDIO
+                if (audioSource3 != null && audioSource3.clip != null)
         {
             audioSource3.Play();
         }
@@ -210,7 +212,10 @@ namespace Radient
             SelectedRock.transform.localScale /= 1.2f;
             triangleVFX.SetActive(false);
             circleVFX.SetActive(false);
-            SelectedRock.transform.localPosition = Vector3.zero;            
+            SelectedRock.transform.localPosition = Vector3.zero;
+            shineVFX.transform.position = SelectedRock.GetComponentInParent<Transform>().position;
+            shineVFX.GetComponent<Animator>().SetTrigger("Play");
+            shineVFX.SetActive(true);
             RockDoneMoving(); // Let game know a rock has finished moving
         }        
 

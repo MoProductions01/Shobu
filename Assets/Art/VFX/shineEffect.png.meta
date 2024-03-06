@@ -424,6 +424,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: shineEffect_15
+      rect:
+        serializedVersion: 2
+        x: 1062
+        y: 0
+        width: 354
+        height: 354
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f910fa8063f7766498c56aa1956146ea
+      internalID: 1151457809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -442,6 +463,7 @@ TextureImporter:
       shineEffect_12: -85809001
       shineEffect_13: 629292211
       shineEffect_14: 1459902177
+      shineEffect_15: 1151457809
       shineEffect_2: 2144153433
       shineEffect_3: 2124034645
       shineEffect_4: 1014044271

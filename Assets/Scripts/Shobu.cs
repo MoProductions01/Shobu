@@ -541,7 +541,6 @@ namespace Radient
          
         private void ShowMovementVFX(Vector2 startPos, Vector2 endPos)
         {
-            Debug.Log("Jaló la animación");
             Vector2 midPosition;
             float moveDistanceY;
             float moveDistanceX;
@@ -551,8 +550,6 @@ namespace Radient
             moveDistanceX = endPos.x - startPos.x;
             moveDistanceY = endPos.y - startPos.y;
             MovementVFX.transform.localPosition = midPosition;
-            Debug.Log(Mathf.Abs(moveDistanceX));
-            Debug.Log(Mathf.Abs(moveDistanceY));
             if (Mathf.Abs(moveDistanceX) > 1 || Mathf.Abs(moveDistanceY) > 1) 
             {
                 MovementVFX.transform.localScale = new Vector3(0.23f, 0.69f, 1f);

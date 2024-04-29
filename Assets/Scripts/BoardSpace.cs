@@ -11,7 +11,7 @@ namespace Radient
     public class BoardSpace : MonoBehaviour
     {
         SpriteRenderer BoardSpaceHighlight; // Graphic for the space highlight
-        [SerializeField] private GameObject purpleSquareVFX;
+        [SerializeField] private GameObject purpleSquareVFX; // The various VFX highlights
         [SerializeField] private GameObject redSquareVFX;
         [SerializeField] private GameObject spaceShadowVFX;
         public Vector2Int SpaceCoords {get; private set;} // x,y coords for the space
@@ -29,7 +29,7 @@ namespace Radient
         }
 
         /// <summary>
-        /// Enables/disables the highlight as well as changing it's color
+        /// Enables/disables the highlights
         /// </summary>
         /// <param name="isEnabled">Whether or not it's even on</param>
         /// <param name="typeOfMove">Type of move that is referencing</param>
@@ -50,9 +50,7 @@ namespace Radient
                     redSquareVFX.SetActive(isEnabled);
                     break;
             }
-            spaceShadowVFX.SetActive(isEnabled);
-            //BoardSpaceHighlight.enabled = isEnabled;
-            //BoardSpaceHighlight.color = new Color(color.r, color.g, color.b, .5f);
+            spaceShadowVFX.SetActive(isEnabled);            
         }
     }
 }

@@ -219,18 +219,23 @@ namespace Radient
                 b.ToggleHighlight(false, "both");
             }            
         }
-        public void ResetBoard()
-        {                   
-        // if(this.name.Equals("Light1") == false) return;
-            ResetSpaceHighlights();
 
+        /// <summary>
+        /// Resets the board to the starting state
+        /// </summary>
+        public void ResetBoard()
+        {                           
+            ResetSpaceHighlights(); // Shut off all the highlights
+            // Re-activate all of the rocks that were pushed off the board
             foreach(Transform t in PushedOffRocks.transform)
             {
                 t.gameObject.SetActive(true);
             }       
+            // Get all of the rocks and order them by name
             List<Rock> rocks = GetComponentsInChildren<Rock>().ToList();
             rocks = rocks.OrderBy(x => x.name).ToList();
 
+            // Go though the rocks list and re-assign them to their correct board space
             for(int x=0; x<NUM_ROWS_COLS; x++)
             {              
                 rocks[x].transform.parent = BoardSpaces[x,0].transform;
@@ -268,8 +273,7 @@ namespace Radient
         }
 
         /// <summary>
-        /// Keep rocks pushed off board on it's own list.  Might change to creating prefabs
-        /// and destroying them later but just use this for now
+        /// Keep rocks pushed off board on it's own list. 
         /// </summary>
         /// <param name="rock">Rock to put on the pushed off board list</param>
         public void PutRockOnPushedList(Rock rock)

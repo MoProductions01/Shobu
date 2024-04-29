@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// This class just handles going from one scene to another. 
+/// </summary>
 public class LevelManager : MonoBehaviour
 {
 

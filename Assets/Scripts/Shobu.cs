@@ -1,8 +1,8 @@
-using Microsoft.Unity.VisualStudio.Editor;
+//using Microsoft.Unity.VisualStudio.Editor;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
+//using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Radient
@@ -12,8 +12,6 @@ namespace Radient
     /// player control
     /// </summary>
     public class Shobu : MonoBehaviour
- 
-
     {           
         // Overall state of the game.
         public enum eGameState {PLAYING, GAME_OVER};
@@ -163,15 +161,12 @@ namespace Radient
                 pushedRock.transform.parent = pushedRock.MyBoard.BoardSpaces[pushedRock.PushedCoords.x, pushedRock.PushedCoords.y].transform;
                 GameObject pushedRockGO = pushedRock.gameObject;
                 StartCoroutine(BlinkingPushedRock(pushedRockGO));
-
-                //shineVFX.transform.localPosition = pushedRock.GetComponentInParent<Transform>().position;
-                //shineVFX.GetComponent<Animator>().SetTrigger("Play");
-                //shineVFX.SetActive(true);
+                
                 //AUDIO
                 if (audioSource3 != null && audioSource3.clip != null)
-        {
-            audioSource3.Play();
-        }
+                {
+                    audioSource3.Play();
+                }
 
                 RockDoneMoving();
             }
@@ -310,9 +305,9 @@ namespace Radient
                     ChangeGameState(eGameState.GAME_OVER, CurrentRockColor, CurrentMove); 
                     
                     if (audioSource5 != null && audioSource5.clip != null)
-        {
-            audioSource5.Play();
-        }
+                    {
+                        audioSource5.Play();
+                    }
                 }
                 else
                 {   // Switch to Passive mode, resetting the RockMove and determining
@@ -436,9 +431,7 @@ namespace Radient
 
                 RockMove.GetInstance().ValidBoardSpaces.Add(SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y]);
                 SelectedRock.MyBoard.BoardSpaces[moveCoords.x, moveCoords.y].ToggleHighlight(true, "agressive");                               
-                MoveState = eMoveState.ROCK_SELECTED; 
-                
-                
+                MoveState = eMoveState.ROCK_SELECTED;                                 
             }            
         }
 
@@ -449,7 +442,6 @@ namespace Radient
         {
             RaycastHit hit = RayCast(RockMask);
             if(hit.collider == null) return; // bail if you didn't click on a rock
-
 
             Rock rock = hit.collider.GetComponent<Rock>();  // get the rock component
             // Leave if the selected rock isn't on a valid board or it's the wrong color
@@ -462,20 +454,20 @@ namespace Radient
                 HandlePassiveMoveChecks(rock);   
                 
                 //AUDIO
-            if (audioSource1 != null && audioSource1.clip != null)
-        {
-            audioSource1.Play();
-        }
+                if (audioSource1 != null && audioSource1.clip != null)
+                {
+                    audioSource1.Play();
+                }
             }    
             else
             {   // AGGRESSIVE move
                 HandleAggressiveMoveChecks(rock);   
                 
                 //AUDIO
-            if (audioSource1 != null && audioSource1.clip != null)
-        {
-            audioSource1.Play();
-        }
+                if (audioSource1 != null && audioSource1.clip != null)
+                {
+                    audioSource1.Play();
+                }
             }                                                                               
         }
 
@@ -519,9 +511,7 @@ namespace Radient
                 if (RockMove.GetInstance().PushedRock != null)
                 {   // We've got a rock that will get pushed so turn the collision back on
                     Physics.IgnoreLayerCollision(RockLayer, RockLayer, false);  
-                    NumRocksMoving++; // Increase num rocks moving so that the game won't move on until both are done
-
-                   
+                    NumRocksMoving++; // Increase num rocks moving so that the game won't move on until both are done                   
                 }                            
             }             
             // Set up the tween for the selected rock to move
@@ -537,14 +527,12 @@ namespace Radient
 
         /// <summary>
         /// Handles when the user had a selected rock but chose an invalid move
-        /// </summary>
-         
+        /// </summary>         
         private void ShowMovementVFX(Vector2 startPos, Vector2 endPos)
         {
             Vector2 midPosition;
             float moveDistanceY;
             float moveDistanceX;
-
 
             midPosition = startPos + ((endPos - startPos) / 2);
             moveDistanceX = endPos.x - startPos.x;
